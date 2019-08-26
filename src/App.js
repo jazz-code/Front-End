@@ -1,5 +1,5 @@
 //
-import React, {useState, } from 'react'
+import React, {useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -9,7 +9,9 @@ import {
 
 import CelebDisplay from './components/CelebDisplay'
 import Welcome from './components/Welcome'
+
 import { ScoreProvider } from './contexts/ScoreContext';
+import { UserProvider } from './contexts/UserContext'
 
 function App() {
   return (
