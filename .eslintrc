@@ -5,7 +5,7 @@
         "plugin:react/recommended",
         "prettier",
         "prettier/react",
-        "prettier/standard"
+        "prettier/standard",
         "plugin:prettier/recommended"
       ],
       "plugins": [ "react", "prettier", "promise" ],
@@ -38,7 +38,7 @@
         "brace-style": [2, "1tbs", {"allowSingleLine": true}],
         "comma-dangle": [1, "always-multiline"],
         "handle-callback-err": [ 2, "^erro?r?$" ],
-        “indent”: [“error”, 2],
+        "indent": ["error", 2],
         "max-len": ["error", { "code": 120, "tabWidth": 2, "ignoreComments": true, "ignoreUrls": true }],
         "no-console": 0,
         "no-throw-literal": 2,
