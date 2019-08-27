@@ -1,11 +1,23 @@
-//
 import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect
-} from "react-router-dom";
+  Redirect,
+
+} from 'react-router-dom'
+
+
+import Celeb from './components/Celeb';
+import CelebDisplay from './components/CelebDisplay'
+import Welcome from './components/Welcome'
+import Signup from './components/Signup'
+import Login from "./components/Login";
+
+import { ScoreProvider } from './contexts/ScoreContext'
+import { UserProvider } from './contexts/UserContext'
+import NavBar from './components/NavBar';
+
 
 import Celeb from "./components/Celeb";
 import CelebDisplay from "./components/CelebDisplay";
@@ -38,6 +50,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <NavBar />
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <NavBar />
