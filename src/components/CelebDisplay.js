@@ -1,23 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { Animated } from "react-animated-css";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { Animated } from 'react-animated-css';
+import axios from 'axios';
 
 const CelebDisplay = props => {
-  const [celebs, setCelebs] = useState([]);
+  const [celebs, setCelebs] = useState([])
 
   useEffect(() => {
     axios
-      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
+      .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
       .then(res => setCelebs(res.data))
-      .catch(err => err.response);
-  }, [])
+      .catch(err => err.response)
+  }, []);
 
-  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-  console.log("randomCeleb", randomCeleb);
+  const nextCeleb = () => {
+    let i = 0
+    i = i + [Math.floor(Math.random() * celebs.length)] // increase random
+    i = i % celebs.length // if we've gone too high, start from `0` again
+    return celebs[i] // give us back the celeb of where we are now
+  };
 
-  if (randomCeleb) console.log(randomCeleb.name)
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)];
+  console.log('randomCeleb', randomCeleb)
 
-  const isDead = randomCeleb ? randomCeleb.isDead : null
+  if (randomCeleb) console.log(randomCeleb.name);
+
+  const isDead = randomCeleb ? randomCeleb.isDead : null;
 
   // console.log('isDead', isDead);
 
@@ -34,7 +41,7 @@ const CelebDisplay = props => {
         <h4> {randomCeleb ? randomCeleb.dob : null} </h4>
         <button
           onClick={() => {
-            alert(!isDead);
+            alert(!isDead)
           }}
         >
           Alive!
@@ -42,7 +49,7 @@ const CelebDisplay = props => {
 
         <button
           onClick={() => {
-            alert(isDead)
+            return console.log(nextCeleb());
           }}
         >
           Dead!
@@ -50,7 +57,7 @@ const CelebDisplay = props => {
         <p>Current Score props.score</p>
       </div>
     </Animated>
-  )
-};
+  );
+}
 
-export default CelebDisplay
+export default CelebDisplay;
