@@ -5,7 +5,9 @@ import {
   Route,
   Link,
   Redirect,
-} from "react-router-dom";
+
+} from 'react-router-dom'
+
 
 import Celeb from './components/Celeb';
 import CelebDisplay from "./components/CelebDisplay";
