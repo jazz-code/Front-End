@@ -9,6 +9,7 @@ import {
 
 import CelebDisplay from './components/CelebDisplay'
 import Welcome from './components/Welcome'
+import Login from './components/Login'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" component={Welcome} />
         <h1>Celeb Dead Or Alive</h1>
         <Route exact path="/game" component={CelebDisplay} />
+        <Route exact path="/login" component={Login} />
       </div>
     </Router>
   )

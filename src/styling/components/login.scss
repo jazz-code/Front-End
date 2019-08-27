@@ -1,0 +1,19 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 15%;
+    .login-card {
+        display: flex;
+        justify-content: center;
+        padding: 5%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        width: 40%;
+        .login-form {
+            display: flex;
+            justify-content: center;
+            flex-flow: column wrap;
+        };
+    };
+};
