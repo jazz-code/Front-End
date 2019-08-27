@@ -9,9 +9,11 @@ import {
 
 import CelebDisplay from './components/CelebDisplay'
 import Welcome from './components/Welcome'
+import Signup from './components/Signup'
 
 import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
+
 
 function App() {
   const [celebs, setCelebs] = useState([])
@@ -39,8 +41,10 @@ function App() {
             <Route exact path="/" component={Welcome} />
             <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/game" component={CelebDisplay} />
+            <Route path= "/signup" component={Signup} />
           </ScoreProvider>
         </UserProvider>
+        
       </div>
     </Router>
   )
