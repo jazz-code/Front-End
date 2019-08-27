@@ -22,7 +22,7 @@ const CelebDisplay = props => {
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)];
   console.log('randomCeleb', randomCeleb)
 
-  if (randomCeleb) console.log(randomCeleb.name);
+  // if (randomCeleb) console.log(randomCeleb.name);
 
   const isDead = randomCeleb ? randomCeleb.isDead : null;
 
@@ -50,6 +50,7 @@ const CelebDisplay = props => {
         <button
           onClick={() => {
             return console.log(nextCeleb());
+            props.history.push("/")
           }}
         >
           Dead!
