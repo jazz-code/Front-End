@@ -1,10 +1,13 @@
 import React, { useState, useEffect }from 'react'
 import { Card, Button } from 'semantic-ui-react';
+import NavBar from "./NavBar";
 
 
 export default function Signup() {
     
     return(
+        <>
+        <NavBar />
         <Card className = 'signup-card'>
             <form className='signup-form'>
                 <h1>Signup:</h1>
@@ -36,5 +39,6 @@ export default function Signup() {
                 <Button type='submit' inverted color='blue' className= "signup-button">Submit</Button>
             </form>
         </Card>
+        </>
     )
 }
