@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/" component={Welcome} />
             <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/game" component={CelebDisplay} />
-            <Route path= "/signup" component={Signup} />
+            <Route exact path= "/signup" component={Signup} />
           </ScoreProvider>
         </UserProvider>
         
