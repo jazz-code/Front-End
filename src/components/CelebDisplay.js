@@ -12,21 +12,10 @@ const CelebDisplay = props => {
       .catch(err => err.response);
   }, [])
 
-  // const randomCeleb = () => {
-  //   return celebs[Math.floor(Math.random() * celebs.length)]
-  // };
-  // console.log('rand', randomCeleb())
-
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
   console.log("randomCeleb", randomCeleb);
 
   if (randomCeleb) console.log(randomCeleb.name)
-
-  // const isDead = () => {
-  //   if (randomCeleb) {
-  //     return console.log(randomCeleb.isDead);
-  //   }
-  // };
 
   const isDead = randomCeleb ? randomCeleb.isDead : null
 
@@ -45,7 +34,7 @@ const CelebDisplay = props => {
         <h4> {randomCeleb ? randomCeleb.dob : null} </h4>
         <button
           onClick={() => {
-            return console.log(!isDead);
+            alert(!isDead);
           }}
         >
           Alive!
@@ -53,7 +42,7 @@ const CelebDisplay = props => {
 
         <button
           onClick={() => {
-            return console.log(isDead);
+            alert(isDead)
           }}
         >
           Dead!
