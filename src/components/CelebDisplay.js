@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Animated } from 'react-animated-css';
 import Score from './Score';
 
