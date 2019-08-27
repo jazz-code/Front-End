@@ -1,9 +1,6 @@
-
 {
-  "extends": [
-   "plugin:react/recommended",
-   "plugin:prettier/recommended"
-  ],
+
+  "extends": ["plugin:react/recommended", "plugin:prettier/recommended"],
   "plugins": ["react", "prettier", "promise"],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -75,6 +72,7 @@
     "strict": 0
   }
 }
+<<<<<<< HEAD
 
 // {
 //   "extends": [
@@ -156,3 +154,5 @@
 //     "strict": 0
 //   }
 // }
+=======
+>>>>>>> ceb13573fced090fa82b6509694138ae110ffe2a
