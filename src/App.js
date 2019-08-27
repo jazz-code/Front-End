@@ -45,7 +45,6 @@ function App() {
           <ScoreProvider value={score}>
             <Route exact path="/" component={Welcome} />
             <Route exact path="/login" component={Login} />
-            <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/game" component={CelebDisplay} />
             <Route exact path= "/signup" component={Signup} />
           </ScoreProvider>
