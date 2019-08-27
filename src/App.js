@@ -5,14 +5,19 @@ import {
   Route,
   Link,
   Redirect,
+
 } from 'react-router-dom'
 
+
+import Celeb from './components/Celeb';
 import CelebDisplay from './components/CelebDisplay'
 import Welcome from './components/Welcome'
 import Signup from './components/Signup'
+import Login from "./components/Login";
 
 import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
+
 
 
 function App() {
@@ -39,6 +44,7 @@ function App() {
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <Route exact path="/" component={Welcome} />
+            <Route exact path="/login" component={Login} />
             <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/game" component={CelebDisplay} />
             <Route exact path= "/signup" component={Signup} />
