@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu } from "semantic-ui-react"
 import logo from "../styling/logo/logo.jpg"
 
 export default function NavBar() {
