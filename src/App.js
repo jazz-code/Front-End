@@ -1,36 +1,36 @@
 //
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect,
-} from "react-router-dom";
+  Redirect
+} from 'react-router-dom';
 
-import Celeb from './components/Celeb';
-import CelebDisplay from "./components/CelebDisplay";
-import Welcome from "./components/Welcome";
+import Celeb from "./components/Celeb";
+import CelebDisplay from './components/CelebDisplay';
+import Welcome from './components/Welcome';
 
-import { ScoreProvider } from './contexts/ScoreContext';
-import { UserProvider } from './contexts/UserContext';
+import { ScoreProvider } from "./contexts/ScoreContext";
+import { UserProvider } from "./contexts/UserContext";
 
 function App() {
-  const [celebs, setCelebs] = useState([])
+  const [celebs, setCelebs] = useState([]);
 
-  const [celebrity, setCelebrity] = useState({})
+  const [celebrity, setCelebrity] = useState({});
 
   const [score, setScore] = useState({
     score: null,
-    totalScore: null
-  })
+    totalScore: null,
+  });
 
   const [user, setUser] = useState({
     id: null,
-    name: '',
-    username: '',
-    password: '',
-    points: null
-  })
+    name: "",
+    username: "",
+    password: "",
+    points: null,
+  });
 
   return (
     <Router>
@@ -42,14 +42,13 @@ function App() {
             <Route
               path="/game"
               render={props => {
-                  return <CelebDisplay {...props} />
-            }} />
-            {/* <Route exact path="/game" component={CelebDisplay} /> */}
+                return <CelebDisplay {...props} />
+              }} />
           </ScoreProvider>
         </UserProvider>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

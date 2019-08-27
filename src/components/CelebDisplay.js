@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Animated } from "react-animated-css";
-import axios from "axios";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
+import axios from "axios";
 
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([]);
@@ -27,7 +27,10 @@ const CelebDisplay = props => {
 
   const isDead = randomCeleb ? randomCeleb.isDead : null
 
-  // console.log('isDead', isDead);
+  // const displayBirth = () => {
+  //   return randomCeleb.dob.toString();
+  // }
+  // console.log("birth", displayBirth())
 
   return (
     <Animated
@@ -37,9 +40,7 @@ const CelebDisplay = props => {
     >
       <Card>
         <Image
-          src={
-            "https://bw-celeb-dead-app.herokuapp.com/images/Billygoathill.jpeg"
-          }
+          src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
           ui={false}
         />
@@ -51,44 +52,36 @@ const CelebDisplay = props => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra></Card.Content>
-        <Button
-          onClick={() => {
-            props.history.push('/game');
-          }}
-        >
-          Dead!
-        </Button>
       </Card>
 
-      {/* <div className="celeb-container">
-        <h2>{randomCeleb ? randomCeleb.name : null}</h2>
-
-        <h4>
-          {" "}
-          <img
-            src={randomCeleb ? randomCeleb.celebImage : null}
-            alt="celeb"
-          />{" "}
-        </h4>
-        <h4> {randomCeleb ? randomCeleb.dob : null} </h4>
+      <Card>
         <button
           onClick={() => {
-            alert(!isDead);
+            if (!isDead) {
+              alert('Correct')
+              props.history.push('/game')
+            } else {
+              alert('Wrong')
+              props.history.push('/game')
+            }
           }}
         >
           Alive!
         </button>
-
         <button
           onClick={() => {
-            // return console.log(nextCeleb());
-            props.history.push('/game');
+            if (isDead) {
+              alert('Correct')
+              props.history.push('/game')
+            } else {
+              alert('Wrong')
+              props.history.push('/game')
+            }
           }}
         >
           Dead!
         </button>
-        <p>Current Score props.score</p>
-      </div> */}
+      </Card>
     </Animated>
   )
 };
