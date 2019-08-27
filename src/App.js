@@ -15,19 +15,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-      <UserProvider value={user}>
-          <ScoreProvider value={score}>
-            <Route exact path="/" component={Welcome} />
-            <Route exact path="/login" component={Login} />
-            <h1>Celeb Dead Or Alive</h1>
-            <Route exact path="/game" component={CelebDisplay} />
-          </ScoreProvider>
-        </UserProvider>
->>>>>>> development
+        <Route exact path="/" component={Welcome} />
+        <h1>Celeb Dead Or Alive</h1>
+        <Route exact path="/game" component={CelebDisplay} />
+        <Route exact path="/login" component={Login} />
       </div>
     </Router>
   )
 }
 
 export default App
-
