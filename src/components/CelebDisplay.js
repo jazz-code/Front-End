@@ -3,6 +3,8 @@ import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 import axios from "axios";
 
+import "../styling/components/celebdisplay.scss";
+
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
@@ -56,6 +58,7 @@ const CelebDisplay = props => {
 
       <Card>
         <button
+          className="btn-alive"
           onClick={() => {
             if (!isDead) {
               alert('Correct')
@@ -78,6 +81,7 @@ const CelebDisplay = props => {
           Alive!
         </button>
         <button
+          className="btn-dead"
           onClick={() => {
             if (isDead) {
               alert('Correct')
