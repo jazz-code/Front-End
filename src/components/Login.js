@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Card, Button} from "semantic-ui-react";
 
 const Login = () => {
@@ -6,6 +6,12 @@ const Login = () => {
         name: "",
         password: ""
     });
+
+    // const [login2, setLogin2] = useState({
+    //     name: "",
+    //     password: ""
+    // });
+
     const changeHandler = event => {
         setLogin({...login, [event.target.name]: event.target.value})
         //...login gives us the orignal state of login whaever it last was {...$anything} (in this case {...login}) then we add whatever the value is (event.target.value) to whatever the changed feild it corresponds to (event.target.name)
@@ -15,7 +21,18 @@ const Login = () => {
         console.log(login);
         setLogin({name: "", password: ""});
         //this is an optional peice of code that will reset the input boxes
+        // setLogin2({login})
     }
+
+    // useEffect(() => {
+    //     axios.get()
+    //     .then(response =>{
+    //         console.log();
+    //     })
+    //     .catch(error => {
+    //         console.error('Server Error', error);
+    //     })
+    // }, [login2])
 
     return (
         <div className = "login-container">
