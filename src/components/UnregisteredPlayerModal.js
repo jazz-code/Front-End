@@ -1,18 +1,14 @@
 import React from 'react'
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 const UnRegisteredPlayerModal = ({ score }) => (
-  <Modal trigger={<Button>Show Modal</Button>} centered={false}>
-    <Modal.Header>Select a Photo</Modal.Header>
+  <Modal trigger={<Button>See How You Did</Button>} centered={false}>
+    <Modal.Header>YOUR TOTAL SCORE IS {score}</Modal.Header>
     <Modal.Content image>
-      <Image wrapped size="medium" src={Logo} />
+      <Image wrapped size="medium" />
       <Modal.Description>
-        <Header>Default Profile Image</Header>
-        <p>
-          We've found the following gravatar image associated with your e-mail
-          address.
-        </p>
-        <p>Is it okay to use this photo?</p>
+        <Header>CONGRATULATIONS!</Header>
+        <p>You REALLY Seem to Know A LOT About Dead Celebrities...</p>
       </Modal.Description>
     </Modal.Content>
   </Modal>
