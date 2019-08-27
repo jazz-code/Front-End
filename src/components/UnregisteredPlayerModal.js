@@ -2,7 +2,11 @@ import React from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 const UnRegisteredPlayerModal = ({ score }) => (
-  <Modal trigger={<Button>See How You Did</Button>} centered={false}>
+  <Modal
+    trigger={
+      <Button className="unregistered-player-modal-btn">See How You Did</Button>
+    }
+    centered={false}>
     <Modal.Header>YOUR TOTAL SCORE IS {score}</Modal.Header>
     <Modal.Content image>
       <Image wrapped size="medium" />

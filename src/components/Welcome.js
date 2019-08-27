@@ -1,5 +1,6 @@
 import React from 'react'
 import { Animated } from 'react-animated-css'
+import { Button } from 'semantic-ui-react'
 
 import UnregisteredPlayerModal from './UnregisteredPlayerModal'
 
@@ -9,13 +10,13 @@ const Welcome = props => {
 
   return (
     <div>
-      <button onClick onClick={() => history.push('/login')}>
+      <Button onClick onClick={() => history.push('/login')}>
         Login
-      </button>
+      </Button>
       <h1>Welcome to the Celeb Dead or Alive Quiz</h1>
       <h2>Test your celebrity knowledge</h2>
       <p></p>
-      <button onClick={() => history.push('/game')}>Play Now</button>
+      <Button onClick={() => history.push('/game')}>Play Now</Button>
       {score === 5 ? <UnregisteredPlayerModal score={score} /> : null}
     </div>
   )
