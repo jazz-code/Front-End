@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Login = () => {
     const [login, setLogin] = useState({
-        name: "",
+        username: "",
         password: ""
     });
 
@@ -14,12 +14,12 @@ const Login = () => {
     }
     const submitForm = event => {
         event.preventDefault();
-        console.log(login);
-        axios.post("https://bw-celeb-dead-app.herokuapp.com/auth/login",
-            login
-        )
+        console.log(`username: ${login.username}`, `password: ${login.password}`);
+        axios.post("https://bw-celeb-dead-app.herokuapp.com/auth/login", {
+            "username": `${login.username}`,
+            "password": `${login.password}`   
+        })
         .then(response =>{
-            console.log(login);
             console.log(response.data);
             // .props.history.push
         })
@@ -35,10 +35,10 @@ const Login = () => {
                     <h1>Login:</h1>
                     <label htmlFor = "name" className="login-label"/>
                     <input 
-                        name = "name"
+                        name = "username"
                         placeholder = "Name"
                         type = "text"
-                        value = {login.name} //this value is updated by the changeHandler
+                        value = {login.username} //this value is updated by the changeHandler
                         onChange= {changeHandler}/>
                     <label htmlFor = "password" className="login-label"/>
                     <input 
