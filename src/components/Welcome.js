@@ -1,9 +1,13 @@
 import React from 'react'
-import {Animated} from "react-animated-css";
-import NavBar from "./NavBar"
+
+import NavBar from './NavBar'
+
+import { Animated } from 'react-animated-css'
+import { Button } from 'semantic-ui-react'
 
 const Welcome = props => {
-console.log(props)
+  console.log(props)
+
 
     return (
         <div>
@@ -11,11 +15,12 @@ console.log(props)
         <h1>Welcome to the Celeb Dead or Alive Quiz</h1>
         <h2>Test your celebrity knowledge</h2>
         <p></p>
-        <button onClick={() => props.history.push("/game")}>Play Now</button>
+        <Button onClick={() => props.history.push('/game')}>Play Now</Button>
         </div>
         
         
     )
+
 }
 
 export default Welcome
