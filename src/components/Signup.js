@@ -13,6 +13,7 @@ const Signup = () => {
     const changeHandler = event => {
         const updatedSignup = {...signup, [event.target.name]: event.target.value}
         updatedSignup(setSignup);
+         //...login gives us the original state of login whaever it last was {...$anything} (in this case {...login}) then we add whatever the value is (event.target.value) to whatever the changed feild it corresponds to (event.target.name)
     }
 
     const submitForm = event => {
@@ -26,6 +27,7 @@ const Signup = () => {
         })
         .then(response => {
             console.log(response.data);
+            // .props.history.data
         })
         .catch(error => {
             console.error('Signup.js: Server Error ', error)
@@ -34,7 +36,7 @@ const Signup = () => {
 
 
     return(
-        <div classsName = 'signup-container'>
+        <div className = 'signup-container'>
             <Card className = 'signup-card'>
                 <form onSubmit={submitForm} className='signup-form'>
                     <h1>Signup:</h1>
