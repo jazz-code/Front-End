@@ -14,17 +14,21 @@ import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
 
 function App() {
+  const [celebs, setCelebs] = useState([])
+
+  const [celebrity, setCelebrity] = useState({})
+
+  const [score, setScore] = useState({
+    score: null,
+    totalScore: null
+  })
+
   const [user, setUser] = useState({
     id: null,
     name: '',
     username: '',
     password: '',
     points: null
-  })
-
-  const [score, setScore] = useState({
-    score: null,
-    totalScore: null
   })
 
   return (
