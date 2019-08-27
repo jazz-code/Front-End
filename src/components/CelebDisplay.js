@@ -27,7 +27,7 @@ const CelebDisplay = props => {
 
   const isDead = randomCeleb ? randomCeleb.isDead : null
 
-  // const displayBirth = () => {
+  // const displayBirth = () =>  {
   //   return randomCeleb.dob.toString();
   // }
   // console.log("birth", displayBirth())
