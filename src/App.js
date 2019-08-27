@@ -4,31 +4,24 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect,
-
+  Redirect
 } from 'react-router-dom'
 
-
-import Celeb from './components/Celeb';
+import Celeb from './components/Celeb'
 import CelebDisplay from './components/CelebDisplay'
 import Welcome from './components/Welcome'
 import Signup from './components/Signup'
-import Login from "./components/Login";
+import Login from './components/Login'
 
 import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
-
-
 
 function App() {
   const [celebs, setCelebs] = useState([])
 
   const [celebrity, setCelebrity] = useState({})
 
-  const [score, setScore] = useState({
-    score: null,
-    totalScore: null
-  })
+  const [score, setScore] = useState(5)
 
   const [user, setUser] = useState({
     id: null,
@@ -43,14 +36,17 @@ function App() {
       <div className="App">
         <UserProvider value={user}>
           <ScoreProvider value={score}>
-            <Route exact path="/" component={Welcome} />
+            <Route
+              exact
+              path="/"
+              render={props => <Welcome {...props} score={score} />}
+            />
             <Route exact path="/login" component={Login} />
             <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/game" component={CelebDisplay} />
-            <Route exact path= "/signup" component={Signup} />
+            <Route exact path="/signup" component={Signup} />
           </ScoreProvider>
         </UserProvider>
-        
       </div>
     </Router>
   )
