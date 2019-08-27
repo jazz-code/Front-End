@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { Animated } from "react-animated-css";
-import axios from "axios";
-import { Card, Icon, Image, Button } from "semantic-ui-react";
+import React, { useState, useEffect } from 'react'
+import { Animated } from 'react-animated-css'
+import axios from 'axios'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 
 const CelebDisplay = props => {
-  const [celebs, setCelebs] = useState([]);
+  const [celebs, setCelebs] = useState([])
 
   useEffect(() => {
     axios
-      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
+      .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
       .then(res => setCelebs(res.data))
-      .catch(err => err.response);
+      .catch(err => err.response)
   }, [])
 
   const nextCeleb = () => {
-    let i = 0;
-    i = i + [Math.floor(Math.random() * celebs.length)]; // increase random
-    i = i % celebs.length; // if we've gone too high, start from `0` again
-    return celebs[i]; // give us back the celeb of where we are now
+    let i = 0
+    i = i + [Math.floor(Math.random() * celebs.length)] // increase random
+    i = i % celebs.length // if we've gone too high, start from `0` again
+    return celebs[i] // give us back the celeb of where we are now
   }
 
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-  console.log("randomCeleb", randomCeleb);
+  console.log('randomCeleb', randomCeleb)
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
@@ -33,12 +33,11 @@ const CelebDisplay = props => {
     <Animated
       animationIn="bounceInLeft"
       animationOut="fadeOut"
-      isVisible={true}
-    >
+      isVisible={true}>
       <Card>
         <Image
           src={
-            "https://bw-celeb-dead-app.herokuapp.com/images/Billygoathill.jpeg"
+            'https://bw-celeb-dead-app.herokuapp.com/images/Billygoathill.jpeg'
           }
           wrapped
           ui={false}
@@ -53,9 +52,8 @@ const CelebDisplay = props => {
         <Card.Content extra></Card.Content>
         <Button
           onClick={() => {
-            props.history.push('/game');
-          }}
-        >
+            props.history.push('/game')
+          }}>
           Dead!
         </Button>
       </Card>
@@ -91,6 +89,6 @@ const CelebDisplay = props => {
       </div> */}
     </Animated>
   )
-};
+}
 
 export default CelebDisplay
