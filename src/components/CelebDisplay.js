@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
+
+import NavBar from "./NavBar";
+
 import axios from "axios";
 
 import "../styling/components/celebdisplay.scss";
+
 
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([]);
@@ -40,6 +44,7 @@ const CelebDisplay = props => {
       animationOut="fadeOut"
       isVisible={true}
     >
+      <NavBar />
       <Card>
         <Image
           src={randomCeleb ? randomCeleb.celebImage : null}
