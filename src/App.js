@@ -1,5 +1,5 @@
 //
-import React, {useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -10,19 +10,32 @@ import {
 import CelebDisplay from './components/CelebDisplay'
 import Welcome from './components/Welcome'
 
-import { ScoreProvider } from './contexts/ScoreContext';
+import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
 
 function App() {
+  const [user, setUser] = useState({
+    id: null,
+    name: '',
+    username: '',
+    password: '',
+    points: null
+  })
+
+  const [score, setScore] = useState({
+    score: null,
+    totalScore: null
+  })
+
   return (
     <Router>
       <div className="App">
-        <UserProvider value={}>
-          <ScoreProvider value={}>
-        <Route exact path="/" component={Welcome} />
-        <h1>Celeb Dead Or Alive</h1>
-        <Route exact path="/game" component={CelebDisplay} />
-        </ScoreProvider>
+        <UserProvider value={user}>
+          <ScoreProvider value={score}>
+            <Route exact path="/" component={Welcome} />
+            <h1>Celeb Dead Or Alive</h1>
+            <Route exact path="/game" component={CelebDisplay} />
+          </ScoreProvider>
         </UserProvider>
       </div>
     </Router>
