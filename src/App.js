@@ -10,6 +10,7 @@ import {
 import Celeb from './components/Celeb';
 import CelebDisplay from "./components/CelebDisplay";
 import Welcome from "./components/Welcome";
+import Login from "./components/Login";
 
 import { ScoreProvider } from './contexts/ScoreContext';
 import { UserProvider } from './contexts/UserContext';
@@ -38,6 +39,7 @@ function App() {
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <Route exact path="/" component={Welcome} />
+            <Route exact path="/login" component={Login} />
             <h1>Celeb Dead Or Alive</h1>
             <Route
               path="/game"
