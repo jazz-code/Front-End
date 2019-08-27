@@ -17,6 +17,7 @@ import Login from "./components/Login";
 
 import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
+import NavBar from './components/NavBar';
 
 
 
@@ -41,9 +42,11 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <NavBar />
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <Route exact path="/" component={Welcome} />
+            <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/login" component={Login} />
             <Route exact path="/game" component={CelebDisplay} />
             <Route exact path= "/signup" component={Signup} />
@@ -56,3 +59,5 @@ function App() {
 }
 
 export default App
+
+     
