@@ -15,6 +15,7 @@ import Login from './components/Login'
 
 import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
+import NavBar from './components/NavBar'
 
 function App() {
   const [celebs, setCelebs] = useState([])
@@ -34,6 +35,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <NavBar />
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <Route
@@ -42,9 +44,9 @@ function App() {
               render={props => <Welcome {...props} score={score} />}
             />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
             <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/game" component={CelebDisplay} />
-            <Route exact path="/signup" component={Signup} />
           </ScoreProvider>
         </UserProvider>
       </div>
