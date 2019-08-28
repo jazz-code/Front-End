@@ -119,7 +119,7 @@ const CelebDisplay = props => {
         <div className="score percent">Current Score: {currentScore}</div>
       </div>
     </Animated>
-  )
+  );
 };
 
-export default CelebDisplay
+export default CelebDisplay;

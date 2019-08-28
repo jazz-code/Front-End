@@ -30,32 +30,36 @@ const Login = () => {
         console.error('Server Error', error)
       })
   }
+  return (
+    <div className="login-container">
+      <Card className="login-card">
+        <form className="login-form" onSubmit={submitForm}>
+          <h1>Login:</h1>
+          <label htmlFor="name" className="login-label" />
+          <input
+            name="username"
+            placeholder="Username"
+            type="text"
+            value={login.username} //this value is updated by the changeHandler
+            onChange={changeHandler}
+          />
+          <label htmlFor="password" className="login-label" />
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            value={login.password} //this value is updated by the changeHandler
+            onChange={changeHandler}
+          />
+          <br></br>
+          <Button type="submit" inverted color="blue" className="login-button">
+            Submit
+          </Button>
+        </form>
+      </Card>
+    </div>
+  )
+}
 
-    return (
-      <div className = "login-container">
-        <Card className = "login-card">
-          <form className="login-form" onSubmit = {submitForm}>
-            <h1>Login:</h1>
-            <label htmlFor = "name" className="login-label"/>
-            <input 
-                name = "username"
-                placeholder = "Username"
-                type = "text"
-                value = {login.username} //this value is updated by the changeHandler
-                onChange= {changeHandler}/>
-            <label htmlFor = "password" className="login-label"/>
-            <input 
-                name = "password"
-                placeholder = "Password"
-                type = "password"
-                value  = {login.password} //this value is updated by the changeHandler
-                onChange = {changeHandler}/>
-                <br></br>
-            <Button className="login-button" type="submit" inverted color='blue' className= "login-button">Submit</Button>
-          </form>
-        </Card>
-      </div>
-    );
-};
 
 export default Login
