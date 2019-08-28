@@ -1,7 +1,4 @@
 import React from 'react'
-
-import NavBar from './NavBar'
-
 import { Animated } from 'react-animated-css'
 import { Button } from 'semantic-ui-react'
 
@@ -11,7 +8,6 @@ const Welcome = props => {
 
     return (
         <div>
-        <NavBar />
         <h1>Welcome to the Celeb Dead or Alive Quiz</h1>
         <h2>Test your celebrity knowledge</h2>
         <p></p>

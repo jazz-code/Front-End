@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect }from 'react';
 import { Card, Button } from 'semantic-ui-react';
-import NavBar from "./NavBar";
 import axios from 'axios';
 
 
@@ -98,7 +97,6 @@ const Signup = () => {
                 </form>
             </Card>
         </div>
-
     )
 
 }

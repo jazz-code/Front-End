@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Card, Button} from "semantic-ui-react";
 import axios from "axios";
-import NavBar from "./NavBar"
+
 
 const Login = () => {
     const [login, setLogin] = useState({
@@ -30,8 +30,6 @@ const Login = () => {
     }
 
     return (
-        <>
-        <NavBar />
         <div className = "login-container">
             <Card className = "login-card">
                 <form className="login-form" onSubmit = {submitForm}>
@@ -55,7 +53,6 @@ const Login = () => {
                 </form>
             </Card>
         </div>
-        </>
     );
 };
 
