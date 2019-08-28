@@ -76,15 +76,6 @@ const CelebDisplay = props => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra></Card.Content>
-<<<<<<< HEAD
-        <Button
-          onClick={() => {
-            props.history.push('/game')
-          }}>
-          Dead!
-        </Button>
-=======
->>>>>>> bde2bba925ea7e1da4d8df97ccdcd89527f43d78
       </Card>
 
       <Card>
