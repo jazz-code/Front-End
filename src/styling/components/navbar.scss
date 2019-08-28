@@ -1,0 +1,21 @@
+@import "utils/variables";
+
+.nav-div {
+    .nav-logo {
+        width: 5%;
+    };
+    @media (max-width: $phone) {
+        display: none;
+    }    
+}
+
+
+.nav-div-2 {
+    .nav-logo {
+        width: 100%;
+        height: 100px;
+    }
+    @media (min-width: $phone) {
+        display: none;
+    }
+}

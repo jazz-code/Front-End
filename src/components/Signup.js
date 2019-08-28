@@ -28,6 +28,7 @@ export default function Signup(props) {
       })
       .catch(error => {
         console.log('O no there is an error!', error);
+
       });
   };
 
@@ -79,3 +80,5 @@ export default function Signup(props) {
     </Card>
   );
 }
+
+export default Signup;
