@@ -35,7 +35,7 @@ export default function Signup(props) {
     <div className='signup-container'>
          <Card className='signup-card'>
             <form onSubmit={handleSubmit} className='signup-form'>
-                <h1>Signup:</h1>
+                <h1 className="signup-title">Signup:</h1>
                 <label htmlFor='name' className='signup-label' />
                 <input
                 name='name'

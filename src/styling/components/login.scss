@@ -27,8 +27,10 @@
                 margin-top: 5%;
             }
             .login-button {
-                padding: 10%;
-                font-size: 200%;
+                @media (max-width: $phone) {
+                    padding: 10%;
+                    font-size: 200%;
+                }
             }
         };
     };
