@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Animated } from 'react-animated-css';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
+
 import axios from 'axios';
 
 import '../styling/components/celebdisplay.scss';
@@ -49,6 +50,18 @@ const CelebDisplay = props => {
   //   document.getElementByClass(".percent").style.width = '15%';
   // }
 
+const DOB = () => {
+  if (randomCeleb ) {
+    // console.log(re)
+    let str = randomCeleb.dob
+    let res = str.split(",");
+    return res[0].substr(0,4)
+  // console.log("DOB",res[1].substr(1,4) + res[0]); 
+  console.log("DOB", res[0].substr(0,4))
+  }
+}
+
+console.log(DOB())
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -57,6 +70,7 @@ const CelebDisplay = props => {
     >
       <Card>
         <Image
+        className="card-image"
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
           ui={false}
@@ -65,7 +79,7 @@ const CelebDisplay = props => {
           <Card.Header>{randomCeleb ? randomCeleb.name : null}</Card.Header>
 
           <Card.Description>
-            {randomCeleb ? randomCeleb.dob : null}
+            {randomCeleb ? <p>Born in {DOB()}</p> : null}
           </Card.Description>
         </Card.Content>
         <Card.Content extra></Card.Content>
