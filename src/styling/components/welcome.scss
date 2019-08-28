@@ -1,0 +1,12 @@
+.welcome-container {
+    display: flex;
+    align-content: center;
+    flex-flow: column wrap;
+    .welcome-text {
+        text-align: center;
+        margin-top: 15%;
+    }
+    .welcome-button {
+        width: 50%;
+    }
+}
