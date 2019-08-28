@@ -2,11 +2,13 @@
     display: flex;
     align-content: center;
     flex-flow: column wrap;
+    justify-content: center;
     .welcome-text {
         text-align: center;
         margin-top: 15%;
     }
     .welcome-button {
-        width: 50%;
+        margin-right: 10%;
+        margin-left: 10%;
     }
 }
