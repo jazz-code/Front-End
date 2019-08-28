@@ -1,4 +1,18 @@
-.nav-logo {
-    width: 5%;
-    margin: 0px;
-};
+@import "utils/variables";
+
+.nav-div {
+    .nav-logo {
+        width: 5%;
+        margin: 0px;
+    };
+    @media (max-width: $phone) {
+        display: none;
+    }    
+}
+
+
+.nav-div-2 {
+    @media (min-width: $phone) {
+        display: none;
+    }
+}

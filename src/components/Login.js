@@ -49,7 +49,7 @@ const Login = () => {
                         value  = {login.password} //this value is updated by the changeHandler
                         onChange = {changeHandler}/>
                         <br></br>
-                    <Button type="submit" inverted color='blue' className= "login-button">Submit</Button>
+                    <Button className="login-button" type="submit" inverted color='blue' className= "login-button">Submit</Button>
                 </form>
             </Card>
         </div>
