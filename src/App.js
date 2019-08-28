@@ -1,39 +1,39 @@
 //
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect
-} from "react-router-dom";
+  Redirect,
+} from 'react-router-dom';
 
-import Celeb from "./components/Celeb";
-import CelebDisplay from "./components/CelebDisplay";
-import Welcome from "./components/Welcome";
-import Signup from "./components/Signup";
-import Login from './components/Login';
-import NavBar from './components/NavBar';
+import Celeb from './components/Celeb';
+import CelebDisplay from './components/CelebDisplay';
+import Welcome from './components/Welcome';
+import Signup from './components/Signup';
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 
-import { ScoreProvider } from "./contexts/ScoreContext";
-import { UserProvider } from "./contexts/UserContext";
+import { ScoreProvider } from './contexts/ScoreContext';
+import { UserProvider } from './contexts/UserContext';
 
 function App() {
-  const [celebs, setCelebs] = useState([])
+  const [celebs, setCelebs] = useState([]);
 
-  const [celebrity, setCelebrity] = useState({})
+  const [celebrity, setCelebrity] = useState({});
 
   const [score, setScore] = useState({
     score: null,
-    totalScore: null
-  })
+    totalScore: null,
+  });
 
   const [user, setUser] = useState({
     id: null,
-    name: '',
-    username: '',
-    password: '',
-    points: null
-  })
+    name: "",
+    username: "",
+    password: "",
+    points: null,
+  });
 
   return (
     <Router>
@@ -41,7 +41,6 @@ function App() {
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <NavBar />
-            <h1>Celeb Dead Or Alive</h1>
             <Route exact path="/" component={Welcome} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/game" component={CelebDisplay} />
@@ -50,7 +49,7 @@ function App() {
         </UserProvider>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
