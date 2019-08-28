@@ -17,8 +17,8 @@ const UnRegisteredPlayerModal = ({ score }) => (
           That was a lot of fun right? Want to let everyone know if they are
           ever trapped in a room with a serial killer and the only way to make
           it out alive is to correctly guess whether or not 10 random
-          celebrities are DEAD or ALIVE? Create an account so your amazing score
-          persists!
+          celebrities are DEAD or ALIVE, you're their 'goto'? Create an account
+          so your amazing score persists!
         </p>
       </Modal.Description>
     </Modal.Content>
