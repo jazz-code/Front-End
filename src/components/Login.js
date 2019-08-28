@@ -27,16 +27,9 @@ const Login = props => {
         return props.history.push('/game');
       })
       .catch(error => {
-<<<<<<< HEAD
-        console.error('Server Error', error);
-      });
-  };
-
-=======
         console.error('Server Error', error)
       })
   }
->>>>>>> 24d39c0bd906186f1d16efbdd4b0f813db8fa24a
   return (
     <div className='login-container'>
       <Card className='login-card'>
@@ -68,9 +61,5 @@ const Login = props => {
   );
 };
 
-<<<<<<< HEAD
-export default Login;
-=======
 
 export default Login
->>>>>>> 24d39c0bd906186f1d16efbdd4b0f813db8fa24a
