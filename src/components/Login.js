@@ -37,7 +37,7 @@ const Login = () => {
                     <label htmlFor = "name" className="login-label"/>
                     <input 
                         name = "username"
-                        placeholder = "Name"
+                        placeholder = "Username"
                         type = "text"
                         value = {login.username} //this value is updated by the changeHandler
                         onChange= {changeHandler}/>
