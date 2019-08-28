@@ -10,8 +10,8 @@ const Signup = () => {
   })
 
     const changeHandler = event => {
-    const updatedSignup = {...signup, [event.target.name]: event.target.value}
-    updatedSignup(setSignup)
+    setSignup({...signup, [event.target.name]: event.target.value})
+    console.log(signup)
          //...login gives us the original state of login whaever it last was {...$anything} (in this case {...login}) then we add whatever the value is (event.target.value) to whatever the changed feild it corresponds to (event.target.name)
     }
 
@@ -64,7 +64,7 @@ const Signup = () => {
             onChange = {changeHandler}
           />
           <br></br>
-          <Button type='submit' inverted color='blue' className= "signup-button">Submit</Button>
+          <Button type='submit' inverted color='blue' className= 'signup-button'>Submit</Button>
         </form>
       </Card>
     </div>
