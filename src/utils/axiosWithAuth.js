@@ -1,3 +1,4 @@
+// axios call with included authorization token
 import axios from 'axios'
 
 export const axiosWithAuth = () => {
