@@ -1,48 +1,20 @@
-
 import React, { useState, useEffect }from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import axios from 'axios';
 
 
-
 const Signup = () => {
-  const [signup, setSignup] = useState({
-    name: '',
-    username: '',
-    password: '',
-  })
-
+    const [signup, setSignup] = useState ({
+        name: '',
+        username: '',
+        password: ''
+    });
 
     const changeHandler = event => {
-        const updatedSignup = {...signup, [event.target.name]: event.target.value}
-        updatedSignup(setSignup);
+        setSignup({...signup, [event.target.name]: event.target.value})
+        console.log(signup);
          //...login gives us the original state of login whaever it last was {...$anything} (in this case {...login}) then we add whatever the value is (event.target.value) to whatever the changed feild it corresponds to (event.target.name)
-
     }
-    updatedSignup(setSignup)
-  };
-
-  const submitForm = event => {
-    event.preventDefault()
-    console.log(
-      `name: ${signup.name}`,
-      `username: ${signup.username}`,
-      `password: ${signup.password}`
-    );
-    axios
-      .post('https://bw-celeb-dead-app.herokuapp.com/auth/signup', {
-        name: `${signup.name}`,
-        username: `${signup.username}`,
-        password: `${signup.password}`,
-      })
-      .then(response => {
-        console.log(response.data)
-      })
-      .catch(error => {
-        console.error('Signup.js: Server Error ', error)
-      })
-  };
-
 
     const submitForm = event => {
         event.preventDefault();
@@ -58,7 +30,7 @@ const Signup = () => {
             // .props.history.data
         })
         .catch(error => {
-            console.error('Signup.js: Server Error ', error)
+          console.error('Server Error', error);
         })
     }
 
@@ -98,7 +70,6 @@ const Signup = () => {
             </Card>
         </div>
     )
-
 }
 
-export default Signup
+export default Signup;
