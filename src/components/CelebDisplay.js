@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Animated } from 'react-animated-css';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import axios from 'axios';
+=======
+import React, { useState, useEffect } from "react";
+import { Animated } from "react-animated-css";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
+
+import axios from "axios";
+>>>>>>> 4bbe18016d44cd05df55a513f5159aee472f03dc
 
 import '../styling/components/celebdisplay.scss';
+
 
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([])
