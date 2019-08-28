@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
-
 import axios from "axios";
 
 import "../styling/components/celebdisplay.scss";
 
-
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     axios
@@ -36,6 +35,10 @@ const CelebDisplay = props => {
     props.history.push('/login');
   }
 
+  // function addWidth() {
+  //   document.getElementByClass(".percent").style.width = '15%';
+  // }
+
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -59,12 +62,13 @@ const CelebDisplay = props => {
       </Card>
 
       <Card>
-        <button
-          className="btn-alive"
+        <Button
+          className="btn-alive ui labeled icon button"
           onClick={() => {
             if (!isDead) {
-              alert('Correct')
+              alert('Correct');
               setCurrentScore(currentScore + 1);
+
               return (
                 <Animated
                   animationIn="fadeIn"
@@ -80,10 +84,11 @@ const CelebDisplay = props => {
             }
           }}
         >
+          <i className="pointing up icon"></i>
           Alive!
-        </button>
-        <button
-          className="btn-dead"
+        </Button>
+        <Button
+          className="btn-dead ui labeled icon button"
           onClick={() => {
             if (isDead) {
               alert('Correct')
@@ -95,11 +100,13 @@ const CelebDisplay = props => {
             }
           }}
         >
+          <i className="pointing down icon"></i>
           Dead!
-        </button>
+        </Button>
       </Card>
-
-      <h4>Current Score: {currentScore}</h4>
+      <div className="score-container">
+        <div className="score percent">Current Score: {currentScore}</div>
+      </div>
     </Animated>
   )
 };
