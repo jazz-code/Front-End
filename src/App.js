@@ -21,8 +21,6 @@ function App() {
 
   const [celebrity, setCelebrity] = useState({})
 
-  const [score, setScore] = useState(4)
-
   const [user, setUser] = useState({
     id: null,
     name: '',
@@ -37,11 +35,7 @@ function App() {
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <NavBar />
-            <Route
-              exact
-              path="/"
-              render={props => <Welcome {...props} score={score} />}
-            />
+            <Route exact path={'/'} component={Welcome} />} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/game" component={CelebDisplay} />
             <Route exact path="/signup" component={Signup} />
