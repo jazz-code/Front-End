@@ -1,23 +1,13 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import { Animated } from 'react-animated-css'
-import axios from 'axios'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import axios from 'axios'
+
+import '../styling/components/celebdisplay.scss'
 
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([])
-=======
-import React, { useState, useEffect } from "react";
-import { Animated } from "react-animated-css";
-import { Card, Icon, Image, Button } from "semantic-ui-react";
-import axios from "axios";
-
-import "../styling/components/celebdisplay.scss";
-
-const CelebDisplay = props => {
-  const [celebs, setCelebs] = useState([]);
-  const [currentScore, setCurrentScore] = useState(0);
->>>>>>> bde2bba925ea7e1da4d8df97ccdcd89527f43d78
+  const [currentScore, setCurrentScore] = useState(0)
 
   useEffect(() => {
     axios
@@ -27,17 +17,10 @@ const CelebDisplay = props => {
   }, [])
 
   const nextCeleb = () => {
-<<<<<<< HEAD
     let i = 0
-    i = i + [Math.floor(Math.random() * celebs.length)] // increase random
+    i = randomCeleb + i // increase random
     i = i % celebs.length // if we've gone too high, start from `0` again
     return celebs[i] // give us back the celeb of where we are now
-=======
-    let i = 0;
-    i = randomCeleb + i; // increase random
-    i = i % celebs.length; // if we've gone too high, start from `0` again
-    return celebs[i]; // give us back the celeb of where we are now
->>>>>>> bde2bba925ea7e1da4d8df97ccdcd89527f43d78
   }
 
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
@@ -48,7 +31,7 @@ const CelebDisplay = props => {
   const isDead = randomCeleb ? randomCeleb.isDead : null
 
   if (currentScore === 5) {
-    props.history.push('/login');
+    props.history.push('/login')
   }
 
   return (
@@ -58,13 +41,7 @@ const CelebDisplay = props => {
       isVisible={true}>
       <Card>
         <Image
-<<<<<<< HEAD
-          src={
-            'https://bw-celeb-dead-app.herokuapp.com/images/Billygoathill.jpeg'
-          }
-=======
           src={randomCeleb ? randomCeleb.celebImage : null}
->>>>>>> bde2bba925ea7e1da4d8df97ccdcd89527f43d78
           wrapped
           ui={false}
         />
@@ -84,22 +61,20 @@ const CelebDisplay = props => {
           onClick={() => {
             if (!isDead) {
               alert('Correct')
-              setCurrentScore(currentScore + 1);
+              setCurrentScore(currentScore + 1)
               return (
                 <Animated
                   animationIn="fadeIn"
                   animationOut="fadeOut"
-                  isVisible={true}
-                >
-                  {props.history.push("/game")}
+                  isVisible={true}>
+                  {props.history.push('/game')}
                 </Animated>
-              );
+              )
             } else {
               alert('Wrong')
               props.history.push('/game')
             }
-          }}
-        >
+          }}>
           Alive!
         </button>
         <button
@@ -108,13 +83,12 @@ const CelebDisplay = props => {
             if (isDead) {
               alert('Correct')
               props.history.push('/game')
-              setCurrentScore(currentScore + 1);
+              setCurrentScore(currentScore + 1)
             } else {
               alert('Wrong')
               props.history.push('/game')
             }
-          }}
-        >
+          }}>
           Dead!
         </button>
       </Card>
