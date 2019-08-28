@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
+import React from "react";
+import { Button, Header, Icon, Image, Modal } from "semantic-ui-react";
 
 const UnRegisteredPlayerModal = ({ score, history }) => (
   <Modal
@@ -25,13 +25,13 @@ const UnRegisteredPlayerModal = ({ score, history }) => (
       {/* <Button onClick={history.push("/game")}>Play again</Button>
       <Button onClick={history.push('/login')}>Login</Button> */}
     </Modal.Content>
-    <Button primary icon onClick={() => history.push("/login")}>
+    <Button primary icon onClick={() => history.push('/signup')}>
       Create an Account <Icon name="right chevron" />
     </Button>
-    <Button primary icon onClick={() => history.push("/game")}>
+    <Button primary icon onClick={() => history.push('/game')}>
       Play again! <Icon name="right chevron" />
     </Button>
   </Modal>
-)
+);
 
-export default UnRegisteredPlayerModal
+export default UnRegisteredPlayerModal;

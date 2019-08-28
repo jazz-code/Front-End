@@ -10,7 +10,7 @@ import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
-  const [width, setWidth] = useState(0)
+  // const [width, setWidth] = useState(0)
   const [icon, setIcon] = useState({ icon: true });
 
   useEffect(() => {
@@ -19,6 +19,9 @@ const CelebDisplay = props => {
       .then(res => setCelebs(res.data))
       .catch(err => err.response)
   }, [])
+  
+    const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
+    console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
     let i = 0
@@ -31,9 +34,6 @@ const CelebDisplay = props => {
     e.preventDefault()
     setIcon({ icon: !icon });
   }
-
-  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-  console.log('randomCeleb', randomCeleb)
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
@@ -117,6 +117,7 @@ const CelebDisplay = props => {
 
       <div className="score-container">
         <div className="score percent">Current Score: {currentScore}</div>
+        {/* <button onClick={move()}>Test</button> */}
       </div>
     </Animated>
   );
