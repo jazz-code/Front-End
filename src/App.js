@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-=======
 // dependencies
-import React, { useState, useEffect } from 'react'
->>>>>>> 73546da60e72ef4c91b5da57cb92c2a625e12412
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,15 +8,16 @@ import {
 } from "react-router-dom";
 
 // components
-import CelebDisplay from './components/CelebDisplay'
-import Welcome from './components/Welcome'
-import Signup from './components/Signup'
-import Login from './components/Login'
-import NavBar from './components/NavBar'
+import CelebDisplay from './components/CelebDisplay';
+import Welcome from './components/Welcome';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import NavBar from './components/NavBar';
+import UnregisteredPlayerModal from './components/UnregisteredPlayerModal';
 
 // context api providers
-import { ScoreProvider } from './contexts/ScoreContext'
-import { UserProvider } from './contexts/UserContext'
+import { ScoreProvider } from './contexts/ScoreContext';
+import { UserProvider } from './contexts/UserContext';
 
 function App() {
   const [celebs, setCelebs] = useState([])
