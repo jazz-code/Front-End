@@ -1,3 +1,5 @@
+@import "utils/variables";
+
 .welcome-container {
     display: flex;
     align-content: center;
@@ -10,5 +12,14 @@
     .welcome-button {
         margin-right: 10%;
         margin-left: 10%;
+        margin-bottom: 20%;
+        @media (max-width: $phone) {
+            height: 70px;
+            font-size: 200%;
+            background-color: #056CF2;
+            &:hover {
+                background-color: #2CBF89;
+            }
+        }
     }
 }

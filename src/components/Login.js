@@ -34,7 +34,7 @@ const Login = props => {
     <div className='login-container'>
       <Card className='login-card'>
         <form className='login-form' onSubmit={submitForm}>
-          <h1>Login:</h1>
+          <h1 className = "login-title">Login:</h1>
           <label htmlFor='name' className='login-label' />
           <input
             name='username'
