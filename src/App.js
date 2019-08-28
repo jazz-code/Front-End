@@ -1,22 +1,23 @@
 // dependencies
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect
-} from 'react-router-dom'
+  Redirect,
+} from "react-router-dom";
 
 // components
-import CelebDisplay from './components/CelebDisplay'
-import Welcome from './components/Welcome'
-import Signup from './components/Signup'
-import Login from './components/Login'
-import NavBar from './components/NavBar'
+import CelebDisplay from './components/CelebDisplay';
+import Welcome from './components/Welcome';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import NavBar from './components/NavBar';
+import UnregisteredPlayerModal from './components/UnregisteredPlayerModal';
 
 // context api providers
-import { ScoreProvider } from './contexts/ScoreContext'
-import { UserProvider } from './contexts/UserContext'
+import { ScoreProvider } from './contexts/ScoreContext';
+import { UserProvider } from './contexts/UserContext';
 
 function App() {
   const [celebs, setCelebs] = useState([])
@@ -24,11 +25,11 @@ function App() {
   const [score] = useState()
   const [user, setUser] = useState({
     id: null,
-    name: '',
-    username: '',
-    password: '',
-    points: null
-  })
+    name: "",
+    username: "",
+    password: "",
+    points: null,
+  });
 
   return (
     <Router>
@@ -40,11 +41,12 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/game" component={CelebDisplay} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/modal" component={UnregisteredPlayerModal} />
           </ScoreProvider>
         </UserProvider>
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
