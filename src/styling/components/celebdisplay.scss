@@ -1,0 +1,54 @@
+.ui.card {
+    margin: 0 auto;
+}
+
+h4 {
+    text-align: right;
+}
+
+//Buttons and Icons
+
+.btn-alive {
+    margin: 10px 25px;
+}
+
+.btn-dead {
+    margin: 10px 25px;
+}
+
+.icon {
+      font-size: 2.5rem;    
+      width: 6rem;      
+      text-shadow: 0 1px #ddd;
+      cursor: pointer;
+      padding: .5em;
+      margin: .5em 0 .5em 0;
+      position:relative;
+      text-align: center;
+
+      &:hover {
+        color: #c00;
+        // .Pulse(500ms);
+      }             
+    }
+
+ //Score
+
+ .score-container {
+    width: 100%;
+    // height: 50px;
+    background-color: #ddd;
+
+    .score {
+        text-align: right;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+      }
+
+      .percent {
+        width: 5%; 
+        background-color: #4CAF50;
+      }
+  }
+

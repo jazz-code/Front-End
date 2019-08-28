@@ -1,9 +1,10 @@
 import React from 'react';
 import { Animated } from 'react-animated-css';
 
+
 const Welcome = props => {
   console.log(props);
-
+  
   return (
     <div>
       <h1>Welcome to the Celeb Dead or Alive Quiz</h1>
@@ -13,5 +14,6 @@ const Welcome = props => {
     </div>
   );
 };
+
 
 export default Welcome;
