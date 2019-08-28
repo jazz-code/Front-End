@@ -1,20 +1,39 @@
-import React from 'react'
-import {Animated} from "react-animated-css";
+import React from "react";
+import { Animated } from "react-animated-css";
+import { Button } from "semantic-ui-react";
 
 const Welcome = props => {
-console.log(props)
+  console.log(props);
 
-    return (
-        <div>
-        <button onClick onClick={() => props.history.push("/login")}>Login</button>
+  return (
+    <div className="welcome-container">
+      <div className="welcome-text">
         <h1>Welcome to the Celeb Dead or Alive Quiz</h1>
         <h2>Test your celebrity knowledge</h2>
-        <p></p>
-        <button onClick={() => props.history.push("/game")}>Play Now</button>
+      </div>
+      <p></p>
+      <Button
+        className="welcome-button"
+        onClick={() => props.history.push("/game")}
+      >
+        Play Now
+      </Button>
+    </div>
+  );
+
+
+    return (
+        <div className="welcome-container">
+          <div className="welcome-text">
+            <h1>Welcome to the Celeb Dead or Alive Quiz</h1>
+            <h2>Test your celebrity knowledge</h2>
+          </div>
+          <Button className="welcome-button" onClick={() => props.history.push('/game')}>Play Now</Button>
         </div>
         
         
     )
+
 }
 
-export default Welcome
+export default Welcome;
