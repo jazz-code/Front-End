@@ -15,7 +15,6 @@ import Login from './components/Login';
 import NavBar from './components/NavBar';
 import UnregisteredPlayerModal from './components/UnregisteredPlayerModal';
 
-
 // context api providers
 import { ScoreProvider } from './contexts/ScoreContext';
 import { UserProvider } from './contexts/UserContext';
