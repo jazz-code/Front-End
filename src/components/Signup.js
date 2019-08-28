@@ -64,9 +64,7 @@ const Signup = () => {
             onChange={changeHandler}
           />
           <br></br>
-          <Button type="submit" inverted color="blue" className="signup-button">
-            Submit
-          </Button>
+          <Button type='submit' inverted color='blue' className= 'signup-button'>Submit</Button>
         </form>
       </Card>
     </div>

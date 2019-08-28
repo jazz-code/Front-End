@@ -30,7 +30,6 @@ const Login = () => {
         console.error('Server Error', error)
       })
   }
-
   return (
     <div className="login-container">
       <Card className="login-card">
@@ -61,5 +60,6 @@ const Login = () => {
     </div>
   )
 }
+
 
 export default Login

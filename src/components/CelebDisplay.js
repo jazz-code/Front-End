@@ -120,7 +120,7 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
     </Animated>
-  )
+  );
 };
 
-export default CelebDisplay
+export default CelebDisplay;

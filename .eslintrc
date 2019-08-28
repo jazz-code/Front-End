@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5b6c26e2daeb8c74a049a00553f1cce578733949
   "extends": ["plugin:react/recommended", "plugin:prettier/recommended"],
   "plugins": ["react", "prettier", "promise"],
   "parser": "babel-eslint",

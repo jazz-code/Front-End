@@ -5,7 +5,7 @@ import {
   Route,
   Link,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 // components
 import CelebDisplay from './components/CelebDisplay';
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className='App'>
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <NavBar />
