@@ -80,5 +80,3 @@ export default function Signup(props) {
     </Card>
   );
 }
-
-export default Signup;
