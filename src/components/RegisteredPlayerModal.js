@@ -18,4 +18,4 @@ const RegisteredPlayerModal = ({ score }) => (
   </Modal>
 )
 
-export default UnRegisteredPlayerModal
+export default RegisteredPlayerModal
