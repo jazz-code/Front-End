@@ -13,6 +13,9 @@
         padding-top: 5%;
         padding-bottom: 5%;
         width: 40%;
+        @media (max-width: $phone) {
+            width: 100%;
+        }
         .login-form {
             display: flex;
             justify-content: center;

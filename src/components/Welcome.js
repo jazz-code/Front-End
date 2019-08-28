@@ -12,7 +12,6 @@ const Welcome = props => {
             <h1>Welcome to the Celeb Dead or Alive Quiz</h1>
             <h2>Test your celebrity knowledge</h2>
           </div>
-          <p></p>
           <Button className="welcome-button" onClick={() => props.history.push('/game')}>Play Now</Button>
         </div>
         
