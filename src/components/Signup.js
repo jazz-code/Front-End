@@ -44,6 +44,7 @@ const Signup = () => {
 
 
     return(
+      <div className = 'signup-container'>
         <Card className = 'signup-card'>
             <form className='signup-form'>
                 <h1>Signup:</h1>
@@ -75,6 +76,7 @@ const Signup = () => {
                 <Button type='submit' inverted color='blue' className= "signup-button">Submit</Button>
             </form>
         </Card>
+      </div>
     )
 
 }
