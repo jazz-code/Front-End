@@ -1,11 +1,27 @@
+body {
+    max-height: 20vh;
+}
+
 .ui.card {
     margin: 0 auto;
 }
 
-.card-image {
-    width: 96%;
-    height: 96%;
-    margin: 0 auto;
+
+
+.ui.card>.image:not(.ui)>img, .ui.cards>.card>.image:not(.ui)>img {
+    border: none;
+    height: 312px;
+}
+
+.ui.card>.image>img, .ui.cards>.card>.image>img {
+
+    // position: absolute;  
+    max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;    
+ 
+    margin: auto;
 }
 
 h4 {
@@ -14,12 +30,8 @@ h4 {
 
 //Buttons and Icons
 
-.btn-alive {
-    margin: 10px 25px;
-}
-
-.btn-dead {
-    margin: 10px 25px;
+.ui.labeled.icon.button, .ui.labeled.icon.buttons .button {
+    margin: 25px 25px;
 }
 
 .icon {

@@ -68,6 +68,10 @@ console.log(DOB())
       animationOut="fadeOut"
       isVisible={true}
     >
+      <div className="score-container">
+        <div className="score percent">Current Score: {currentScore}</div>
+        {/* <button onClick={move()}>Test</button> */}
+      </div>
       <Card>
         <Image
         className="card-image"
@@ -82,10 +86,7 @@ console.log(DOB())
             {randomCeleb ? <p>Born in {DOB()}</p> : null}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra></Card.Content>
-      </Card>
-
-      <Card>
+        <Card.Content>
         <Button
           className="btn-alive ui labeled icon button"
           onClick={() => {
@@ -127,12 +128,8 @@ console.log(DOB())
           <i className="pointing down icon"></i>
           Dead!
         </Button>
-      </Card>
-
-      <div className="score-container">
-        <div className="score percent">Current Score: {currentScore}</div>
-        {/* <button onClick={move()}>Test</button> */}
-      </div>
+        </Card.Content>
+      </Card>      
     </Animated>
   );
 };
