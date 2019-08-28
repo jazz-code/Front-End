@@ -12,6 +12,7 @@ import CelebDisplay from './components/CelebDisplay';
 import Welcome from './components/Welcome';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import NavBar from './components/NavBar';
 
 import { ScoreProvider } from './contexts/ScoreContext';
 import { UserProvider } from './contexts/UserContext';
@@ -39,6 +40,7 @@ function App() {
       <div className='App'>
         <UserProvider value={user}>
           <ScoreProvider value={score}>
+            <NavBar />
             <Route exact path='/' component={Welcome} />
             <Route exact path='/login' component={Login} />
             <h1>Celeb Dead Or Alive</h1>
