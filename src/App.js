@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+// dependencies
+import React, { useState, useEffect } from 'react'
+>>>>>>> 73546da60e72ef4c91b5da57cb92c2a625e12412
 import {
   BrowserRouter as Router,
   Route,
@@ -6,24 +11,21 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Celeb from "./components/Celeb";
-import CelebDisplay from "./components/CelebDisplay";
-import Welcome from "./components/Welcome";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+// components
+import CelebDisplay from './components/CelebDisplay'
+import Welcome from './components/Welcome'
+import Signup from './components/Signup'
+import Login from './components/Login'
+import NavBar from './components/NavBar'
 
-import { ScoreProvider } from "./contexts/ScoreContext";
-import { UserProvider } from "./contexts/UserContext";
-import NavBar from "./components/NavBar";
-import UnregisteredPlayerModal from './components/UnregisteredPlayerModal';
+// context api providers
+import { ScoreProvider } from './contexts/ScoreContext'
+import { UserProvider } from './contexts/UserContext'
 
 function App() {
-  const [celebs, setCelebs] = useState([]);
-
-  const [celebrity, setCelebrity] = useState({});
-
-  const [score, setScore] = useState(4);
-
+  const [celebs, setCelebs] = useState([])
+  const [celebrity, setCelebrity] = useState({})
+  const [score] = useState()
   const [user, setUser] = useState({
     id: null,
     name: "",
@@ -38,11 +40,7 @@ function App() {
         <UserProvider value={user}>
           <ScoreProvider value={score}>
             <NavBar />
-            <Route
-              exact
-              path="/"
-              render={props => <Welcome {...props} score={score} />}
-            />
+            <Route exact path={'/'} component={Welcome} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/game" component={CelebDisplay} />
             <Route exact path="/signup" component={Signup} />
