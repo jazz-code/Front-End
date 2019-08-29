@@ -13,7 +13,6 @@ export default function Signup(props) {
 
   const changeHandler = event => {
     const updatedUser = { ...user, [event.target.name]: event.target.value }
-
     setUser(updatedUser)
   }
 

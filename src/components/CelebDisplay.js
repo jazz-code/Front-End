@@ -3,19 +3,18 @@ import { Animated } from 'react-animated-css'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import axios from 'axios'
 
-import UserContext from '../contexts/UserContext'
+import UserDataContext from '../contexts/UserContext'
 
 import '../styling/components/celebdisplay.scss'
 
 import UnregisteredPlayerModal from './UnregisteredPlayerModal'
 
 const CelebDisplay = props => {
-  const { user, setUser } = useContext(UserContext)
-  console.log('celebDisplay user: ', user)
+  const { userData, setUserData } = useContext(UserDataContext)
+  console.log('celebDisplay userData: ', userData)
 
   const [celebs, setCelebs] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
-  // const [width, setWidth] = useState(0)
   const [icon, setIcon] = useState({ icon: true })
 
   useEffect(() => {
@@ -60,7 +59,7 @@ const CelebDisplay = props => {
       animationOut="fadeOut"
       isVisible={true}>
       <Card>
-        {user.message}
+        {userData.message}
         <Image
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped

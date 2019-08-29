@@ -2,10 +2,10 @@
 import React, { useState, useContext } from 'react'
 import { Card, Button } from 'semantic-ui-react'
 import axios from 'axios'
-import UserContext from '../contexts/UserContext'
+import UserDataContext from '../contexts/UserDataContext'
 
 const Login = props => {
-  const { user, setUser } = useContext(UserContext)
+  const { userData, setUserData } = useContext(UserDataContext)
 
   const [login, setLogin] = useState({
     username: '',
@@ -23,8 +23,8 @@ const Login = props => {
       .post('https://bw-celeb-dead-app.herokuapp.com/auth/login', login)
       .then(response => {
         console.log(response.data)
-        setUser({
-          id: 15,
+        setUserData({
+          id: response.data.id,
           message: response.data.message,
           name: response.data.name,
           score: response.data.points
@@ -36,7 +36,7 @@ const Login = props => {
       })
   }
 
-  console.log('user: ', user)
+  console.log('userData: ', userData)
 
   return (
     <div className="login-container">
