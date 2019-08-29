@@ -9,7 +9,7 @@ You can take the quiz without having to log in.
 You will be timed, make sure you know your celebrities before time runs out.
 Guess whether the person is alive or dead by pressing the correct button.
 If you want to continue playing after the (five) 5 sample questions, create an account to continue. 
-Already have an account? Log in to continue.
+Already have an account? You can log in to continue playing.
 
 # Framework
 We are currently using React Create App that is styled with Semantic UI.
