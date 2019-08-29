@@ -1,58 +1,42 @@
 // dependencies
-<<<<<<< HEAD
-import React, { useState, useContext } from 'react';
-import { Card, Button } from 'semantic-ui-react';
-import axios from 'axios';
-import UserContext from '../contexts/UserContext';
-=======
-import React, { useState, useContext } from 'react'
-import { Card, Button } from 'semantic-ui-react'
-import axios from 'axios'
-import UserDataContext from '../contexts/UserDataContext'
->>>>>>> e7436ce622e071433ef98315472d68e7dfa59d59
+import React, { useState, useContext } from "react";
+import { Card, Button } from "semantic-ui-react";
+import axios from "axios";
+import UserDataContext from "../contexts/UserDataContext";
 
 const Login = props => {
-  const { userData, setUserData } = useContext(UserDataContext)
+  const { userData, setUserData } = useContext(UserDataContext);
 
   const [login, setLogin] = useState({
-    username: '',
-    password: ''
-  })
+    username: "",
+    password: "",
+  });
 
   const changeHandler = event => {
-    setLogin({ ...login, [event.target.name]: event.target.value })
+    setLogin({ ...login, [event.target.name]: event.target.value });
     //...login gives us the orignal state of login whaever it last was {...$anything} (in this case {...login}) then we add whatever the value is (event.target.value) to whatever the changed feild it corresponds to (event.target.name)
-  };
+  }
 
   const submitForm = event => {
-    event.preventDefault()
+    event.preventDefault();
     axios
-      .post('https://bw-celeb-dead-app.herokuapp.com/auth/login', login)
+      .post("https://bw-celeb-dead-app.herokuapp.com/auth/login", login)
       .then(response => {
-        console.log(response.data)
-<<<<<<< HEAD
-        setUser({
-          id: 15,
-=======
+        console.log(response.data);
         setUserData({
           id: response.data.id,
->>>>>>> e7436ce622e071433ef98315472d68e7dfa59d59
           message: response.data.message,
           name: response.data.name,
-          score: response.data.points
-        })
+          score: response.data.points,
+        });
       })
-<<<<<<< HEAD
       .then(props.history.push("/game"))
-=======
-      .then(props.history.push('/game'))
->>>>>>> e7436ce622e071433ef98315472d68e7dfa59d59
       .catch(error => {
-        console.error('Server Error', error)
-      })
-  };
+        console.error("Server Error", error);
+      });
+  }
 
-  console.log('userData: ', userData)
+  console.log("userData: ", userData);
 
   return (
     <div className="login-container">
@@ -82,7 +66,7 @@ const Login = props => {
         </form>
       </Card>
     </div>
-  )
-};
+  );
+}
 
-export default Login
+export default Login;

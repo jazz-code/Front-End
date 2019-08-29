@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
-import axios from 'axios';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import '../styling/components/unregisteredplayermodal.scss';
+import React, { useState, useEffect } from "react";
+import { Button, Header, Icon, Image, Modal } from "semantic-ui-react";
+import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import "../styling/components/unregisteredplayermodal.scss";
 
 const UnRegisteredPlayerModal = props => {
-  const [score, setScore] = useState(null)
+  const [score, setScore] = useState(null);
 
   // useEffect(() => {
   //   axios
@@ -31,19 +31,19 @@ const UnRegisteredPlayerModal = props => {
   //     .catch(err => console.log(err.response))
   // };  const handleSubmit = event => {
   const handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
     axiosWithAuth()
-      .get('https://bw-celeb-dead-app.herokuapp.com/users')
+      .get("https://bw-celeb-dead-app.herokuapp.com/users/${id}")
       .then(response => {
-        console.log(response.data);
+        console.log(response.data)
         // setScore({
         //     score: response.data.points,
         // })
       })
       .catch(error => {
-        console.log('error', error.response);
-      });
-  }
+        console.log("error", error.response)
+      })
+  };
 
   return (
     <Modal
@@ -74,14 +74,14 @@ const UnRegisteredPlayerModal = props => {
         {/* <Button onClick={history.push("/game")}>Play again</Button>
       <Button onClick={history.push('/login')}>Login</Button> */}
       </Modal.Content>
-      <Button primary icon onClick={() => props.history.push('/signup')}>
+      <Button primary icon onClick={() => props.history.push("/signup")}>
         Create an Account <Icon name="right chevron" />
       </Button>
-      <Button primary icon onClick={() => props.history.push('/game')}>
+      <Button primary icon onClick={() => props.history.push("/game")}>
         Play again! <Icon name="right chevron" />
       </Button>
     </Modal>
-  );
-}
+  )
+};
 
-export default UnRegisteredPlayerModal
+export default UnRegisteredPlayerModal;
