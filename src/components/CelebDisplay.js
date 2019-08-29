@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Animated } from 'react-animated-css';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
+// import { useAlert } from "react-alert";
 
 import axios from 'axios';
 
@@ -11,7 +12,7 @@ import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
-  // const [width, setWidth] = useState(0)
+  const [newWidth, setNewWidth] = useState({width: 5})
   const [icon, setIcon] = useState({ icon: true });
 
   useEffect(() => {
@@ -60,6 +61,13 @@ const DOB = () => {
   console.log("DOB", res[0].substr(0,4))
   }
 }
+// const changeWidth = () => {
+//   setNewWidth({width: width + 15 + "%"})
+// }
+
+// if (currentScore === currentScore + 1) {
+//   changeWidth()
+// }
 // /   <i className="pointing down icon"></i>
 console.log(DOB())
   return (
@@ -69,7 +77,7 @@ console.log(DOB())
       isVisible={true}
     >
       <div className="score-container">
-        <div className="score percent">Current Score: {currentScore}</div>
+        <div className="score percent" style={{width: newWidth}}>Current Score: {currentScore}</div>
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
@@ -94,6 +102,7 @@ console.log(DOB())
               alert('Correct')
               props.history.push('/game')
               setCurrentScore(currentScore + 1)
+              let percent = document.getElementsByClassName('percent');
             } else {
               alert('Wrong')
               props.history.push('/game')
