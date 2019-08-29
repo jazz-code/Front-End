@@ -7,6 +7,8 @@ Celebrity Dead or Alive is a fun game you can play anywhere to help pass time fo
 
 Play our game [here](https://pedantic-bardeen-27d080.netlify.com/).
 
+NOTICE: (information current as of 08/27/2019, not intended to be used for anything other than entertainment and information is not guaranteed to be accurate)
+
 # Features
 You can take the quiz without having to log in.
 You will be timed, make sure you know your celebrities before time runs out.
