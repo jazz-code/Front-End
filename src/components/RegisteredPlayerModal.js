@@ -1,12 +1,15 @@
 import React from 'react'
 import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
+import { Animated } from 'react-animated-css';
 
 const RegisteredPlayerModal = ({ score }) => (
+
   <Modal
     trigger={
       <Button className="registered-player-modal-btn">See How You Did</Button>
     }
     centered={false}>
+      <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
     <Modal.Header>YOUR TOTAL SCORE IS {score}</Modal.Header>
     <Modal.Content image>
       <Image wrapped size="medium" />
@@ -22,6 +25,7 @@ const RegisteredPlayerModal = ({ score }) => (
       </Modal.Description>
     </Modal.Content>
   </Modal>
+  </Animated>
 )
 
 export default RegisteredPlayerModal

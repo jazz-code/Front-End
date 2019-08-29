@@ -1,66 +1,122 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Animated } from 'react-animated-css'
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
-import axios from 'axios'
+import React, { useState, useEffect, useContext } from 'react';
+import { Animated } from 'react-animated-css';
+import { Card, Icon, Image, Button } from 'semantic-ui-react';
+import axios from 'axios';
 
-import UserDataContext from '../contexts/UserDataContext'
+import UserDataContext from '../contexts/UserDataContext';
 
-import '../styling/components/celebdisplay.scss'
+import '../styling/components/celebdisplay.scss';
 
-import UnregisteredPlayerModal from './UnregisteredPlayerModal'
+import UnregisteredPlayerModal from './UnregisteredPlayerModal';
+
+const dataObj = {
+  id: 15,
+  username: "hoizer",
+  password: "password",
+  points: null
+}
 
 const CelebDisplay = props => {
   const { userData, setUserData } = useContext(UserDataContext)
-  console.log('celebDisplay userData: ', userData)
+  console.log('celebDisplay userData: ', userData.score)
 
   const [celebs, setCelebs] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
   const [icon, setIcon] = useState({ icon: true })
+  const [count, setCount] = useState(0);
 
+  // console.log("USER", user)
   useEffect(() => {
     axios
-      .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
+      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
       .then(res => setCelebs(res.data))
-      .catch(err => err.response)
-  }, [])
+      .catch(err => err.response);
+  }, []);
+
+  const scorePut = () => {
+    axios
+      .put(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`, {
+        score: combined
+      })
+      .then(res => console.log('RES', res))
+      .catch(err => err.response);
+  }
+  console.log("userData", userData);
+
+  let userScore = userData.score;
+  let current = currentScore;
+  let combined = userScore + current
+  let pointsCombined = {
+    score: combined
+  }
+
+  console.log("combined", combined)
+
+  //if 10 button clicks --> axios.put
+  // /users/${user.id}
+  // user.score
+  //
+  //take points into user.score [useState]
 
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
   console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
-    let i = 0
-    i = randomCeleb + i // increase random
-    i = i % celebs.length // if we've gone too high, start from `0` again
-    return celebs[i] // give us back the celeb of where we are now
+    let i = randomCeleb;
+    i = i + 1; // increase
+    i = i % celebs.length; // if we've gone too high, start from `0` again
+    return randomCeleb[i]; // give us back the celeb of where we are now
   }
 
   const handleIcon = e => {
-    e.preventDefault()
-    setIcon({ icon: !icon })
-  }
+    e.preventDefault();
+    setIcon({ icon: true })
+  };
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
-  const isDead = randomCeleb ? randomCeleb.isDead : null
+  const isDead = randomCeleb ? randomCeleb.isDead : null;
 
   // if (currentScore === 5) {
   //   props.history.push('/login')
   // }
-  if (currentScore === 5) {
+  // if (currentScore === 5) {
+  //   props.history.push("/modal");
+  // }
+
+  if (count === 5 || currentScore === 5) {
     props.history.push('/modal')
   }
-  // function addWidth() {
-  //   document.getElementByClass(".percent").style.width = '15%';
-  // }
+
+  if (count === 5 || currentScore === 5) {
+    scorePut()
+  }
+
+  // console.log('COUNT', count)
+
+  const DOB = () => {
+    if (randomCeleb) {
+      let str = randomCeleb.dob
+      let res = str.split(",");
+      return res[0].substr(0, 4)
+      // console.log("DOB",res[1].substr(1,4) + res[0]);
+    }
+  };
 
   return (
     <Animated
       animationIn="bounceInLeft"
       animationOut="fadeOut"
-      isVisible={true}>
+      isVisible={true}
+    >
+      <div className="score-container">
+        <div className="score percent">Current Score: {currentScore}</div>
+        {/* <button onClick={move()}>Test</button> */}
+      </div>
       <Card>
         {userData.message}
         <Image
+          className="card-image"
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
           ui={false}
@@ -69,59 +125,51 @@ const CelebDisplay = props => {
           <Card.Header>{randomCeleb ? randomCeleb.name : null}</Card.Header>
 
           <Card.Description>
-            {randomCeleb ? randomCeleb.dob : null}
+            {randomCeleb ? <p>Born in {DOB()}</p> : null}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra></Card.Content>
+        <Card.Content>
+          <Button.Group>
+            <Button
+              size="large"
+              color="green"
+              id="btn"
+              onClick={() => {
+                if (isDead) {
+                  props.history.push('/game')
+                  setCurrentScore(currentScore + 1);
+                  setCount(count + 1)
+                } else {
+                  props.history.push('/game')
+                  setCount(count + 1)
+                }
+              }}
+            >
+              <i className="thumbs down icon"></i>Dead
+            </Button>
+            <Button.Or />
+            <Button
+              size="large"
+              color="pink"
+              id="btn"
+              onClick={() => {
+                if (!isDead) {
+                  setCurrentScore(currentScore + 1);
+                  props.history.push("/game");
+                  setCount(count + 1)
+                } else {
+                  props.history.push("/game");
+                  setCount(count + 1)
+                }
+              }}
+            >
+              <i className="thumbs up icon"></i>Alive
+            </Button>
+          </Button.Group>
+        </Card.Content>
       </Card>
-
-      <Card>
-        <Button
-          className="btn-alive ui labeled icon button"
-          onClick={() => {
-            if (!isDead) {
-              alert('Correct')
-              setCurrentScore(currentScore + 1)
-
-              return (
-                <Animated
-                  animationIn="fadeIn"
-                  animationOut="fadeOut"
-                  isVisible={true}>
-                  {props.history.push('/game')}
-                </Animated>
-              )
-            } else {
-              alert('Wrong')
-              props.history.push('/game')
-            }
-          }}>
-          <i className="pointing up icon"></i>
-          Alive!
-        </Button>
-        <Button
-          className="btn-dead ui labeled icon button"
-          onClick={() => {
-            if (isDead) {
-              alert('Correct')
-              props.history.push('/game')
-              setCurrentScore(currentScore + 1)
-            } else {
-              alert('Wrong')
-              props.history.push('/game')
-            }
-          }}>
-          <i className="pointing down icon"></i>
-          Dead!
-        </Button>
-      </Card>
-
-      <div className="score-container">
-        <div className="score percent">Current Score: {currentScore}</div>
-        {/* <button onClick={move()}>Test</button> */}
-      </div>
     </Animated>
   )
-}
+};
 
 export default CelebDisplay

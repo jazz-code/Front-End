@@ -8413,11 +8413,6 @@ react-alert-template-basic@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-alert-template-basic/-/react-alert-template-basic-1.0.0.tgz#89bcf35095faf5ebdd25e1e7c300e6b4234b5ba1"
   integrity sha512-6x5Us0oc+jj8BDNkvSWfQMESk5SdyGKitXdLb7CwIlIlecyATjCTKSWpLABg8tpKAPOSJu4Dv/fYUqxXEio/XA==
 
-react-alert@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/react-alert/-/react-alert-5.5.0.tgz#9154d67e31f72ad439c7147c9bb991f4696e0810"
-  integrity sha512-PzB6ktBmtNZkmgZVdPp/Wbe/zjIBzqBu9QHLTrfquUVVPCVVfn3lPWOebejEg6VOxGepIPOSAsb1bd3ESMyC0Q==
-
 react-animated-css@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/react-animated-css/-/react-animated-css-1.2.1.tgz#6289bec9d560254791a7f5c4fa0f99e01ef0a3a2"
