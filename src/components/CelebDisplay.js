@@ -3,6 +3,8 @@ import { Animated } from 'react-animated-css';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import axios from 'axios';
 
+import Timer from "./Timer";
+
 import '../styling/components/celebdisplay.scss';
 
 import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
@@ -12,7 +14,7 @@ const CelebDisplay = props => {
   const [currentScore, setCurrentScore] = useState(0)
   // const [width, setWidth] = useState(0)
   const [icon, setIcon] = useState({ icon: true });
-  const [time, setTime] = useState(3);
+  // const [time, setTime] = useState(3);
 
   useEffect(() => {
     axios
@@ -50,11 +52,11 @@ const CelebDisplay = props => {
   //   document.getElementByClass(".percent").style.width = '15%';
   // }
 
-    useEffect(() => {
-      setInterval(() => {
-        setTime((newTime) => newTime-1)
-      }, 1000)
-    }, [])
+    // useEffect(() => {
+    //   setInterval(() => {
+    //     setTime((newTime) => newTime-1)
+    //   }, 1000)
+    // }, [])
 
   return (
     <Animated
@@ -63,7 +65,8 @@ const CelebDisplay = props => {
       isVisible={true}
     >
       <Card>
-        <div className="timer">{time}</div>
+        {/* <div className="timer">{time}</div> */}
+        <Timer />
         <Image
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
