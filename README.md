@@ -12,7 +12,7 @@ If you want to continue playing after the (five) 5 sample questions, create an a
 Already have an account? Log in to continue.
 
 # Framework
-We are currently using React that is styled with Semantic UI.
+We are currently using React Create App that is styled with Semantic UI.
 
 # Target Audience
 Our target audience anyone at any age who knows their celebrities. 
