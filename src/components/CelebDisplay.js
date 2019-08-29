@@ -1,30 +1,30 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Animated } from 'react-animated-css';
-import { Card, Icon, Image, Button } from 'semantic-ui-react';
+import React, { useState, useEffect, useContext } from "react";
+import { Animated } from "react-animated-css";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
 // import { useAlert } from "react-alert";
-import UserContext from "../contexts/UserContext";
+import ScoreContext from '../contexts/ScoreContext';
 
-import axios from 'axios';
+import axios from "axios";
 
-import '../styling/components/celebdisplay.scss';
+import "../styling/components/celebdisplay.scss";
 
-import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
+import UnregisteredPlayerModal from './UnregisteredPlayerModal';
 
 const CelebDisplay = props => {
-  const { user } = useContext(UserContext)
-  const [celebs, setCelebs] = useState([])
-  const [currentScore, setCurrentScore] = useState(0)
-  const [newWidth, setNewWidth] = useState({ width: 5 })
-  const [icon, setIcon] = useState({ icon: false });
-  const [count, setCount] = useState(0);
+  // const { currentScore, setCurrentScore } = useContext(ScoreContext)
+  const [celebs, setCelebs] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [newWidth, setNewWidth] = useState({ width: 5 });
+  const [icon, setIcon] = useState({ icon: false })
+  const [count, setCount] = useState(0)
 
-  console.log("USER", user)
+  // console.log("USER", user)
   useEffect(() => {
     axios
-      .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
+      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
       .then(res => setCelebs(res.data))
-      .catch(err => err.response)
-  }, [])
+      .catch(err => err.response);
+  }, []);
 
   //if 10 button clicks --> axios.put
   // /users/${user.id}
@@ -32,24 +32,24 @@ const CelebDisplay = props => {
   //
   //take points into user.score [useState]
 
-  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)];
-  console.log("randomCeleb", randomCeleb);
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
+  console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
-    let i = randomCeleb
-    i = i + 1 // increase
-    i = i % celebs.length // if we've gone too high, start from `0` again
-    return randomCeleb[i] // give us back the celeb of where we are now
-  };
+    let i = randomCeleb;
+    i = i + 1; // increase
+    i = i % celebs.length; // if we've gone too high, start from `0` again
+    return randomCeleb[i]; // give us back the celeb of where we are now
+  }
 
   const handleIcon = e => {
-    e.preventDefault()
-    setIcon({ icon: true });
-  }
+    e.preventDefault();
+    setIcon({ icon: true })
+  };
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
-  const isDead = randomCeleb ? randomCeleb.isDead : null
+  const isDead = randomCeleb ? randomCeleb.isDead : null;
 
   // if (currentScore === 5) {
   //   props.history.push('/login')
@@ -59,19 +59,19 @@ const CelebDisplay = props => {
   // }
 
   if (count === 5 || currentScore === 5) {
-    props.history.push("/modal");
+    props.history.push('/modal')
   }
 
-  console.log("COUNT", count);
+  console.log('COUNT', count)
 
   const DOB = () => {
     if (randomCeleb) {
-      let str = randomCeleb.dob;
-      let res = str.split(',')
-      return res[0].substr(0, 4);
+      let str = randomCeleb.dob
+      let res = str.split(",");
+      return res[0].substr(0, 4)
       // console.log("DOB",res[1].substr(1,4) + res[0]);
     }
-  }
+  };
 
   return (
     <Animated
@@ -107,12 +107,12 @@ const CelebDisplay = props => {
               id="btn"
               onClick={() => {
                 if (isDead) {
-                  props.history.push("/game");
-                  setCurrentScore(currentScore + 1)
-                  setCount(count + 1);
+                  props.history.push('/game')
+                  setCurrentScore(currentScore + 1);
+                  setCount(count + 1)
                 } else {
-                  props.history.push("/game");
-                  setCount(count + 1);
+                  props.history.push('/game')
+                  setCount(count + 1)
                 }
               }}
             >
@@ -125,12 +125,12 @@ const CelebDisplay = props => {
               id="btn"
               onClick={() => {
                 if (!isDead) {
-                  setCurrentScore(currentScore + 1)
-                  props.history.push('/game')
-                  setCount(count + 1);
+                  setCurrentScore(currentScore + 1);
+                  props.history.push("/game");
+                  setCount(count + 1)
                 } else {
-                  props.history.push('/game')
-                  setCount(count + 1);
+                  props.history.push("/game");
+                  setCount(count + 1)
                 }
               }}
             >
@@ -140,7 +140,7 @@ const CelebDisplay = props => {
         </Card.Content>
       </Card>
     </Animated>
-  );
-}
+  )
+};
 
-export default CelebDisplay;
+export default CelebDisplay
