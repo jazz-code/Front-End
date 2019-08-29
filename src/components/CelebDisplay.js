@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Animated } from 'react-animated-css';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 // import { useAlert } from "react-alert";
+import UserContext from "../contexts/UserContext";
 
 import axios from 'axios';
 
@@ -10,24 +11,33 @@ import '../styling/components/celebdisplay.scss';
 import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 
 const CelebDisplay = props => {
+  const { user } = useContext(UserContext)
   const [celebs, setCelebs] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
-  const [newWidth, setNewWidth] = useState({width: 5})
+  const [newWidth, setNewWidth] = useState({ width: 5 })
   const [icon, setIcon] = useState({ icon: false });
+  const [count, setCount] = useState(0);
 
+  console.log("USER", user)
   useEffect(() => {
     axios
       .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
       .then(res => setCelebs(res.data))
       .catch(err => err.response)
   }, [])
-  
-    const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-    console.log('randomCeleb', randomCeleb)
+
+  //if 10 button clicks --> axios.put
+  // /users/${user.id}
+  // user.score
+  //
+  //take points into user.score [useState]
+
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)];
+  console.log("randomCeleb", randomCeleb);
 
   const nextCeleb = () => {
     let i = randomCeleb
-    i = i + 1// increase 
+    i = i + 1 // increase
     i = i % celebs.length // if we've gone too high, start from `0` again
     return randomCeleb[i] // give us back the celeb of where we are now
   };
@@ -44,32 +54,25 @@ const CelebDisplay = props => {
   // if (currentScore === 5) {
   //   props.history.push('/login')
   // }
-  if (currentScore === 5) {
-    props.history.push('/modal')
-  }
-  // function addWidth() {
-  //   document.getElementByClass(".percent").style.width = '15%';
+  // if (currentScore === 5) {
+  //   props.history.push("/modal");
   // }
 
-const DOB = () => {
-  if (randomCeleb ) {
-    // console.log(re)
-    let str = randomCeleb.dob
-    let res = str.split(",");
-    return res[0].substr(0,4)
-  // console.log("DOB",res[1].substr(1,4) + res[0]); 
-  console.log("DOB", res[0].substr(0,4))
+  if (count === 5 || currentScore === 5) {
+    props.history.push("/modal");
   }
-}
-// const changeWidth = () => {
-//   setNewWidth({width: width + 15 + "%"})
-// }
 
-// if (currentScore === currentScore + 1) {
-//   changeWidth()
-// }
-// /   <i className="pointing down icon"></i>
-console.log(DOB())
+  console.log("COUNT", count);
+
+  const DOB = () => {
+    if (randomCeleb) {
+      let str = randomCeleb.dob;
+      let res = str.split(',')
+      return res[0].substr(0, 4);
+      // console.log("DOB",res[1].substr(1,4) + res[0]);
+    }
+  }
+
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -77,12 +80,14 @@ console.log(DOB())
       isVisible={true}
     >
       <div className="score-container">
-        <div className="score percent" style={{width: newWidth}}>Current Score: {currentScore}</div>
+        <div className="score percent" style={{ width: newWidth }}>
+          Current Score: {currentScore}
+        </div>
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
         <Image
-        className="card-image"
+          className="card-image"
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
           ui={false}
@@ -95,39 +100,47 @@ console.log(DOB())
           </Card.Description>
         </Card.Content>
         <Card.Content>
-        <Button.Group>
-        <Button size='large' color='green'
-          onClick={() => {
-            if (isDead) {
-              props.history.push('/game')
-              setCurrentScore(currentScore + 1)
-              
-            } else {
-              props.history.push('/game')
-            }
-          }}
-          
-        ><i className="thumbs down icon"></i>Dead</Button>
-    <Button.Or/>
-    <Button size='large' color='pink'
-   
-    onClick={() => {
-      if (!isDead) {
-        setCurrentScore(currentScore + 1)
-         {props.history.push('/game')}
-      } else {
-        props.history.push('/game')
-      }
-    }}
-  ><i className="thumbs up icon"></i>Alive</Button>
-  </Button.Group>
+          <Button.Group>
+            <Button
+              size="large"
+              color="green"
+              id="btn"
+              onClick={() => {
+                if (isDead) {
+                  props.history.push("/game");
+                  setCurrentScore(currentScore + 1)
+                  setCount(count + 1);
+                } else {
+                  props.history.push("/game");
+                  setCount(count + 1);
+                }
+              }}
+            >
+              <i className="thumbs down icon"></i>Dead
+            </Button>
+            <Button.Or />
+            <Button
+              size="large"
+              color="pink"
+              id="btn"
+              onClick={() => {
+                if (!isDead) {
+                  setCurrentScore(currentScore + 1)
+                  props.history.push('/game')
+                  setCount(count + 1);
+                } else {
+                  props.history.push('/game')
+                  setCount(count + 1);
+                }
+              }}
+            >
+              <i className="thumbs up icon"></i>Alive
+            </Button>
+          </Button.Group>
         </Card.Content>
-      </Card>      
-   
-
- </Animated>
-
+      </Card>
+    </Animated>
   );
-};
+}
 
 export default CelebDisplay;

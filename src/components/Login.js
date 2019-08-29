@@ -1,8 +1,8 @@
 // dependencies
-import React, { useState, useContext } from 'react'
-import { Card, Button } from 'semantic-ui-react'
-import axios from 'axios'
-import UserContext from '../contexts/UserContext'
+import React, { useState, useContext } from 'react';
+import { Card, Button } from 'semantic-ui-react';
+import axios from 'axios';
+import UserContext from '../contexts/UserContext';
 
 const Login = props => {
   const { user, setUser } = useContext(UserContext)
@@ -15,7 +15,7 @@ const Login = props => {
   const changeHandler = event => {
     setLogin({ ...login, [event.target.name]: event.target.value })
     //...login gives us the orignal state of login whaever it last was {...$anything} (in this case {...login}) then we add whatever the value is (event.target.value) to whatever the changed feild it corresponds to (event.target.name)
-  }
+  };
 
   const submitForm = event => {
     event.preventDefault()
@@ -25,15 +25,16 @@ const Login = props => {
         console.log(response.data)
         setUser({
           id: 15,
+          message: response.data.message,
           name: response.data.name,
           score: response.data.points
         })
       })
-      // .then(props.history.push('/game'))
+      .then(props.history.push("/game"))
       .catch(error => {
         console.error('Server Error', error)
       })
-  }
+  };
 
   console.log('user: ', user)
 
@@ -66,6 +67,6 @@ const Login = props => {
       </Card>
     </div>
   )
-}
+};
 
 export default Login
