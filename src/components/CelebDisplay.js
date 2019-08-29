@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Animated } from 'react-animated-css';
-import { Card, Icon, Image, Button } from 'semantic-ui-react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from 'react'
+import { Animated } from 'react-animated-css'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import axios from 'axios'
 
-import '../styling/components/celebdisplay.scss';
+import UserContext from '../contexts/UserContext'
 
-import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
+import '../styling/components/celebdisplay.scss'
+
+import UnregisteredPlayerModal from './UnregisteredPlayerModal'
 
 const CelebDisplay = props => {
+  const { user, setUser } = useContext(UserContext)
+  console.log('celebDisplay user: ', user)
+
   const [celebs, setCelebs] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
   // const [width, setWidth] = useState(0)
-  const [icon, setIcon] = useState({ icon: true });
+  const [icon, setIcon] = useState({ icon: true })
 
   useEffect(() => {
     axios
@@ -19,20 +24,20 @@ const CelebDisplay = props => {
       .then(res => setCelebs(res.data))
       .catch(err => err.response)
   }, [])
-  
-    const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-    console.log('randomCeleb', randomCeleb)
+
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
+  console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
     let i = 0
     i = randomCeleb + i // increase random
     i = i % celebs.length // if we've gone too high, start from `0` again
     return celebs[i] // give us back the celeb of where we are now
-  };
+  }
 
   const handleIcon = e => {
     e.preventDefault()
-    setIcon({ icon: !icon });
+    setIcon({ icon: !icon })
   }
 
   // if (randomCeleb) console.log(randomCeleb.name);
@@ -53,9 +58,9 @@ const CelebDisplay = props => {
     <Animated
       animationIn="bounceInLeft"
       animationOut="fadeOut"
-      isVisible={true}
-    >
+      isVisible={true}>
       <Card>
+        {user.message}
         <Image
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
@@ -83,8 +88,7 @@ const CelebDisplay = props => {
                 <Animated
                   animationIn="fadeIn"
                   animationOut="fadeOut"
-                  isVisible={true}
-                >
+                  isVisible={true}>
                   {props.history.push('/game')}
                 </Animated>
               )
@@ -92,8 +96,7 @@ const CelebDisplay = props => {
               alert('Wrong')
               props.history.push('/game')
             }
-          }}
-        >
+          }}>
           <i className="pointing up icon"></i>
           Alive!
         </Button>
@@ -108,8 +111,7 @@ const CelebDisplay = props => {
               alert('Wrong')
               props.history.push('/game')
             }
-          }}
-        >
+          }}>
           <i className="pointing down icon"></i>
           Dead!
         </Button>
@@ -120,7 +122,7 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
     </Animated>
-  );
-};
+  )
+}
 
-export default CelebDisplay;
+export default CelebDisplay

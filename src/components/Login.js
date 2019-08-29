@@ -25,11 +25,12 @@ const Login = props => {
         console.log(response.data)
         setUser({
           id: 15,
+          message: response.data.message,
           name: response.data.name,
           score: response.data.points
         })
       })
-      // .then(props.history.push('/game'))
+      .then(props.history.push('/game'))
       .catch(error => {
         console.error('Server Error', error)
       })
