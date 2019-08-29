@@ -1,56 +1,50 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Animated } from 'react-animated-css';
-import { Card, Icon, Image, Button } from 'semantic-ui-react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from "react";
+import { Animated } from "react-animated-css";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
+import axios from "axios";
 
-import UserDataContext from '../contexts/UserDataContext';
+import UserDataContext from "../contexts/UserDataContext";
 
-import '../styling/components/celebdisplay.scss';
-
-import UnregisteredPlayerModal from './UnregisteredPlayerModal';
-
-const dataObj = {
-  id: 15,
-  username: "hoizer",
-  password: "password",
-  points: null
-}
+import "../styling/components/celebdisplay.scss";
 
 const CelebDisplay = props => {
-  const { userData, setUserData } = useContext(UserDataContext)
-  console.log('celebDisplay userData: ', userData.score)
+  const { userData, setUserData } = useContext(UserDataContext);
+  console.log("celebDisplay userData: ", userData.score);
 
-  const [celebs, setCelebs] = useState([])
-  const [currentScore, setCurrentScore] = useState(0)
-  const [icon, setIcon] = useState({ icon: true })
-  const [count, setCount] = useState(0);
+  const [celebs, setCelebs] = useState([]);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [icon, setIcon] = useState({ icon: true });
+  const [count, setCount] = useState(0)
 
   // console.log("USER", user)
   useEffect(() => {
     axios
-      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
+      .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
       .then(res => setCelebs(res.data))
-      .catch(err => err.response);
-  }, []);
+      .catch(err => err.response)
+  }, [])
 
-  const scorePut = () => {
-    axios
-      .put(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`, {
-        score: combined
-      })
-      .then(res => console.log('RES', res))
-      .catch(err => err.response);
-  }
-  console.log("userData", userData);
+  // const scorePut = () => {
+  //   axios
+  //     .put(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`, {
+  //       score: combined,
+  //     })
+  //     .then(res => console.log("RES", res))
+  //     .catch(err => err.response)
+  // };
+  // console.log('userData', userData)
 
-  let userScore = userData.score;
-  let current = currentScore;
-  let combined = userScore + current
+  // if (count === 5 || currentScore === 5) {
+  //   scorePut()
+  // }
+  let userScore = userData.score
+  let current = currentScore
+  let combined = userScore + current;
   let pointsCombined = {
-    score: combined
-  }
+    score: combined,
+  };
 
-  console.log("combined", combined)
+  console.log('combined', combined);
 
   //if 10 button clicks --> axios.put
   // /users/${user.id}
@@ -58,24 +52,24 @@ const CelebDisplay = props => {
   //
   //take points into user.score [useState]
 
-  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-  console.log('randomCeleb', randomCeleb)
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)];
+  console.log("randomCeleb", randomCeleb);
 
   const nextCeleb = () => {
-    let i = randomCeleb;
-    i = i + 1; // increase
-    i = i % celebs.length; // if we've gone too high, start from `0` again
-    return randomCeleb[i]; // give us back the celeb of where we are now
-  }
+    let i = randomCeleb
+    i = i + 1 // increase
+    i = i % celebs.length // if we've gone too high, start from `0` again
+    return randomCeleb[i] // give us back the celeb of where we are now
+  };
 
   const handleIcon = e => {
-    e.preventDefault();
-    setIcon({ icon: true })
-  };
+    e.preventDefault()
+    setIcon({ icon: true });
+  }
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
-  const isDead = randomCeleb ? randomCeleb.isDead : null;
+  const isDead = randomCeleb ? randomCeleb.isDead : null
 
   // if (currentScore === 5) {
   //   props.history.push('/login')
@@ -85,23 +79,19 @@ const CelebDisplay = props => {
   // }
 
   if (count === 5 || currentScore === 5) {
-    props.history.push('/modal')
-  }
-
-  if (count === 5 || currentScore === 5) {
-    scorePut()
+    props.history.push("/modal");
   }
 
   // console.log('COUNT', count)
 
   const DOB = () => {
     if (randomCeleb) {
-      let str = randomCeleb.dob
-      let res = str.split(",");
-      return res[0].substr(0, 4)
+      let str = randomCeleb.dob;
+      let res = str.split(',')
+      return res[0].substr(0, 4);
       // console.log("DOB",res[1].substr(1,4) + res[0]);
     }
-  };
+  }
 
   return (
     <Animated
@@ -136,12 +126,12 @@ const CelebDisplay = props => {
               id="btn"
               onClick={() => {
                 if (isDead) {
-                  props.history.push('/game')
-                  setCurrentScore(currentScore + 1);
-                  setCount(count + 1)
+                  props.history.push("/game");
+                  setCurrentScore(currentScore + 1)
+                  setCount(count + 1);
                 } else {
-                  props.history.push('/game')
-                  setCount(count + 1)
+                  props.history.push("/game");
+                  setCount(count + 1);
                 }
               }}
             >
@@ -154,12 +144,12 @@ const CelebDisplay = props => {
               id="btn"
               onClick={() => {
                 if (!isDead) {
-                  setCurrentScore(currentScore + 1);
-                  props.history.push("/game");
-                  setCount(count + 1)
+                  setCurrentScore(currentScore + 1)
+                  props.history.push('/game')
+                  setCount(count + 1);
                 } else {
-                  props.history.push("/game");
-                  setCount(count + 1)
+                  props.history.push('/game')
+                  setCount(count + 1);
                 }
               }}
             >
@@ -169,7 +159,7 @@ const CelebDisplay = props => {
         </Card.Content>
       </Card>
     </Animated>
-  )
-};
+  );
+}
 
-export default CelebDisplay
+export default CelebDisplay;

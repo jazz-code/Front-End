@@ -1,63 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Button, Header, Icon, Image, Modal } from "semantic-ui-react";
+import UserDataContext from '../contexts/UserDataContext';
+
 import axios from "axios";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+
 import "../styling/components/unregisteredplayermodal.scss";
-
 const UnRegisteredPlayerModal = props => {
-  const [score, setScore] = useState(null);
+  const { userData, setUserData } = useContext(UserDataContext)
+  console.log("userData", userData)
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://bw-celeb-dead-app.herokuapp.com/users/${id}`, {
-  //       params: {
-  //         id: todoId
-  //       }
-  //     }))
-  //     .then(res => console.log("RESPONSE", res.data))
-  //     .catch(err => console.log(err.response));
-  // }, [])
-
-  // useEffect(() => {
-  //   fetchId(props.match.params.id);
-  // }, [props.match.params.id])
-
-  // const handleScore = event => {
-  //   axios
-  //     .put(`https://bw-celeb-dead-app.herokuapp.com/users/${id}`, score)
-  //     .then(res => {
-  //       console.log(res)
-  //     })
-  //     .catch(err => console.log(err.response))
-  // };  const handleSubmit = event => {
-  const handleSubmit = event => {
-    event.preventDefault()
-    axiosWithAuth()
-      .get("https://bw-celeb-dead-app.herokuapp.com/users/${id}")
-      .then(response => {
-        console.log(response.data)
-        // setScore({
-        //     score: response.data.points,
-        // })
-      })
-      .catch(error => {
-        console.log("error", error.response)
-      })
-  };
+  axios
+    .get(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`)
+    .then(response => setUserData(userData.response))
+    .catch(error => error.response)
 
   return (
     <Modal
       trigger={
-        <Button
-          onClick={handleSubmit}
-          className="unregistered-player-modal-btn"
-        >
+        <Button className="unregistered-player-modal-btn">
           See How You Did
         </Button>
       }
       centered={false}
     >
-      <Modal.Header>YOUR TOTAL SCORE IS id.score</Modal.Header>
+      <Modal.Header>YOUR TOTAL SCORE IS {userData.score}</Modal.Header>
       <Modal.Content image>
         <Image wrapped size="medium" />
         <Modal.Description>
