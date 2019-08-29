@@ -13,7 +13,7 @@ const CelebDisplay = props => {
   const [celebs, setCelebs] = useState([])
   const [currentScore, setCurrentScore] = useState(0)
   const [newWidth, setNewWidth] = useState({width: 5})
-  const [icon, setIcon] = useState({ icon: true });
+  const [icon, setIcon] = useState({ icon: false });
 
   useEffect(() => {
     axios
@@ -26,15 +26,15 @@ const CelebDisplay = props => {
     console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
-    let i = 0
-    i = randomCeleb + i // increase random
+    let i = randomCeleb
+    i = i + 1// increase 
     i = i % celebs.length // if we've gone too high, start from `0` again
-    return celebs[i] // give us back the celeb of where we are now
+    return randomCeleb[i] // give us back the celeb of where we are now
   };
 
   const handleIcon = e => {
     e.preventDefault()
-    setIcon({ icon: !icon });
+    setIcon({ icon: true });
   }
 
   // if (randomCeleb) console.log(randomCeleb.name);
@@ -99,30 +99,27 @@ console.log(DOB())
         <Button size='large' color='green'
           onClick={() => {
             if (isDead) {
-              alert('Correct')
               props.history.push('/game')
               setCurrentScore(currentScore + 1)
-              let percent = document.getElementsByClassName('percent');
+              
             } else {
-              alert('Wrong')
               props.history.push('/game')
             }
           }}
-        >Dead</Button>
-    <Button.Or />
+          
+        ><i className="thumbs down icon"></i>Dead</Button>
+    <Button.Or/>
     <Button size='large' color='pink'
    
     onClick={() => {
       if (!isDead) {
-        alert('Correct')
         setCurrentScore(currentScore + 1)
          {props.history.push('/game')}
       } else {
-        alert('Wrong')
         props.history.push('/game')
       }
     }}
-  >Alive!</Button>
+  ><i className="thumbs up icon"></i>Alive</Button>
   </Button.Group>
         </Card.Content>
       </Card>      
