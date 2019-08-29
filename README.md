@@ -3,7 +3,7 @@
 React front end of Celebrity Dead or Alive app
 
 # What is Celebrity Dead or Alive?
-Celebrity Dead or Alive is a fun game you can play anywhere to help pass time for free. The goal of our game is to see if you know who is actually dead or alive. 
+Celebrity Dead or Alive is a fun game you can play anywhere to help pass time for free. The goal of our game is to see if you know who is actually dead or alive. We have over 90 different celebrities from all fields of work from musicians, to Hollywood to broadcast and athletes alike.
 
 Play our game [here](https://pedantic-bardeen-27d080.netlify.com/).
 
