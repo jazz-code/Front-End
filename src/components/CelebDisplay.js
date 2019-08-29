@@ -60,7 +60,7 @@ const DOB = () => {
   console.log("DOB", res[0].substr(0,4))
   }
 }
-
+// /   <i className="pointing down icon"></i>
 console.log(DOB())
   return (
     <Animated
@@ -87,33 +87,8 @@ console.log(DOB())
           </Card.Description>
         </Card.Content>
         <Card.Content>
-        <Button
-          className="btn-alive ui labeled icon button"
-          onClick={() => {
-            if (!isDead) {
-              alert('Correct')
-              setCurrentScore(currentScore + 1)
-
-              return (
-                <Animated
-                  animationIn="fadeIn"
-                  animationOut="fadeOut"
-                  isVisible={true}
-                >
-                  {props.history.push('/game')}
-                </Animated>
-              )
-            } else {
-              alert('Wrong')
-              props.history.push('/game')
-            }
-          }}
-        >
-          <i className="pointing up icon"></i>
-          Alive!
-        </Button>
-        <Button
-          className="btn-dead ui labeled icon button"
+        <Button.Group>
+        <Button size='large' color='green'
           onClick={() => {
             if (isDead) {
               alert('Correct')
@@ -124,13 +99,28 @@ console.log(DOB())
               props.history.push('/game')
             }
           }}
-        >
-          <i className="pointing down icon"></i>
-          Dead!
-        </Button>
+        >Dead</Button>
+    <Button.Or />
+    <Button size='large' color='pink'
+   
+    onClick={() => {
+      if (!isDead) {
+        alert('Correct')
+        setCurrentScore(currentScore + 1)
+         {props.history.push('/game')}
+      } else {
+        alert('Wrong')
+        props.history.push('/game')
+      }
+    }}
+  >Alive!</Button>
+  </Button.Group>
         </Card.Content>
       </Card>      
-    </Animated>
+   
+
+ </Animated>
+
   );
 };
 

@@ -10,7 +10,7 @@ body {
 
 .ui.card>.image:not(.ui)>img, .ui.cards>.card>.image:not(.ui)>img {
     border: none;
-    height: 312px;
+    height: 375px;
 }
 
 .ui.card>.image>img, .ui.cards>.card>.image>img {
@@ -30,8 +30,8 @@ h4 {
 
 //Buttons and Icons
 
-.ui.labeled.icon.button, .ui.labeled.icon.buttons .button {
-    margin: 25px 25px;
+.ui.buttons {
+    margin: 3px 16%;
 }
 
 .icon {

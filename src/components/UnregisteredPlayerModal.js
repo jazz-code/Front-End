@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Header, Icon, Image, Modal } from "semantic-ui-react";
+import "../styling/components/unregisteredplayermodal.scss"
 
 const UnRegisteredPlayerModal = ({ score, history }) => (
   <Modal
