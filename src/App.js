@@ -20,12 +20,8 @@ import { ScoreProvider } from './contexts/ScoreContext'
 import { UserProvider } from './contexts/UserContext'
 
 function App() {
-  const [user, setUser] = useState({
-    id: 1,
-    name: 'steve',
-    password: 'jobs'
-  })
-  console.log('App default user: ', user)
+  const [user, setUser] = useState({})
+
   const [celebs, setCelebs] = useState([])
   const [celebrity, setCelebrity] = useState({})
   const [score] = useState()

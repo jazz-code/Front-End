@@ -6,7 +6,6 @@ import UserContext from '../contexts/UserContext'
 
 const Login = props => {
   const { user, setUser } = useContext(UserContext)
-  console.log('Context user Login: ', user)
 
   const [login, setLogin] = useState({
     username: '',
@@ -20,20 +19,24 @@ const Login = props => {
 
   const submitForm = event => {
     event.preventDefault()
-    console.log(`username: ${login.username}`, `password: ${login.password}`)
     axios
-      .post('https://bw-celeb-dead-app.herokuapp.com/auth/login', {
-        username: `${login.username}`,
-        password: `${login.password}`
-      })
+      .post('https://bw-celeb-dead-app.herokuapp.com/auth/login', login)
       .then(response => {
         console.log(response.data)
-        return props.history.push('/game')
+        setUser({
+          id: 15,
+          name: response.data.name,
+          score: response.data.points
+        })
       })
+      // .then(props.history.push('/game'))
       .catch(error => {
         console.error('Server Error', error)
       })
   }
+
+  console.log('user: ', user)
+
   return (
     <div className="login-container">
       <Card className="login-card">
