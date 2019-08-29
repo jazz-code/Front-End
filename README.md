@@ -1,6 +1,6 @@
 # Front-End
 React front end of Celebrity Dead or Alive app
-logo.jpg
+![What is this](logo.png)
 
 # What is Celebrity Dead or Alive?
 Celebrity Dead or Alive is a fun game you can play anywhere to help pass time for free.
