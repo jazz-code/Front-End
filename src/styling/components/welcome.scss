@@ -13,13 +13,44 @@
         margin-right: 10%;
         margin-left: 10%;
         margin-bottom: 20%;
+        margin-top: 10%;
         @media (max-width: $phone) {
             height: 70px;
             font-size: 200%;
-            background-color: #056CF2;
-            &:hover {
-                background-color: #2CBF89;
-            }
         }
     }
+    .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+      } 
+
+      @-webkit-keyframes colorchange 
+    {
+      0%   {background: red;}
+      25%  {background: yellow;}
+      50%  {background: blue;}
+      75%  {background: green;}
+      100% {background: red;}
+    }
+
+      
+    @keyframes colorchange
+    {
+    0%   {background: red;}
+    25%  {background: yellow;}
+    50%  {background: blue;}
+    75%  {background: green;}
+    100% {background: red;}
+    }
+      
+      .colorchange { 
+        animation: colorchange 7s linear infinite;
+      }
+    
 }
