@@ -12,6 +12,7 @@ const CelebDisplay = props => {
   const [currentScore, setCurrentScore] = useState(0)
   // const [width, setWidth] = useState(0)
   const [icon, setIcon] = useState({ icon: true });
+  const [time, setTime] = useState(3);
 
   useEffect(() => {
     axios
@@ -49,6 +50,12 @@ const CelebDisplay = props => {
   //   document.getElementByClass(".percent").style.width = '15%';
   // }
 
+    useEffect(() => {
+      setInterval(() => {
+        setTime((newTime) => newTime-1)
+      }, 1000)
+    }, [])
+
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -56,6 +63,7 @@ const CelebDisplay = props => {
       isVisible={true}
     >
       <Card>
+        <div className="timer">{time}</div>
         <Image
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
