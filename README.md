@@ -1,6 +1,6 @@
+![Image of CDOA](https://res.cloudinary.com/studio-mogwai/image/upload/v1567102017/cdoa_logo.png)
 # Front-End
 React front end of Celebrity Dead or Alive app
-![Image of CDOA](https://res.cloudinary.com/studio-mogwai/image/upload/v1567102017/cdoa_logo.png)
 
 # What is Celebrity Dead or Alive?
 Celebrity Dead or Alive is a fun game you can play anywhere to help pass time for free.
