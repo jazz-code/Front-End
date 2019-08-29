@@ -22,15 +22,15 @@ const Login = props => {
     axios
       .post('https://bw-celeb-dead-app.herokuapp.com/auth/login', login)
       .then(response => {
-        console.log(response.data)
+        console.log('login response: ', response.data)
         setUserData({
           id: response.data.id,
           message: response.data.message,
           name: response.data.name,
           score: response.data.points
         })
+        props.history.push('/game')
       })
-      .then(props.history.push('/game'))
       .catch(error => {
         console.error('Server Error', error)
       })

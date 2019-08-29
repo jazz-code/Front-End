@@ -3,7 +3,7 @@ import { Animated } from 'react-animated-css'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import axios from 'axios'
 
-import UserDataContext from '../contexts/UserContext'
+import UserDataContext from '../contexts/UserDataContext'
 
 import '../styling/components/celebdisplay.scss'
 
