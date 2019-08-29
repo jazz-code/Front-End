@@ -3,7 +3,7 @@ import { Animated } from 'react-animated-css';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import axios from 'axios';
 
-import Timer from "./Timer";
+// import Timer from "./Timer";
 
 import '../styling/components/celebdisplay.scss';
 
@@ -15,11 +15,36 @@ const CelebDisplay = props => {
   // const [width, setWidth] = useState(0)
   const [icon, setIcon] = useState({ icon: true });
   // const [time, setTime] = useState(3);
+  
+  
+ 
 
   useEffect(() => {
+    var start = Date.now();
     axios
       .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
-      .then(res => setCelebs(res.data))
+      .then(res => setCelebs(res.data),
+      setTimeout(() => {
+    // setTime(time => time-1)
+    var millis = Date.now() - start;
+    console.log(`millis: ${millis}`)
+    console.log("seconds elapsed = " + Math.floor(millis/1000));
+    if (Math.floor(millis/1000) === 5) {
+      props.history.push('/game')
+      setCurrentScore(currentScore - 1)
+     
+      // var timeoutHandle = window.setTimeout();
+
+      // window.clearTimeout(timeoutHandle);
+
+      // timeoutHandle = window.setTimeout();
+
+    }
+    else {
+        console.log(`not yet`)
+    }
+  }, 5000)
+      )
       .catch(err => err.response)
   }, [])
   
@@ -65,8 +90,7 @@ const CelebDisplay = props => {
       isVisible={true}
     >
       <Card>
-        {/* <div className="timer">{time}</div> */}
-        <Timer />
+        <div className="timer">{}</div>
         <Image
           src={randomCeleb ? randomCeleb.celebImage : null}
           wrapped
