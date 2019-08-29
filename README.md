@@ -17,3 +17,7 @@ We are currently using React Create App that is styled with Semantic UI.
 # Target Audience
 Our target audience anyone at any age who knows their celebrities. 
 Anyone who is looking for something to do by themselves, in an airport, with friends, sober or not. We aren't picky.
+
+# Research
+
+# Prototype Key Feature(s)
