@@ -22,7 +22,7 @@ Already have an account? You can log in to continue playing.
 # Framework
 We are currently using:
 
-*React Create App
+Markup:*React Create App
 
 # Target Audience
 Our target audience anyone at any age who knows their celebrities. 
