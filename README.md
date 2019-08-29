@@ -1,7 +1,6 @@
 # Front-End
 React front end of Celebrity Dead or Alive app
-
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+logo.jpg
 
 # What is Celebrity Dead or Alive?
 Celebrity Dead or Alive is a fun game you can play anywhere to help pass time for free.
