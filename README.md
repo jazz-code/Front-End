@@ -22,10 +22,14 @@ Already have an account? You can log in to continue playing.
 # Framework
 We are currently using:
 
-* Bullet list
-       * Nested bullet
-                  * Sub-nested bullet etc
-          * Bullet list item 2
+* React Create App
+* React Hooks
+* Axios
+* Node
+* Knex
+* JsonWebToken
+* Semantic UI/React
+* Styled Components
 
 # Target Audience
 Our target audience anyone at any age who knows their celebrities. 
