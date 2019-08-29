@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Button, Header, Icon, Image, Modal } from "semantic-ui-react";
-import UserDataContext from '../contexts/UserDataContext';
+import React, { useState, useEffect, useContext } from 'react';
+import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
+import UserDataContext from "../contexts/UserDataContext";
 
-import axios from "axios";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from 'axios';
 
-import "../styling/components/unregisteredplayermodal.scss";
+import '../styling/components/unregisteredplayermodal.scss';
+
 const UnRegisteredPlayerModal = props => {
-  const { userData, setUserData } = useContext(UserDataContext)
-  console.log("userData", userData)
+  const { userData, setUserData } = useContext(UserDataContext);
+  console.log('userData', userData);
 
   axios
     .get(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`)
     .then(response => setUserData(userData.response))
-    .catch(error => error.response)
+    .catch(error => error.response);
 
   return (
     <Modal
@@ -41,14 +41,14 @@ const UnRegisteredPlayerModal = props => {
         {/* <Button onClick={history.push("/game")}>Play again</Button>
       <Button onClick={history.push('/login')}>Login</Button> */}
       </Modal.Content>
-      <Button primary icon onClick={() => props.history.push("/signup")}>
+      <Button primary icon onClick={() => props.history.push('/signup')}>
         Create an Account <Icon name="right chevron" />
       </Button>
-      <Button primary icon onClick={() => props.history.push("/game")}>
+      <Button primary icon onClick={() => props.history.push('/game')}>
         Play again! <Icon name="right chevron" />
       </Button>
     </Modal>
-  )
-};
+  );
+}
 
-export default UnRegisteredPlayerModal;
+export default UnRegisteredPlayerModal
