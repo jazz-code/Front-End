@@ -1,11 +1,17 @@
 // dependencies
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Card, Button } from 'semantic-ui-react'
-import axios from 'axios'\
-import { UserContext } from '../contexts/UserContext'
+import axios from 'axios'
+import UserContext from '../contexts/UserContext'
 
 const Login = props => {
-  const user = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
+  console.log('Context user Login: ', user)
+
+  const [login, setLogin] = useState({
+    username: '',
+    password: ''
+  })
 
   const changeHandler = event => {
     setLogin({ ...login, [event.target.name]: event.target.value })
@@ -29,7 +35,6 @@ const Login = props => {
       })
   }
   return (
-  
     <div className="login-container">
       <Card className="login-card">
         <form className="login-form" onSubmit={submitForm}>
