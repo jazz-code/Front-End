@@ -29,6 +29,9 @@ const Login = props => {
           name: response.data.name,
           score: response.data.points
         })
+        localStorage.setItem('token', response.data.token)
+        const data = response.data
+        console.log('response data variable: ', data)
       })
       .then(props.history.push('/game'))
       .catch(error => {
