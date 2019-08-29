@@ -22,7 +22,10 @@ Already have an account? You can log in to continue playing.
 # Framework
 We are currently using:
 
-Markup:*React Create App
+* Bullet list
+       * Nested bullet
+                  * Sub-nested bullet etc
+          * Bullet list item 2
 
 # Target Audience
 Our target audience anyone at any age who knows their celebrities. 
