@@ -28,6 +28,7 @@ We are currently using:
 * Node
 * Knex
 * JsonWebToken
+* Context API
 * Semantic UI/React
 * Styled Components
 
