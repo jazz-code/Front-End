@@ -1,0 +1,72 @@
+body {
+    max-height: 20vh;
+}
+
+.ui.card {
+    margin: 0 auto;
+}
+
+
+
+.ui.card>.image:not(.ui)>img, .ui.cards>.card>.image:not(.ui)>img {
+    border: none;
+    height: 370px;
+}
+
+.ui.card>.image>img, .ui.cards>.card>.image>img {
+
+    // position: absolute;  
+    max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;    
+ 
+    margin: auto;
+}
+
+h4 {
+    text-align: right;
+}
+
+//Buttons and Icons
+
+.ui.buttons {
+    margin: 3px 16%;
+}
+
+.icon {
+      font-size: 2.5rem;    
+      width: 6rem;      
+      text-shadow: 0 1px #ddd;
+      cursor: pointer;
+      padding: .5em;
+      margin: .5em 0 .5em 0;
+      position:relative;
+      text-align: center;
+
+      &:hover {
+        color: #c00;
+        // .Pulse(500ms);
+      }             
+    }
+
+ //Score
+
+ .score-container {
+    width: 100%;
+    // height: 50px;
+    background-color: #ddd;
+
+    .score {
+        text-align: right;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: white;
+      }
+
+      .percent {
+        // width: 5%; 
+        background-color: #4CAF50;
+      }
+  }
+

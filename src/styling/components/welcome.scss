@@ -1,0 +1,49 @@
+@import "utils/variables";
+
+.welcome-container {
+    display: flex;
+    align-content: center;
+    flex-flow: column wrap;
+    justify-content: center;
+    .welcome-text {
+        text-align: center;
+        margin-top: 15%;
+    }
+    #welcome-button {
+        margin: 7% 26%;
+    }
+    .animated {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+      } 
+
+      @-webkit-keyframes colorchange 
+    {
+      0%   {background: red;}
+      25%  {background: yellow;}
+      50%  {background: blue;}
+      75%  {background: green;}
+      100% {background: red;}
+    }
+
+      
+    @keyframes colorchange
+    {
+    0%   {background: red;}
+    25%  {background: yellow;}
+    50%  {background: blue;}
+    75%  {background: green;}
+    100% {background: red;}
+    }
+      
+      .colorchange { 
+        animation: colorchange 7s linear infinite;
+      }
+    
+}

@@ -1,8 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import 'semantic-ui-css/semantic.min.css'
-import './styling/main.scss'
-import './index.css'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import 'semantic-ui-css/semantic.min.css';
+import './styling/main.scss';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById('root'),
+);
