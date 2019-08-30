@@ -28,7 +28,7 @@ const CelebDisplay = props => {
   const [icon, setIcon] = useState({ icon: true })
   const [count, setCount] = useState(0);
 
-  var start = Date.now();
+   var start = Date.now();
 
   var myTimer = setTimeout(() => {
     // setTime(time => time-1)
@@ -47,7 +47,7 @@ const CelebDisplay = props => {
   setTimeout(()=> {
     clearTimeout(myTimer)
     props.history.push('/modal')
-  }, 50000)
+  }, 30000)
 
   // console.log("USER", user)
   useEffect(() => {
