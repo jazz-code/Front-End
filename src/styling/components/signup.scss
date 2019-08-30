@@ -19,8 +19,17 @@
             display: flex;
             justify-content: center;
             flex-flow: column wrap;
+            .signup-title {
+                color: #2CBF89;
+            }
             .signup-label {
                 margin-top: 5%;
+            }
+            .signup-button {
+                @media (max-width: $phone) {
+                    padding: 10%;
+                    font-size: 200%;
+                }
             }
         };
     };

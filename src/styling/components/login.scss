@@ -20,8 +20,17 @@
             display: flex;
             justify-content: center;
             flex-flow: column wrap;
+            .login-title {
+                color: #D83E58;
+            }
             .login-label {
                 margin-top: 5%;
+            }
+            .login-button {
+                @media (max-width: $phone) {
+                    padding: 10%;
+                    font-size: 200%;
+                }
             }
         };
     };
