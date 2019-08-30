@@ -9,15 +9,8 @@
         text-align: center;
         margin-top: 15%;
     }
-    .welcome-button {
-        margin-right: 10%;
-        margin-left: 10%;
-        margin-bottom: 20%;
-        margin-top: 10%;
-        @media (max-width: $phone) {
-            height: 70px;
-            font-size: 200%;
-        }
+    #welcome-button {
+        margin: 7% 26%;
     }
     .animated {
         -webkit-animation-duration: 1s;
