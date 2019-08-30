@@ -1,66 +1,94 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Animated } from "react-animated-css";
-import { Card, Icon, Image, Button } from "semantic-ui-react";
-import axios from "axios";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-import UserDataContext from "../contexts/UserDataContext";
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import { Animated } from 'react-animated-css';
+import { Card, Icon, Image, Button } from 'semantic-ui-react';
+import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import UserDataContext from '../contexts/UserDataContext';
 
-import "../styling/components/celebdisplay.scss";
+import '../styling/components/celebdisplay.scss';
 
-import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
+import UnregisteredPlayerModal from './UnregisteredPlayerModal';
+
+function useInterval(callback, delay) {
+  const savedCallback = useRef()
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback
+  }, [callback])
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current()
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay)
+      return () => clearInterval(id)
+    }
+  }, [delay])
+}
 
 const CelebDisplay = props => {
-  const { userData, setUserData } = useContext(UserDataContext)
-  console.log('celebDisplay userData: ', userData.score)
+  const { userData, setUserData } = useContext(UserDataContext);
+  console.log("celebDisplay userData: ", userData.score);
 
-  const [celebs, setCelebs] = useState([]);
-  const [currentScore, setCurrentScore] = useState(0);
-  const [icon, setIcon] = useState({ icon: true });
-  const [count, setCount] = useState(0);
+  const [celebs, setCelebs] = useState([])
+  const [currentScore, setCurrentScore] = useState(0)
 
-   var start = Date.now();
+  const [count, setCount] = useState(0)
 
-  var myTimer = setTimeout(() => {
-    // setTime(time => time-1)
-    var millis = Date.now() - start;
-    console.log(`millis: ${millis}`)
-    console.log("seconds elapsed = " + Math.floor(millis/1000));
-    if (Math.floor(millis/1000) === 5) {
-      setCurrentScore(currentScore - 1)
-      // clearTimeout(myTimer)
+  const [seconds, setSeconds] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+
+  function toggle() {
+    setIsActive(!isActive);
+  }
+
+  if (seconds === 3) {
+    reset();
+    props.history.push('/game');
+  }
+
+  function reset() {
+    setSeconds(0);
+    setIsActive(false);
+  }
+
+  useEffect(() => {
+    let interval = null;
+    if (isActive) {
+      interval = setInterval(() => {
+        setSeconds(seconds => seconds + 1);
+      }, 1000);
+    } else if (!isActive && seconds === 3) {
+      toggle()
     }
-    else {
-        console.log(`not yet`)
-    }
-  }, 5000)
-
-  setTimeout(()=> {
-    clearTimeout(myTimer)
-    props.history.push('/modal')
-  }, 30000)
+    return () => clearInterval(interval)
+  }, [isActive, seconds]);
 
   // console.log("USER", user)
   useEffect(() => {
     axios
-      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
+      .get('https://bw-celeb-dead-app.herokuapp.com/celebs')
       .then(res => setCelebs(res.data))
-      .catch(err => err.response);
-  }, []);
+      .catch(err => err.response)
+  }, [])
 
   const scorePut = () => {
     axiosWithAuth()
       .put(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`, {
-        'points': combined,
+        points: combined
       })
-      .then(res => console.log("RES", res))
-      .catch(err => err.response);
-  }
-  console.log("userData", userData);
+      .then(res => console.log('RES', res))
+      .catch(err => err.response)
+  };
+  console.log('userData', userData)
 
-  let userScore = userData.score;
-  let combined = userScore + currentScore;
+  let userScore = userData.score
+  let combined = userScore + currentScore
 
-  console.log("combined", combined);
+  console.log('combined', combined)
 
   //if 10 button clicks --> axios.put
   // /users/${user.id}
@@ -68,24 +96,24 @@ const CelebDisplay = props => {
   //
   //take points into user.score [useState]
 
-  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)];
   // console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
-    let i = randomCeleb;
-    i = i + 1; // increase
-    i = i % celebs.length; // if we've gone too high, start from `0` again
-    return randomCeleb[i]; // give us back the celeb of where we are now
-  }
+    let i = randomCeleb
+    i = i + 1 // increase
+    i = i % celebs.length // if we've gone too high, start from `0` again
+    return randomCeleb[i] // give us back the celeb of where we are now
+  };
 
-  const handleIcon = e => {
-    e.preventDefault();
-    setIcon({ icon: true });
-  }
+  // const handleIcon = e => {
+  //   e.preventDefault();
+  //   setIcon({ icon: true });
+  // }
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
-  const isDead = randomCeleb ? randomCeleb.isDead : null;
+  const isDead = randomCeleb ? randomCeleb.isDead : null
 
   // if (currentScore === 5) {
   //   props.history.push('/login')
@@ -95,26 +123,26 @@ const CelebDisplay = props => {
   // }
 
   if (count === 5 || currentScore === 5) {
-    scorePut();
-    props.history.push('/modal')
+    scorePut()
+    props.history.push("/modal");
   }
 
   // console.log('COUNT', count)
 
   const DOB = () => {
     if (randomCeleb) {
-      let str = randomCeleb.dob;
-      let res = str.split(",");
-      return res[0].substr(0, 4);
+      let str = randomCeleb.dob
+      let res = str.split(',')
+      return res[0].substr(0, 4)
       // console.log("DOB",res[1].substr(1,4) + res[0]);
     }
-  };
+  }
 
-    // useEffect(() => {
-    //   setInterval(() => {
-    //     setTime((newTime) => newTime-1)
-    //   }, 1000)
-    // }, [])
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setTime((newTime) => newTime-1)
+  //   }, 1000)
+  // }, [])
 
   return (
     <Animated
@@ -127,7 +155,7 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-        {userData.message}
+        {seconds}s
         <Image
           className="card-image"
           src={randomCeleb ? randomCeleb.celebImage : null}
@@ -149,12 +177,14 @@ const CelebDisplay = props => {
               id="btn"
               onClick={() => {
                 if (isDead) {
-                  props.history.push("/game");
-                  setCurrentScore(currentScore + 1);
-                  setCount(count + 1);
-                } else {
                   props.history.push('/game')
+                  setCurrentScore(currentScore + 1)
                   setCount(count + 1)
+                  toggle()
+                } else {
+                  props.history.push("/game");
+                  setCount(count + 1);
+                  toggle()
                 }
               }}
             >
@@ -167,12 +197,14 @@ const CelebDisplay = props => {
               id="btn"
               onClick={() => {
                 if (!isDead) {
-                  setCurrentScore(currentScore + 1);
-                  props.history.push("/game");
-                  setCount(count + 1);
+                  setCurrentScore(currentScore + 1)
+                  props.history.push('/game')
+                  setCount(count + 1)
+                  toggle()
                 } else {
-                  props.history.push("/game");
-                  setCount(count + 1);
+                  props.history.push('/game')
+                  setCount(count + 1)
+                  toggle()
                 }
               }}
             >
@@ -182,7 +214,7 @@ const CelebDisplay = props => {
         </Card.Content>
       </Card>
     </Animated>
-  );
-}
+  )
+};
 
-export default CelebDisplay
+export default CelebDisplay;
