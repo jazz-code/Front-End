@@ -6,7 +6,7 @@
 //         setInterval(() => {
 //             setTime((newTime) => newTime-1, 1000)
 //         })
-//     }, [changeTime])
+//     }, [])
 //     return (
 //         <div className = "timer">{time}</div>
 //     )

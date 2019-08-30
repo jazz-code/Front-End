@@ -17,20 +17,22 @@ const CelebDisplay = props => {
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
+  const [timer, setTimer] = useState(0);
 
-   var start = Date.now();
+  //  var start = Date.now();
 
-  var myTimer = setTimeout(() => {
-    var millis = Date.now() - start;
-    // console.log(`millis: ${millis}`)
-    console.log("seconds elapsed = " + Math.floor(millis/1000));
-    if (Math.floor(millis/1000) === 5) {
-      setCurrentScore(currentScore - 1)
-    }
-    else {
-        console.log(`not yet`)
-    }
-  }, 5000)
+  // var myTimer = setTimeout(() => {
+  //   var millis = Date.now() - start;
+  //   // console.log(`millis: ${millis}`)
+  //   console.log("seconds elapsed = " + Math.floor(millis/1000));
+  //   if (Math.floor(millis/1000) === 5) {
+  //     setTimer(1)
+  //     clearTimeout(myTimer);
+  //   }
+  //   else {
+  //       console.log(`not yet`)
+  //   }
+  // }, 5000)
 
   // console.log("USER", user)
   useEffect(() => {
@@ -114,7 +116,7 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-        <div>{myTimer.displayTime}</div>
+        {/* <div>{myTimer.displayTime}</div> */}
         {userData.message}
         <Image
           className="card-image"
