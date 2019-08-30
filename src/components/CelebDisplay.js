@@ -17,27 +17,22 @@ const CelebDisplay = props => {
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
+  const [timer, setTimer] = useState(0);
 
-   var start = Date.now();
+  //  var start = Date.now();
 
-  var myTimer = setTimeout(() => {
-    // setTime(time => time-1)
-    var millis = Date.now() - start;
-    console.log(`millis: ${millis}`)
-    console.log("seconds elapsed = " + Math.floor(millis/1000));
-    if (Math.floor(millis/1000) === 5) {
-      setCurrentScore(currentScore - 1)
-      // clearTimeout(myTimer)
-    }
-    else {
-        console.log(`not yet`)
-    }
-  }, 5000)
-
-  setTimeout(()=> {
-    clearTimeout(myTimer)
-    props.history.push('/modal')
-  }, 30000)
+  // var myTimer = setTimeout(() => {
+  //   var millis = Date.now() - start;
+  //   // console.log(`millis: ${millis}`)
+  //   console.log("seconds elapsed = " + Math.floor(millis/1000));
+  //   if (Math.floor(millis/1000) === 5) {
+  //     setTimer(1)
+  //     clearTimeout(myTimer);
+  //   }
+  //   else {
+  //       console.log(`not yet`)
+  //   }
+  // }, 5000)
 
   // console.log("USER", user)
   useEffect(() => {
@@ -94,7 +89,7 @@ const CelebDisplay = props => {
   //   props.history.push("/modal");
   // }
 
-  if (count === 5 || currentScore === 5) {
+  if (count === 5 || currentScore === 5 || currentScore === -5) {
     scorePut();
     props.history.push('/modal')
   }
@@ -110,12 +105,6 @@ const CelebDisplay = props => {
     }
   };
 
-    // useEffect(() => {
-    //   setInterval(() => {
-    //     setTime((newTime) => newTime-1)
-    //   }, 1000)
-    // }, [])
-
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -127,6 +116,7 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
+        {/* <div>{myTimer.displayTime}</div> */}
         {userData.message}
         <Image
           className="card-image"
