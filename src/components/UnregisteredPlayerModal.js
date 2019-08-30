@@ -24,7 +24,7 @@ const UnRegisteredPlayerModal = props => {
       }
       centered={false}
     >
-      <Modal.Header>YOUR TOTAL SCORE IS {userData.score}</Modal.Header>
+      <Modal.Header>LOGIN TO KEEP TRACK OF YOUR SCORE</Modal.Header>
       <Modal.Content image>
         <Image wrapped size="medium" />
         <Modal.Description>
@@ -33,7 +33,7 @@ const UnRegisteredPlayerModal = props => {
           <p>
             That was a lot of fun right? Want to let everyone know if they are
             ever trapped in a room with a serial killer and the only way to make
-            it out alive is to correctly guess whether or not 10 random
+            it out alive is to correctly guess whether or not 5 random
             celebrities are DEAD or ALIVE, you're their 'goto'? Create an
             account so your amazing score persists!
           </p>

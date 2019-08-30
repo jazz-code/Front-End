@@ -9,13 +9,6 @@ import "../styling/components/celebdisplay.scss";
 
 import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 
-const dataObj = {
-  id: 15,
-  username: "hoizer",
-  password: "password",
-  points: null,
-};
-
 const CelebDisplay = props => {
   const { userData, setUserData } = useContext(UserDataContext)
   console.log('celebDisplay userData: ', userData.score)
@@ -36,11 +29,11 @@ const CelebDisplay = props => {
   const scorePut = () => {
     axiosWithAuth()
       .put(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`, {
-        points: combined,
+        'points': combined,
       })
       .then(res => console.log("RES", res))
       .catch(err => err.response);
-  };
+  }
   console.log("userData", userData);
 
   let userScore = userData.score;
@@ -55,19 +48,19 @@ const CelebDisplay = props => {
   //take points into user.score [useState]
 
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-  console.log('randomCeleb', randomCeleb)
+  // console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
     let i = randomCeleb;
     i = i + 1; // increase
     i = i % celebs.length; // if we've gone too high, start from `0` again
     return randomCeleb[i]; // give us back the celeb of where we are now
-  };
+  }
 
   const handleIcon = e => {
     e.preventDefault();
     setIcon({ icon: true });
-  };
+  }
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
@@ -81,6 +74,7 @@ const CelebDisplay = props => {
   // }
 
   if (count === 5 || currentScore === 5) {
+    scorePut();
     props.history.push('/modal')
   }
 
@@ -162,6 +156,6 @@ const CelebDisplay = props => {
       </Card>
     </Animated>
   );
-};
+}
 
 export default CelebDisplay
