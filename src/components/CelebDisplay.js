@@ -23,8 +23,8 @@ const CelebDisplay = props => {
   var myTimer = setTimeout(() => {
     // setTime(time => time-1)
     var millis = Date.now() - start;
-    console.log(`millis: ${millis}`)
-    console.log("seconds elapsed = " + Math.floor(millis/1000));
+    // console.log(`millis: ${millis}`)
+    // console.log("seconds elapsed = " + Math.floor(millis/1000));
     if (Math.floor(millis/1000) === 5) {
       setCurrentScore(currentScore - 1)
       // clearTimeout(myTimer)
@@ -34,10 +34,10 @@ const CelebDisplay = props => {
     }
   }, 5000)
 
-  setTimeout(()=> {
-    clearTimeout(myTimer)
-    props.history.push('/modal')
-  }, 30000)
+  // setTimeout(()=> {
+  //   clearTimeout(myTimer)
+  //   props.history.push('/modal')
+  // }, 30000)
 
   // console.log("USER", user)
   useEffect(() => {
@@ -94,7 +94,7 @@ const CelebDisplay = props => {
   //   props.history.push("/modal");
   // }
 
-  if (count === 5 || currentScore === 5) {
+  if (count === 5 || currentScore === 5 || currentScore === -5) {
     scorePut();
     props.history.push('/modal')
   }
