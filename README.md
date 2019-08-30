@@ -36,3 +36,5 @@ We are currently using:
 Our target audience anyone at any age who knows their celebrities. 
 Anyone who is looking for something to do by themselves, in an airport, with friends, sober or not. We aren't picky.
 
+# Planning Documentation
+To see our amazing teams thoughts and thought process, check out our planning [docs](https://docs.google.com/document/d/14E7dSIALKvkBTXiKCZ-iLFf2dnJerdSAblI9BtOwsto/edit?usp=sharing).
