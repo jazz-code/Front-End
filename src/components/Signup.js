@@ -23,7 +23,7 @@ export default function Signup(props) {
       .post("https://bw-celeb-dead-app.herokuapp.com/auth/register", user)
       .then(results => {
         console.log(results.data);
-        return props.history.push("/game");
+        return props.history.push("/login");
       })
       .catch(error => {
         console.log("O no there is an error!", error);
