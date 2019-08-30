@@ -19,22 +19,22 @@ const CelebDisplay = props => {
   const [count, setCount] = useState(0);
   const [timer, setTimer] = useState(0);
 
-   var start = Date.now();
+    //    var start = Date.now();
 
-  var myTimer = setTimeout(() => {
-    var millis = Date.now() - start;
-    // console.log(`millis: ${millis}`)
-    console.log("seconds elapsed = " + Math.floor(millis/1000));
-    if (Math.floor(millis/1000) === 5) {
-      setTimer(timer + 1)
-      millis =Date.now();
-    }
-    if (delay !== null) {
-      let id = setInterval(tick, delay)
-      return () => clearInterval(id)
-    }
-  }, [delay])
-}
+    //   var myTimer = setTimeout(() => {
+    //     var millis = Date.now() - start;
+    //     // console.log(`millis: ${millis}`)
+    //     console.log("seconds elapsed = " + Math.floor(millis/1000));
+    //     if (Math.floor(millis/1000) === 5) {
+    //       setTimer(timer + 1)
+    //       millis =Date.now();
+    //     }
+    //     if (delay !== null) {
+    //       let id = setInterval(tick, delay)
+    //       return () => clearInterval(id)
+    //     }
+    //   }, [delay])
+    // }
 
   // console.log("USER", user)
   useEffect(() => {
@@ -115,10 +115,8 @@ const CelebDisplay = props => {
     >
       <div className="score-container">
         <div className="score percent">Current Score: {currentScore}</div>
-        {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-        {/* <div>{myTimer.displayTime}</div> */}
         {userData.message}
         <Image
           className="card-image"
@@ -144,11 +142,11 @@ const CelebDisplay = props => {
                   props.history.push('/game')
                   setCurrentScore(currentScore + 1)
                   setCount(count + 1)
-                  toggle()
+                  // toggle();
                 } else {
                   props.history.push("/game");
                   setCount(count + 1);
-                  toggle()
+                  // toggle();
                 }
               }}
             >
@@ -164,11 +162,11 @@ const CelebDisplay = props => {
                   setCurrentScore(currentScore + 1)
                   props.history.push('/game')
                   setCount(count + 1)
-                  toggle()
+                  // toggle();
                 } else {
                   props.history.push('/game')
                   setCount(count + 1)
-                  toggle()
+                  // toggle();
                 }
               }}
             >
