@@ -9,20 +9,6 @@ import '../styling/components/celebdisplay.scss';
 
 import UnregisteredPlayerModal from './UnregisteredPlayerModal';
 
-<<<<<<< HEAD
-function useInterval(callback, delay) {
-  const savedCallback = useRef()
-
-  // Remember the latest callback.
-  useEffect(() => {
-    savedCallback.current = callback
-  }, [callback])
-
-  // Set up the interval.
-  useEffect(() => {
-    function tick() {
-      savedCallback.current()
-=======
 const CelebDisplay = props => {
   const { userData, setUserData } = useContext(UserDataContext)
   console.log('celebDisplay userData: ', userData.score)
@@ -42,7 +28,6 @@ const CelebDisplay = props => {
     if (Math.floor(millis/1000) === 5) {
       setTimer(timer + 1)
       millis =Date.now();
->>>>>>> ce15169e39ab7d0e1ec7ffcdaa969e577f8a93b2
     }
     if (delay !== null) {
       let id = setInterval(tick, delay)
@@ -51,47 +36,6 @@ const CelebDisplay = props => {
   }, [delay])
 }
 
-<<<<<<< HEAD
-const CelebDisplay = props => {
-  const { userData, setUserData } = useContext(UserDataContext);
-  console.log("celebDisplay userData: ", userData.score);
-
-  const [celebs, setCelebs] = useState([])
-  const [currentScore, setCurrentScore] = useState(0)
-
-  const [count, setCount] = useState(0)
-
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-
-  function toggle() {
-    setIsActive(!isActive);
-  }
-
-  if (seconds === 3) {
-    reset();
-    props.history.push('/game');
-  }
-
-  function reset() {
-    setSeconds(0);
-    setIsActive(false);
-  }
-
-  useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds(seconds => seconds + 1);
-      }, 1000);
-    } else if (!isActive && seconds === 3) {
-      toggle()
-    }
-    return () => clearInterval(interval)
-  }, [isActive, seconds]);
-
-=======
->>>>>>> ce15169e39ab7d0e1ec7ffcdaa969e577f8a93b2
   // console.log("USER", user)
   useEffect(() => {
     axios
@@ -147,15 +91,9 @@ const CelebDisplay = props => {
   //   props.history.push("/modal");
   // }
 
-<<<<<<< HEAD
-  if (count === 5 || currentScore === 5) {
-    scorePut()
-    props.history.push("/modal");
-=======
   if (count === 5 || currentScore === 5 || currentScore === -5) {
     scorePut();
     props.history.push('/modal')
->>>>>>> ce15169e39ab7d0e1ec7ffcdaa969e577f8a93b2
   }
 
   // console.log('COUNT', count)
@@ -169,15 +107,6 @@ const CelebDisplay = props => {
     }
   }
 
-<<<<<<< HEAD
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setTime((newTime) => newTime-1)
-  //   }, 1000)
-  // }, [])
-
-=======
->>>>>>> ce15169e39ab7d0e1ec7ffcdaa969e577f8a93b2
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -189,12 +118,8 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-<<<<<<< HEAD
-        {seconds}s
-=======
         {/* <div>{myTimer.displayTime}</div> */}
         {userData.message}
->>>>>>> ce15169e39ab7d0e1ec7ffcdaa969e577f8a93b2
         <Image
           className="card-image"
           src={randomCeleb ? randomCeleb.celebImage : null}
