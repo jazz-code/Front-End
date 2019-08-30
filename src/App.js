@@ -14,6 +14,9 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 import UnregisteredPlayerModal from "./components/UnregisteredPlayerModal";
+import RegisteredPlayerModal from "./components/RegisteredPlayerModal";
+
+import PrivateRoute from './components/PrivateRoute';
 
 // context api providers
 import { UserDataProvider } from "./contexts/UserDataContext";
@@ -31,6 +34,11 @@ function App() {
           <Route exact path="/game" component={CelebDisplay} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/modal" component={UnregisteredPlayerModal} />
+          <PrivateRoute
+            exact
+            path="/registered"
+            component={RegisteredPlayerModal}
+          />
         </UserDataProvider>
       </div>
     </Router>
