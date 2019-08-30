@@ -1,33 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import { Card, Button } from 'semantic-ui-react'
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import { Card, Button } from "semantic-ui-react";
+import axios from "axios";
 
 export default function Signup(props) {
   const [user, setUser] = useState({
-    name: '',
-    username: '',
-    password: ''
-  })
+    name: "",
+    username: "",
+    password: "",
+    points: 1,
+  });
 
-  console.log('user', user)
+  console.log("user", user);
 
   const changeHandler = event => {
-    const updatedUser = { ...user, [event.target.name]: event.target.value }
-    setUser(updatedUser)
-  }
+    const updatedUser = { ...user, [event.target.name]: event.target.value };
+    setUser(updatedUser);
+  };
 
   const handleSubmit = event => {
-    event.preventDefault()
+    event.preventDefault();
     axios
-      .post('https://bw-celeb-dead-app.herokuapp.com/auth/register', user)
+      .post("https://bw-celeb-dead-app.herokuapp.com/auth/register", user)
       .then(results => {
-        console.log(results.data)
-        return props.history.push('/game')
+        console.log(results.data);
+        return props.history.push("/game");
       })
       .catch(error => {
-        console.log('O no there is an error!', error)
-      })
-  }
+        console.log("O no there is an error!", error);
+      });
+  };
 
   return (
     <div className="signup-container">
@@ -67,5 +68,5 @@ export default function Signup(props) {
         </form>
       </Card>
     </div>
-  )
+  );
 }
