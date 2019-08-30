@@ -23,10 +23,9 @@ const CelebDisplay = props => {
   var myTimer = setTimeout(() => {
     var millis = Date.now() - start;
     // console.log(`millis: ${millis}`)
-    // console.log("seconds elapsed = " + Math.floor(millis/1000));
+    console.log("seconds elapsed = " + Math.floor(millis/1000));
     if (Math.floor(millis/1000) === 5) {
       setCurrentScore(currentScore - 1)
-      // clearTimeout(myTimer)
     }
     else {
         console.log(`not yet`)
@@ -104,12 +103,6 @@ const CelebDisplay = props => {
     }
   };
 
-    // useEffect(() => {
-    //   setInterval(() => {
-    //     setTime((newTime) => newTime-1)
-    //   }, 1000)
-    // }, [])
-
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -121,6 +114,7 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
+        <div>{myTimer.displayTime}</div>
         {userData.message}
         <Image
           className="card-image"
