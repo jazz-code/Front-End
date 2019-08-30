@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Animated } from 'react-animated-css';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 import axios from 'axios';
@@ -10,31 +10,28 @@ import '../styling/components/celebdisplay.scss';
 import UnregisteredPlayerModal from './UnregisteredPlayerModal';
 
 const CelebDisplay = props => {
-  const { userData, setUserData } = useContext(UserDataContext)
-  console.log('celebDisplay userData: ', userData.score)
+  const { userData, setUserData } = useContext(UserDataContext);
+  console.log("celebDisplay userData: ", userData.score);
 
-  const [celebs, setCelebs] = useState([]);
-  const [currentScore, setCurrentScore] = useState(0);
-  const [icon, setIcon] = useState({ icon: true });
-  const [count, setCount] = useState(0);
-  const [timer, setTimer] = useState(0);
+  const [celebs, setCelebs] = useState([])
+  const [currentScore, setCurrentScore] = useState(0)
+  const [icon, setIcon] = useState({ icon: true })
+  const [count, setCount] = useState(0)
+  const [timer, setTimer] = useState(0)
 
-    //    var start = Date.now();
+   var start = Date.now()
 
-    //   var myTimer = setTimeout(() => {
-    //     var millis = Date.now() - start;
-    //     // console.log(`millis: ${millis}`)
-    //     console.log("seconds elapsed = " + Math.floor(millis/1000));
-    //     if (Math.floor(millis/1000) === 5) {
-    //       setTimer(timer + 1)
-    //       millis =Date.now();
-    //     }
-    //     if (delay !== null) {
-    //       let id = setInterval(tick, delay)
-    //       return () => clearInterval(id)
-    //     }
-    //   }, [delay])
-    // }
+  var myTimer = setTimeout(() => {
+    var millis = Date.now() - start
+    // console.log(`millis: ${millis}`)
+    console.log('seconds elapsed = ' + Math.floor(millis / 1000))
+    if (Math.floor(millis / 1000) === 5) {
+      setTimer(timer + 1);
+      millis = Date.now()
+    } else {
+      console.log(`not yet`)
+    }
+  }, 5000);
 
   // console.log("USER", user)
   useEffect(() => {
@@ -75,10 +72,10 @@ const CelebDisplay = props => {
     return randomCeleb[i] // give us back the celeb of where we are now
   };
 
-  // const handleIcon = e => {
-  //   e.preventDefault();
-  //   setIcon({ icon: true });
-  // }
+  const handleIcon = e => {
+    e.preventDefault()
+    setIcon({ icon: true })
+  };
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
@@ -92,8 +89,8 @@ const CelebDisplay = props => {
   // }
 
   if (count === 5 || currentScore === 5 || currentScore === -5) {
-    scorePut();
-    props.history.push('/modal')
+    scorePut()
+    props.history.push("/modal");
   }
 
   // console.log('COUNT', count)
@@ -115,8 +112,10 @@ const CelebDisplay = props => {
     >
       <div className="score-container">
         <div className="score percent">Current Score: {currentScore}</div>
+        {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
+        {/* <div>{myTimer.displayTime}</div> */}
         {userData.message}
         <Image
           className="card-image"
@@ -142,11 +141,9 @@ const CelebDisplay = props => {
                   props.history.push('/game')
                   setCurrentScore(currentScore + 1)
                   setCount(count + 1)
-                  // toggle();
                 } else {
                   props.history.push("/game");
                   setCount(count + 1);
-                  // toggle();
                 }
               }}
             >
@@ -162,11 +159,9 @@ const CelebDisplay = props => {
                   setCurrentScore(currentScore + 1)
                   props.history.push('/game')
                   setCount(count + 1)
-                  // toggle();
                 } else {
                   props.history.push('/game')
                   setCount(count + 1)
-                  // toggle();
                 }
               }}
             >
