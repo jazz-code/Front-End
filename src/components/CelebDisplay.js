@@ -21,7 +21,6 @@ const CelebDisplay = props => {
    var start = Date.now();
 
   var myTimer = setTimeout(() => {
-    // setTime(time => time-1)
     var millis = Date.now() - start;
     // console.log(`millis: ${millis}`)
     // console.log("seconds elapsed = " + Math.floor(millis/1000));
@@ -33,11 +32,6 @@ const CelebDisplay = props => {
         console.log(`not yet`)
     }
   }, 5000)
-
-  // setTimeout(()=> {
-  //   clearTimeout(myTimer)
-  //   props.history.push('/modal')
-  // }, 30000)
 
   // console.log("USER", user)
   useEffect(() => {
