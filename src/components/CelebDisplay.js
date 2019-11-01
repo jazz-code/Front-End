@@ -21,17 +21,17 @@ const CelebDisplay = props => {
 
   var start = Date.now()
 
-  var myTimer = setTimeout(() => {
-    var millis = Date.now() - start;
-    // console.log(`millis: ${millis}`)
-    console.log("seconds elapsed = " + Math.floor(millis / 1000));
-    if (Math.floor(millis / 1000) === 5) {
-      setTimer(timer + 1)
-      millis = Date.now();
-    } else {
-      console.log(`not yet`);
-    }
-  }, 5000)
+  // var myTimer = setTimeout(() => {
+  //   var millis = Date.now() - start;
+  //   // console.log(`millis: ${millis}`)
+  //   console.log("seconds elapsed = " + Math.floor(millis / 1000));
+  //   if (Math.floor(millis / 1000) === 5) {
+  //     setTimer(timer + 1)
+  //     millis = Date.now();
+  //   } else {
+  //     console.log(`not yet`);
+  //   }
+  // }, 5000)
 
   // console.log("USER", user)
   useEffect(() => {
