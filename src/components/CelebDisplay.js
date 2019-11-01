@@ -6,7 +6,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import UserDataContext from "../contexts/UserDataContext";
 
 import "../styling/components/celebdisplay.scss";
-
+import Timer from "./Timer"
 import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 
 const CelebDisplay = props => {
@@ -115,7 +115,7 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-        {/* <div>{myTimer.displayTime}</div> */}
+        <Timer />
         {userData.message}
         <Image
           className="card-image"
