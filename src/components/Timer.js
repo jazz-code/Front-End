@@ -1,13 +1,24 @@
-// import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react'
 
-// export default function Timer() {
-//     const [time, setTime]=useState(5);
-//     useEffect(() => {
-//         setInterval(() => {
-//             setTime((newTime) => newTime-1, 1000)
-//         })
-//     }, [])
-//     return (
-//         <div className = "timer">{time}</div>
-//     )
-// }
+
+const Timer = () => {
+  const [seconds, setSeconds] = useState(5)
+
+  useEffect(() => {
+    const myInterval = setInterval(() => {
+      setSeconds(seconds - 1)
+  }, 1000)
+  if (seconds === 0) {
+    clearInterval(myInterval)
+  }
+}, [seconds])
+
+    return (
+      <div>
+        <h1>Time Remaining: {seconds} seconds</h1>
+      </div>
+    )
+  
+}
+
+export default Timer
