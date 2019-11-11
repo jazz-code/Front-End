@@ -21,7 +21,6 @@ const CelebDisplay = props => {
 
   var start = Date.now();
 
-<<<<<<< HEAD
   // var myTimer = setTimeout(() => {
   //   var millis = Date.now() - start;
   //   // console.log(`millis: ${millis}`)
@@ -33,20 +32,6 @@ const CelebDisplay = props => {
   //     console.log(`not yet`);
   //   }
   // }, 5000)
-=======
-  var myTimer = setTimeout(() => {
-    var millis = Date.now() - start;
-    // console.log(`millis: ${millis}`)
-    console.log("seconds elapsed = " + Math.floor(millis/1000));
-    if (Math.floor(millis/1000) === 5) {
-      setTimer(timer + 1)
-      millis =Date.now();
-    }
-    else {
-        console.log(`not yet`)
-    }
-  }, 5000)
->>>>>>> 5376aa66a03af771079f42332ccdac19459b42c4
 
   // console.log("USER", user)
   useEffect(() => {
