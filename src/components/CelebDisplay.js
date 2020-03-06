@@ -1,16 +1,20 @@
 import React, { useState, useEffect, useContext, useReducer } from "react";
-import { Animated } from "react-animated-css";
-import { Card, Icon, Image, Button } from "semantic-ui-react";
 import axios from "axios";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import Timer from "./Timer"
+import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 
-//Conext API
+// Utils
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import useTraceUpdate from "../utils/useTraceUpdate"
+
+// Context API
 import UserDataContext from "../contexts/UserDataContext";
 import TimerProvider from  "../contexts/TimerProvider"
 
+// Styling 
 import "../styling/components/celebdisplay.scss";
-import Timer from "./Timer"
-import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
+import { Animated } from "react-animated-css";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
 
 const CelebDisplay = ({props, celebs}) => {
   console.log("Display props", props)
@@ -94,6 +98,7 @@ const CelebDisplay = ({props, celebs}) => {
     }
   };
 
+  
   return (
     <Animated
       animationIn="bounceInLeft"
