@@ -1,45 +1,31 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useReducer } from "react";
 import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 import axios from "axios";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+
+//Conext API
 import UserDataContext from "../contexts/UserDataContext";
+import TimerProvider from  "../contexts/TimerProvider"
 
 import "../styling/components/celebdisplay.scss";
 import Timer from "./Timer"
 import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 
-const CelebDisplay = props => {
+const CelebDisplay = ({props, celebs}) => {
+  console.log("Display props", props)
   const { userData, setUserData } = useContext(UserDataContext)
-  console.log('celebDisplay userData: ', userData.score)
+  const {secondsPassed} = useContext(TimerProvider)
+  // console.log('Timer: ', secondsPassed)
 
-  const [celebs, setCelebs] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
-  const [timer, setTimer] = useState(0);
 
+  // console.log("TIMER: ",timerComponents)
   var start = Date.now();
 
-  // var myTimer = setTimeout(() => {
-  //   var millis = Date.now() - start;
-  //   // console.log(`millis: ${millis}`)
-  //   console.log("seconds elapsed = " + Math.floor(millis / 1000));
-  //   if (Math.floor(millis / 1000) === 5) {
-  //     setTimer(timer + 1)
-  //     millis = Date.now();
-  //   } else {
-  //     console.log(`not yet`);
-  //   }
-  // }, 5000)
 
-  // console.log("USER", user)
-  useEffect(() => {
-    axios
-      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
-      .then(res => setCelebs(res.data))
-      .catch(err => err.response);
-  }, []);
 
   const scorePut = () => {
     axiosWithAuth()
@@ -80,7 +66,11 @@ const CelebDisplay = props => {
   // if (randomCeleb) console.log(randomCeleb.name);
 
   const isDead = randomCeleb ? randomCeleb.isDead : null;
-
+  
+  // if (props.secondsPassed === 0) { 
+  //   console.log("SECONDS",props.secondsPassed)
+  //   props.history.push("/game") 
+  // }
   // if (currentScore === 5) {
   //   props.history.push('/login')
   // }
@@ -88,10 +78,10 @@ const CelebDisplay = props => {
   //   props.history.push("/modal");
   // }
 
-  if (count === 5 || currentScore === 5 || currentScore === -5) {
-    scorePut();
-    props.history.push('/modal')
-  }
+  // if (count === 5 || currentScore === 5 || currentScore === -5) {
+  //   scorePut();
+  //   props.history.push('/modal')
+  // }
 
   // console.log('COUNT', count)
 
@@ -115,7 +105,10 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
+      {/* Count: {state.count} */}
         <Timer />
+        {/* {console.log("SECONDS****",props.timer)}
+        {secondsPassed === 0 ? props.history.push("/game") : null} */}
         {userData.message}
         <Image
           className="card-image"
