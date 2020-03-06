@@ -1,46 +1,35 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Animated } from "react-animated-css";
-import { Card, Icon, Image, Button } from "semantic-ui-react";
+import React, { useState, useEffect, useContext, useReducer } from "react";
 import axios from "axios";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-import UserDataContext from "../contexts/UserDataContext";
-
-import "../styling/components/celebdisplay.scss";
-
+import Timer from "./Timer"
 import UnregisteredPlayerModal from "./UnregisteredPlayerModal";
 
-const CelebDisplay = props => {
-  const { userData, setUserData } = useContext(UserDataContext)
-  console.log('celebDisplay userData: ', userData.score)
+// Utils
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import useTraceUpdate from "../utils/useTraceUpdate"
 
-  const [celebs, setCelebs] = useState([]);
+// Context API
+import UserDataContext from "../contexts/UserDataContext";
+import TimerProvider from  "../contexts/TimerProvider"
+
+// Styling 
+import "../styling/components/celebdisplay.scss";
+import { Animated } from "react-animated-css";
+import { Card, Icon, Image, Button } from "semantic-ui-react";
+
+const CelebDisplay = ({props, celebs}) => {
+  console.log("Display props", props)
+  const { userData, setUserData } = useContext(UserDataContext)
+  const {secondsPassed} = useContext(TimerProvider)
+  // console.log('Timer: ', secondsPassed)
+
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
-  const [timer, setTimer] = useState(0);
 
-  //  var start = Date.now();
+  // console.log("TIMER: ",timerComponents)
+  var start = Date.now();
 
-  // var myTimer = setTimeout(() => {
-  //   var millis = Date.now() - start;
-  //   // console.log(`millis: ${millis}`)
-  //   console.log("seconds elapsed = " + Math.floor(millis/1000));
-  //   if (Math.floor(millis/1000) === 5) {
-  //     setTimer(1)
-  //     clearTimeout(myTimer);
-  //   }
-  //   else {
-  //       console.log(`not yet`)
-  //   }
-  // }, 5000)
 
-  // console.log("USER", user)
-  useEffect(() => {
-    axios
-      .get("https://bw-celeb-dead-app.herokuapp.com/celebs")
-      .then(res => setCelebs(res.data))
-      .catch(err => err.response);
-  }, []);
 
   const scorePut = () => {
     axiosWithAuth()
@@ -81,7 +70,11 @@ const CelebDisplay = props => {
   // if (randomCeleb) console.log(randomCeleb.name);
 
   const isDead = randomCeleb ? randomCeleb.isDead : null;
-
+  
+  // if (props.secondsPassed === 0) { 
+  //   console.log("SECONDS",props.secondsPassed)
+  //   props.history.push("/game") 
+  // }
   // if (currentScore === 5) {
   //   props.history.push('/login')
   // }
@@ -89,10 +82,10 @@ const CelebDisplay = props => {
   //   props.history.push("/modal");
   // }
 
-  if (count === 5 || currentScore === 5 || currentScore === -5) {
-    scorePut();
-    props.history.push('/modal')
-  }
+  // if (count === 5 || currentScore === 5 || currentScore === -5) {
+  //   scorePut();
+  //   props.history.push('/modal')
+  // }
 
   // console.log('COUNT', count)
 
@@ -105,6 +98,7 @@ const CelebDisplay = props => {
     }
   };
 
+  
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -116,7 +110,10 @@ const CelebDisplay = props => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-        {/* <div>{myTimer.displayTime}</div> */}
+      {/* Count: {state.count} */}
+        <Timer />
+        {/* {console.log("SECONDS****",props.timer)}
+        {secondsPassed === 0 ? props.history.push("/game") : null} */}
         {userData.message}
         <Image
           className="card-image"
