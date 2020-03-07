@@ -10,21 +10,23 @@ import useTraceUpdate from "../utils/useTraceUpdate"
 // Context API
 import UserDataContext from "../contexts/UserDataContext";
 import TimerProvider from  "../contexts/TimerProvider"
+import ScoreContext from  "../contexts/ScoreContext"
 
 // Styling 
 import "../styling/components/celebdisplay.scss";
 import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 
-const CelebDisplay = ({props, celebs}) => {
+const CelebDisplay = ({ props, celebs}) => {
   console.log("Display props", props)
   const { userData, setUserData } = useContext(UserDataContext)
-  const {secondsPassed} = useContext(TimerProvider)
+  // const {count, setCount} = useContext(ScoreProvider)
   // console.log('Timer: ', secondsPassed)
 
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  const [count, setCount] = useContext(ScoreContext);
 
   // console.log("TIMER: ",timerComponents)
   var start = Date.now();
