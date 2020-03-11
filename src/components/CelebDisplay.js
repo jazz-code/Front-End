@@ -9,7 +9,7 @@ import useTraceUpdate from "../utils/useTraceUpdate"
 
 // Context API
 import UserDataContext from "../contexts/UserDataContext";
-import TimerProvider from  "../contexts/TimerProvider"
+import TimerConext from  "../contexts/TimerContext"
 import ScoreContext from  "../contexts/ScoreContext"
 
 // Styling 
@@ -17,16 +17,17 @@ import "../styling/components/celebdisplay.scss";
 import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 
-const CelebDisplay = ({ props, celebs}) => {
+const CelebDisplay = ({ props, celebs, history}) => {
   console.log("Display props", props)
   const { userData, setUserData } = useContext(UserDataContext)
+  const { time, setTime } = useContext(TimerConext)
   // const {count, setCount} = useContext(ScoreProvider)
   // console.log('Timer: ', secondsPassed)
 
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
-  // const [count, setCount] = useState(0);
-  const [count, setCount] = useContext(ScoreContext);
+  const [count, setCount] = useState(0);
+  // const [count, setCount] = useContext(ScoreContext);
 
   // console.log("TIMER: ",timerComponents)
   var start = Date.now();
@@ -86,7 +87,7 @@ const CelebDisplay = ({ props, celebs}) => {
 
   // if (count === 5 || currentScore === 5 || currentScore === -5) {
   //   scorePut();
-  //   props.history.push('/modal')
+  //   history.push('/modal')
   // }
 
   // console.log('COUNT', count)
@@ -137,12 +138,12 @@ const CelebDisplay = ({ props, celebs}) => {
               color="green"
               id="btn"
               onClick={() => {
-                if (isDead) {
-                  props.history.push("/game");
+                if (isDead || history.push("/game")) {
+                  history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
                 } else {
-                  props.history.push('/game')
+                  history.push('/game')
                   setCount(count + 1)
                 }
               }}
@@ -155,13 +156,13 @@ const CelebDisplay = ({ props, celebs}) => {
               color="pink"
               id="btn"
               onClick={() => {
-                if (!isDead) {
+                if (isDead || history.push("/game")) {
+                  history.push("/game");
                   setCurrentScore(currentScore + 1);
-                  props.history.push("/game");
                   setCount(count + 1);
                 } else {
-                  props.history.push("/game");
-                  setCount(count + 1);
+                  history.push('/game')
+                  setCount(count + 1)
                 }
               }}
             >

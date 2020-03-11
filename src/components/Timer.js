@@ -1,91 +1,33 @@
-// import React, {useState, useRef, useEffect, useContext} from 'react';
-// import TimerProvider from  "../contexts/TimerProvider"
-
-// const Timer = (props) => {
-//   // console.log("timer props:", props)
-//   const [time, setTime] = useState(new Date().toLocaleTimeString());
-//   const {secondsPassed} = useContext(TimerProvider)
-
-//   useEffect(() => {
-//     const timeout = setTimeout(() => {
-//       const date = new Date()
-//       secondsPassed.current = secondsPassed.current - 1;
-//       setTime(date.toLocaleTimeString());
-//       if (secondsPassed.current === 0) { 
-//         // alert("hi")
-//         clearInterval(timeout)
-//         clearTimeout(timeout)
-//       }
-//     }, 1000);
-//     return () => {
-//       // alert("hi")
-//       clearTimeout(timeout);
-//     }
-//   }, [time]);
-
-//   return (
-//     <div>
-//       {/* <div>{time}</div> */}
-//       <div>Time Remaining: {secondsPassed.current} seconds</div>
-//     </div>
-//   )
-// }
-
-// export default Timer;
-
-import React, { useEffect, useState, useRef } from "react";
-import ReactDOM from "react-dom";
-import {Redirect} from 'react-router-dom';
+import React, {useState, useRef, useEffect, useContext} from 'react';
+import TimerContext from  "../contexts/TimerContext"
+// import ScoreContext from "../contexts/Score"
 
 
-
-export default function CountdownTimer(props) {
-  console.log("Timer props",props.history)
-  const calculateTimeLeft = () => {
-    const difference = +new Date("2025-08-01") - +new Date();
-    let timeLeft = {};
-
-    if (difference > 0) {
-      timeLeft = {
-        seconds: Math.floor((difference / 1000) % 6)
-      };
-    }
-
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+const Timer = () => {
+  // initialize timeLeft with the seconds prop
+  const [timeLeft, setTimeLeft] = useState(5);
 
   useEffect(() => {
-    setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+    // exit early when we reach 0
+    if (!timeLeft) return;
+
+    // save intervalId to clear the interval when the
+    // component re-renders
+    const intervalId = setInterval(() => {
+      setTimeLeft(timeLeft - 1);
     }, 1000);
-  });
 
-  const timerComponents = [];
-
-  Object.keys(timeLeft).forEach(interval => {
-    if (!timeLeft[interval]) {
-      return;
-    }
-
-    timerComponents.push(
-      <span>
-        {timeLeft[interval]} {interval}{" "}
-      </span>
-    );
-  });
+    // clear interval on re-render to avoid memory leaks
+    return () => clearInterval(intervalId);
+    // add timeLeft as a dependency to re-rerun the effect
+    // when we update it
+  }, [timeLeft]);
 
   return (
     <div>
-      {/* {console.log('coomom',timerComponents)} */}
-      {timerComponents.length ? 
-      timerComponents :
-      <>
-      <span>Time's up!</span>
-      <Redirect to="/game" />
-      </>
-      }
+      <h1>{timeLeft === 0 ?  <span>Time's up!</span> : <div>Time Remaining: {timeLeft} </div>} </h1>
     </div>
   );
-}
+};
+
+export default Timer;
