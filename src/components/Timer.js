@@ -6,36 +6,57 @@ import CelebDisplay from './CelebDisplay';
 // import ScoreContext from "../contexts/Score"
 
 
-const Timer = ({currentScore, setCurrentScore}) => {
+const Timer = ({currentScore, setCurrentScore, count, isDead, history}) => {
+  console.log("count:" , count)
   // initialize timeLeft with the seconds prop
   const [timeLeft, setTimeLeft] = useState(5);
   // const { timeLeft, setTimeLeft } = useContext(TimerContext)
-
+  const [timerCount, setTimerCount] = useState(0)
+  
+  console.log("TimerCount: ", timerCount)
   useEffect(() => {
     // exit early when we reach 0
     if (!timeLeft) {
+      setCurrentScore(currentScore - 1)
+      // setTimerCount(count)
+      // clearInterval(intervalId);
       setTimeLeft(timeLeft + 5)
     };
+    if (count != timerCount) {
+      console.log("here8********************")
+            setTimerCount(count)
+            setTimeLeft(timeLeft - timeLeft)
+            // if (isDead) {
+            //   // history.push("/game");
+            //   setCurrentScore(currentScore + 1);
 
-    // save intervalId to clear the interval when the
-    // component re-renders
+            // } 
+    }
+    // save intervalId to clear the interval when the component re-renders
     const intervalId = setInterval(() => {
       setTimeLeft(timeLeft - 1);
     }, 1000);
-
+    
     // clear interval on re-render to avoid memory leaks
     return () => clearInterval(intervalId);
     // add timeLeft as a dependency to re-rerun the effect
     // when we update it
   }, [timeLeft]);
-
+  
+  const update = () => {
+    if (timeLeft === 0 || count++) {
+      // setCurrentScore(currentScore - 1)
+      return true
+    }
+  }
+  
   return (
     <div>
-      {/* <CelebDisplay/> */}
-      <h1>{timeLeft === 0 ?  
+      <h1>
+        {!timeLeft?  
       <span>Time's up!
-      {setCurrentScore(currentScore - 1)}
-      <Redirect to="/game" /></span>: 
+      {/* <Redirect to="/game" /> */}
+      </span>: 
       <div>Countdown: {timeLeft} </div>} </h1>
     </div>
   );

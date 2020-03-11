@@ -34,6 +34,8 @@ const CelebDisplay = ({ props, celebs, history}) => {
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
+  const [doa, setDoa] = useState()
+  console.log("DOA: ", doa)
   // const [count, setCount] = useContext(ScoreContext);
 
   // console.log("TIMER: ",timerComponents)
@@ -62,7 +64,6 @@ const CelebDisplay = ({ props, celebs, history}) => {
   //
   //take points into user.score [useState]
 
-  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
   // console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
@@ -79,25 +80,15 @@ const CelebDisplay = ({ props, celebs, history}) => {
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
-  const isDead = randomCeleb ? randomCeleb.isDead : null;
   
-  // if (props.secondsPassed === 0) { 
-  //   console.log("SECONDS",props.secondsPassed)
-  //   props.history.push("/game") 
+  // if (count === 5 || currentScore === 5 || currentScore === -5) {
+  //   scorePut();
+  //   history.push('/modal')
   // }
-  // if (currentScore === 5) {
-  //   props.history.push('/login')
-  // }
-  // if (currentScore === 5) {
-  //   props.history.push("/modal");
-  // }
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
 
-  if (count === 5 || currentScore === 5 || currentScore === -5) {
-    scorePut();
-    history.push('/modal')
-  }
-
-  // console.log('COUNT', count)
+  const isDead = randomCeleb ? 
+  randomCeleb.isDead : null;
 
   const DOB = () => {
     if (randomCeleb) {
@@ -117,11 +108,11 @@ const CelebDisplay = ({ props, celebs, history}) => {
     >
       <div className="score-container">
         <div className="score percent">Current Score: {currentScore}</div>
-        {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
 
-        <Timer currentScore={currentScore} setCurrentScore={setCurrentScore}/>
+        <Timer currentScore={currentScore} setCurrentScore={setCurrentScore} 
+                count={count} isDead={isDead} history={history}/>
         {userData.message}
         <Image
           className="card-image"
@@ -143,7 +134,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
               color="green"
               id="btn"
               onClick={() => {
-                if (isDead || history.push("/game")) {
+                if (isDead) {
                   history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
@@ -161,7 +152,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
               color="pink"
               id="btn"
               onClick={() => {
-                if (isDead || history.push("/game")) {
+                if (isDead) {
                   history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
