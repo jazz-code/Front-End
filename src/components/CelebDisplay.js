@@ -20,7 +20,6 @@ import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 
 const CelebDisplay = ({ props, celebs, history}) => {
-  console.log("Display props", props)
   const { userData, setUserData } = useContext(UserDataContext)
   // const { timeLeft, setTimeLeft } = useContext(TimerContext)
   const [timeLeft, setTimeLeft] = useState(5)
@@ -34,13 +33,6 @@ const CelebDisplay = ({ props, celebs, history}) => {
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
-  const [doa, setDoa] = useState()
-  console.log("DOA: ", doa)
-  // const [count, setCount] = useContext(ScoreContext);
-
-  // console.log("TIMER: ",timerComponents)
-  var start = Date.now();
-
 
 
   const scorePut = () => {
@@ -55,8 +47,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
 
   let userScore = userData.score;
   let combined = userScore + currentScore;
-
-  console.log("combined", combined);
+  // console.log("combined", combined);
 
   //if 10 button clicks --> axios.put
   // /users/${user.id}
@@ -78,17 +69,15 @@ const CelebDisplay = ({ props, celebs, history}) => {
     setIcon({ icon: true });
   }
 
-  // if (randomCeleb) console.log(randomCeleb.name);
-
   
   // if (count === 5 || currentScore === 5 || currentScore === -5) {
   //   scorePut();
   //   history.push('/modal')
   // }
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
-
-  const isDead = randomCeleb ? 
-  randomCeleb.isDead : null;
+  // if (randomCeleb) console.log(randomCeleb);
+  const isDead = randomCeleb ? randomCeleb.isDead : null;
+  console.log("isdead****", isDead)
 
   const DOB = () => {
     if (randomCeleb) {
@@ -99,7 +88,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
     }
   };
 
-  
+  console.log("GREEN****", isDead)
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -111,8 +100,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
       </div>
       <Card>
 
-        <Timer currentScore={currentScore} setCurrentScore={setCurrentScore} 
-                count={count} isDead={isDead} history={history}/>
+        <Timer count={count}/>
         {userData.message}
         <Image
           className="card-image"
@@ -135,6 +123,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
               id="btn"
               onClick={() => {
                 if (isDead) {
+                  console.log("GREEN****", isDead)
                   history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
@@ -152,7 +141,8 @@ const CelebDisplay = ({ props, celebs, history}) => {
               color="pink"
               id="btn"
               onClick={() => {
-                if (isDead) {
+                if (!isDead) {
+                  console.log("PINK****", isDead)
                   history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
