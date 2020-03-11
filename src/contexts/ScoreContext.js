@@ -1,11 +1,8 @@
-import React from 'react'
+import React, { createContext } from 'react'
 
-const ScoreContext = React.createContext({
-  points: '',
-  totalPoints: ''
-})
+const ScoreContext = createContext()
 
-export const ScoreProvider = ScoreContext.Provider
-export const ScoreConsumer = ScoreContext.Consumer
+export const ScoreContextProvider = ScoreContext.Provider
+export const ScoreContextConsumer = ScoreContext.Consumer
 
 export default ScoreContext

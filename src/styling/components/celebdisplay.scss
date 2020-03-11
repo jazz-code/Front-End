@@ -30,8 +30,15 @@ h4 {
 
 //Buttons and Icons
 
-.ui.buttons {
+.ui.buttons  {
     margin: 3px 16%;
+    .or {
+        // padding: 20%;
+        &:hover {
+            // pink #e03997
+            color: rgb(255, 255, 255);
+        }
+    }
 }
 
 .icon {

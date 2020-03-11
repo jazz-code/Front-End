@@ -9,22 +9,34 @@ import useTraceUpdate from "../utils/useTraceUpdate"
 
 // Context API
 import UserDataContext from "../contexts/UserDataContext";
-import TimerProvider from  "../contexts/TimerProvider"
+// import TimerContext from  "../contexts/TimerContext"
+// import ScoreContext from  "../contexts/ScoreContext"
+import { TimerProvider } from  "../contexts/TimerContext"
+import { ScoreContextProvider } from '../contexts/ScoreContext';
 
 // Styling 
 import "../styling/components/celebdisplay.scss";
 import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 
-const CelebDisplay = ({props, celebs}) => {
+const CelebDisplay = ({ props, celebs, history}) => {
   console.log("Display props", props)
   const { userData, setUserData } = useContext(UserDataContext)
-  const {secondsPassed} = useContext(TimerProvider)
+  // const { timeLeft, setTimeLeft } = useContext(TimerContext)
+  const [timeLeft, setTimeLeft] = useState(5)
+  const [score, setScore] = useState(0)
+  
+  // console.log("TimeLeft: ", {timeLeft})
+  // const {score, setScore} = useContext(ScoreProvider)
+  
   // console.log('Timer: ', secondsPassed)
 
   const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
+  const [doa, setDoa] = useState()
+  console.log("DOA: ", doa)
+  // const [count, setCount] = useContext(ScoreContext);
 
   // console.log("TIMER: ",timerComponents)
   var start = Date.now();
@@ -52,7 +64,6 @@ const CelebDisplay = ({props, celebs}) => {
   //
   //take points into user.score [useState]
 
-  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
   // console.log('randomCeleb', randomCeleb)
 
   const nextCeleb = () => {
@@ -69,25 +80,15 @@ const CelebDisplay = ({props, celebs}) => {
 
   // if (randomCeleb) console.log(randomCeleb.name);
 
-  const isDead = randomCeleb ? randomCeleb.isDead : null;
   
-  // if (props.secondsPassed === 0) { 
-  //   console.log("SECONDS",props.secondsPassed)
-  //   props.history.push("/game") 
-  // }
-  // if (currentScore === 5) {
-  //   props.history.push('/login')
-  // }
-  // if (currentScore === 5) {
-  //   props.history.push("/modal");
-  // }
-
   // if (count === 5 || currentScore === 5 || currentScore === -5) {
   //   scorePut();
-  //   props.history.push('/modal')
+  //   history.push('/modal')
   // }
+  const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
 
-  // console.log('COUNT', count)
+  const isDead = randomCeleb ? 
+  randomCeleb.isDead : null;
 
   const DOB = () => {
     if (randomCeleb) {
@@ -107,13 +108,11 @@ const CelebDisplay = ({props, celebs}) => {
     >
       <div className="score-container">
         <div className="score percent">Current Score: {currentScore}</div>
-        {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-      {/* Count: {state.count} */}
-        <Timer />
-        {/* {console.log("SECONDS****",props.timer)}
-        {secondsPassed === 0 ? props.history.push("/game") : null} */}
+
+        <Timer currentScore={currentScore} setCurrentScore={setCurrentScore} 
+                count={count} isDead={isDead} history={history}/>
         {userData.message}
         <Image
           className="card-image"
@@ -136,11 +135,11 @@ const CelebDisplay = ({props, celebs}) => {
               id="btn"
               onClick={() => {
                 if (isDead) {
-                  props.history.push("/game");
+                  history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
                 } else {
-                  props.history.push('/game')
+                  history.push('/game')
                   setCount(count + 1)
                 }
               }}
@@ -153,13 +152,13 @@ const CelebDisplay = ({props, celebs}) => {
               color="pink"
               id="btn"
               onClick={() => {
-                if (!isDead) {
+                if (isDead) {
+                  history.push("/game");
                   setCurrentScore(currentScore + 1);
-                  props.history.push("/game");
                   setCount(count + 1);
                 } else {
-                  props.history.push("/game");
-                  setCount(count + 1);
+                  history.push('/game')
+                  setCount(count + 1)
                 }
               }}
             >
