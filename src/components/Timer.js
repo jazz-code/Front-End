@@ -9,31 +9,25 @@ import CelebDisplay from './CelebDisplay';
 const Timer = ({currentScore, setCurrentScore, count, isDead, history}) => {
   console.log("count:" , count)
   // initialize timeLeft with the seconds prop
-  const [timeLeft, setTimeLeft] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(15);
   // const { timeLeft, setTimeLeft } = useContext(TimerContext)
-  const [timerCount, setTimerCount] = useState(0)
   
-  console.log("TimerCount: ", timerCount)
+  // console.log("TimerCount: ", timerCount)
   useEffect(() => {
     // exit early when we reach 0
     if (!timeLeft) {
-      setCurrentScore(currentScore - 1)
+      // setCurrentScore(currentScore - 1)
       // setTimerCount(count)
-      // clearInterval(intervalId);
-      setTimeLeft(timeLeft + 5)
+      // clearInterval(0);
+      // console.log("interval*****", clearInterval())
+      // setTimeLeft(5)
+      setTimeLeft(timeLeft)
     };
-    if (count != timerCount) {
-      console.log("here8********************")
-            setTimerCount(count)
-            setTimeLeft(timeLeft - timeLeft)
-            // if (isDead) {
-            //   // history.push("/game");
-            //   setCurrentScore(currentScore + 1);
 
-            // } 
-    }
+
     // save intervalId to clear the interval when the component re-renders
     const intervalId = setInterval(() => {
+      // setTimeLeft(5)
       setTimeLeft(timeLeft - 1);
     }, 1000);
     
@@ -43,19 +37,19 @@ const Timer = ({currentScore, setCurrentScore, count, isDead, history}) => {
     // when we update it
   }, [timeLeft]);
   
-  const update = () => {
-    if (timeLeft === 0 || count++) {
-      // setCurrentScore(currentScore - 1)
-      return true
-    }
-  }
+  // const update = () => {
+  //   if (timeLeft === 0 || count++) {
+  //     // setCurrentScore(currentScore - 1)
+  //     return true
+  //   }
+  // }
   
   return (
     <div>
       <h1>
-        {!timeLeft?  
+        {timeLeft < 0 ?  
       <span>Time's up!
-      {/* <Redirect to="/game" /> */}
+      <Redirect to="/modal" />
       </span>: 
       <div>Countdown: {timeLeft} </div>} </h1>
     </div>
