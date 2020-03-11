@@ -22,14 +22,14 @@ import PrivateRoute from "./components/PrivateRoute";
 // context api providers
 import { UserDataProvider } from './contexts/UserDataContext';
 import { TimerProvider } from './contexts/TimerContext';
-import ScoreContext from './contexts/ScoreContext';
+import { ScoreContextProvider } from './contexts/ScoreContext';
 
 function App() {
   const [userData, setUserData] = useState({})
   const secondsPassed = useRef(5);
   const [celebs, setCelebs] = useState([]);
-  // const [score, setScore] = useState(5)
-  const [time, setTime] = useState(5)
+  const [score, setScore] = useState(0)
+  // const [timeLeft, setTimeLeft] = useState(5)
 
   useEffect(() => {
     axios
@@ -42,8 +42,8 @@ function App() {
     <Router>
       <div className="App">
         <UserDataProvider value={{ userData, setUserData }}>
-          {/* <ScoreContext.Provider value={score, setScore}> */}
-          <TimerProvider value={{ time, setTime }}>
+          {/* <ScoreContextProvider value={score, setScore}> */}
+          {/* <TimerProvider value={{ timeLeft, setTimeLeft }}> */}
           <NavBar />
             <Route exact path={'/'} component={Welcome} />
             <Route exact path="/login" component={Login} />
@@ -55,8 +55,8 @@ function App() {
               path="/registered"
               component={RegisteredPlayerModal}
             />
-          {/* </ScoreContext.Provider> */}
-          </TimerProvider>
+          {/* </TimerProvider> */}
+          {/* </ScoreContextProvider> */}
         </UserDataProvider>
       </div>
     </Router>

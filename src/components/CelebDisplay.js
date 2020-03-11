@@ -9,8 +9,10 @@ import useTraceUpdate from "../utils/useTraceUpdate"
 
 // Context API
 import UserDataContext from "../contexts/UserDataContext";
-import TimerConext from  "../contexts/TimerContext"
-import ScoreContext from  "../contexts/ScoreContext"
+// import TimerContext from  "../contexts/TimerContext"
+// import ScoreContext from  "../contexts/ScoreContext"
+import { TimerProvider } from  "../contexts/TimerContext"
+import { ScoreContextProvider } from '../contexts/ScoreContext';
 
 // Styling 
 import "../styling/components/celebdisplay.scss";
@@ -20,8 +22,13 @@ import { Card, Icon, Image, Button } from "semantic-ui-react";
 const CelebDisplay = ({ props, celebs, history}) => {
   console.log("Display props", props)
   const { userData, setUserData } = useContext(UserDataContext)
-  const { time, setTime } = useContext(TimerConext)
-  // const {count, setCount} = useContext(ScoreProvider)
+  // const { timeLeft, setTimeLeft } = useContext(TimerContext)
+  const [timeLeft, setTimeLeft] = useState(5)
+  const [score, setScore] = useState(0)
+  
+  // console.log("TimeLeft: ", {timeLeft})
+  // const {score, setScore} = useContext(ScoreProvider)
+  
   // console.log('Timer: ', secondsPassed)
 
   const [currentScore, setCurrentScore] = useState(0);
@@ -85,10 +92,10 @@ const CelebDisplay = ({ props, celebs, history}) => {
   //   props.history.push("/modal");
   // }
 
-  // if (count === 5 || currentScore === 5 || currentScore === -5) {
-  //   scorePut();
-  //   history.push('/modal')
-  // }
+  if (count === 5 || currentScore === 5 || currentScore === -5) {
+    scorePut();
+    history.push('/modal')
+  }
 
   // console.log('COUNT', count)
 
@@ -113,10 +120,8 @@ const CelebDisplay = ({ props, celebs, history}) => {
         {/* <button onClick={move()}>Test</button> */}
       </div>
       <Card>
-      {/* Count: {state.count} */}
-        <Timer />
-        {/* {console.log("SECONDS****",props.timer)}
-        {secondsPassed === 0 ? props.history.push("/game") : null} */}
+
+        <Timer currentScore={currentScore} setCurrentScore={setCurrentScore}/>
         {userData.message}
         <Image
           className="card-image"
