@@ -3,6 +3,7 @@ import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
 import UserDataContext from "../contexts/UserDataContext";
 
 import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 import '../styling/components/unregisteredplayermodal.scss';
 
@@ -10,10 +11,10 @@ const RegisteredPlayerModal = props => {
   const { userData, setUserData } = useContext(UserDataContext);
   console.log('userData', userData);
 
-  axios
+  axiosWithAuth()
     .get(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`)
-    .then(response => setUserData(userData.response))
-    .catch(error => error.response);
+    .then(response => setUserData(response.data))
+    .catch(error => console.log("Modal error: ",error.response));
 
   return (
     <Modal
@@ -24,7 +25,7 @@ const RegisteredPlayerModal = props => {
       }
       centered={false}
     >
-      <Modal.Header>YOUR TOTAL SCORE IS {userData.score}</Modal.Header>
+      <Modal.Header>YOUR TOTAL SCORE IS {userData.points}</Modal.Header>
       <Modal.Content image>
         <Image wrapped size="medium" />
         <Modal.Description>

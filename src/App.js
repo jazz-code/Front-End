@@ -28,7 +28,7 @@ function App() {
   const [userData, setUserData] = useState({})
   const secondsPassed = useRef(5);
   const [celebs, setCelebs] = useState([]);
-  const [score, setScore] = useState(0)
+  const [currentScore, setCurrentScore] = useState(0);
   // const [timeLeft, setTimeLeft] = useState(5)
 
   useEffect(() => {
@@ -47,9 +47,11 @@ function App() {
           <NavBar />
             <Route exact path={'/'} component={Welcome} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/game" render={(props => <CelebDisplay {...props} celebs={celebs} history={props.history}/>)} /> 
+            <Route exact path="/game" render={(props => 
+              <CelebDisplay {...props} celebs={celebs} currentScore={currentScore} setCurrentScore={setCurrentScore} history={props.history}/>)} /> 
             <Route exact path="/signup" component={Signup} />
-            <Route exact path="/modal" component={UnregisteredPlayerModal} />
+            <Route exact path="/modal" render={(props => 
+              <UnregisteredPlayerModal {...props} currentScore={currentScore} setCurrentScore={setCurrentScore} />)} />
             <PrivateRoute
               exact
               path="/registered"
