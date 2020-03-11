@@ -3,6 +3,7 @@ import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
 import UserDataContext from "../contexts/UserDataContext";
 
 import axios from 'axios';
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 import '../styling/components/unregisteredplayermodal.scss';
 
@@ -12,9 +13,13 @@ const UnRegisteredPlayerModal = props => {
 
   axios
     .get(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`)
-    .then(response => setUserData(userData.response))
-    .catch(error => error.response);
+    .then(response => console.log("Unreged response", response))
+    .catch(error => console.log("error in unregged modal: ", error.response));
 
+  const reset = () => {
+    props.setCurrentScore(0) 
+    props.history.push('/game')
+  }
   return (
     <Modal
       trigger={
@@ -24,27 +29,28 @@ const UnRegisteredPlayerModal = props => {
       }
       centered={false}
     >
-      <Modal.Header>LOGIN TO KEEP TRACK OF YOUR SCORE</Modal.Header>
+      <Modal.Header>CREATE an account & LOGIN to keep track of your score!</Modal.Header>
       <Modal.Content image>
         <Image wrapped size="medium" />
         <Modal.Description>
-          <Header>CONGRATULATIONS!</Header>
-          <p>You REALLY Seem to Know A LOT About Dead Celebrities...</p>
-          <p>
+          <Header>Your SCORE is {props.currentScore}! CONGRATULATIONS! </Header>
+            <h3>{props.currentScore === 0 ? 
+              <span><h3>Better Luck Next Time!</h3></span> :
+              <h3>You REALLY Seem to Know A LOT About Dead Celebrities...</h3> }
+            </h3>
+          <h5>
             That was a lot of fun right? Want to let everyone know if they are
             ever trapped in a room with a serial killer and the only way to make
             it out alive is to correctly guess whether or not 5 random
             celebrities are DEAD or ALIVE, you're their 'goto'? Create an
             account so your amazing score persists!
-          </p>
+          </h5>
         </Modal.Description>
-        {/* <Button onClick={history.push("/game")}>Play again</Button>
-      <Button onClick={history.push('/login')}>Login</Button> */}
       </Modal.Content>
       <Button primary icon onClick={() => props.history.push('/signup')}>
         Create an Account <Icon name="right chevron" />
       </Button>
-      <Button primary icon onClick={() => props.history.push('/game')}>
+      <Button primary icon onClick={reset}>
         Play again! <Icon name="right chevron" />
       </Button>
     </Modal>
