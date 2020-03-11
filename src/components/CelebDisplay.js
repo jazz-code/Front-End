@@ -100,8 +100,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
       </div>
       <Card>
 
-        <Timer currentScore={currentScore} setCurrentScore={setCurrentScore} 
-                count={count} isDead={isDead} history={history}/>
+        <Timer count={count}/>
         {userData.message}
         <Image
           className="card-image"
