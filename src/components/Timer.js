@@ -14,7 +14,7 @@ import TimerContext from  "../contexts/TimerContext"
 
 const Timer = ({count, currentScore, history}) => {
   // console.log("count:" , count)
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState(1500);
   const { userData, setUserData } = useContext(UserDataContext)
   useEffect(() => {
     // exit early when we reach 0
