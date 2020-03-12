@@ -21,9 +21,9 @@ const UnRegisteredPlayerModal = props => {
     props.history.push('/game')
   }
   return (
-    <Modal
+    <Modal className="modal-container"
       trigger={
-        <Button className="unregistered-player-modal-btn">
+        <Button id="modal-btn" className="unregistered-player-modal-btn">
           See How You Did
         </Button>
       }

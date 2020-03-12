@@ -1,19 +1,31 @@
-.ui.button {
-    font-size: 2rem;
-    margin: 18% 26%;
-    width: 47%;
-}
 
-.ui.modal>:last-child {
-    border-bottom-left-radius: .28571429rem;
-    border-bottom-right-radius: .28571429rem;
-    margin: 10px 27%;
-}
+        #modal-btn {
+            height: 16%;
+            width: 42%;
+            /* margin: 0 auto; */
+            position: absolute;
+            top: 35%;
+            left: 33%;
+            font-size: 2rem;
+            //   background-color: red;
+            //   background: rgba(174, 208, 214, 0.562);
+            //   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(124,215,182,1) 70%, rgba(231,137,153,1) 100%);
+            // &:hover {
+            //     background: rgb(2,0,36);
+            //     background: linear-gradient(284deg, rgba(2,0,36,1) 0%, rgba(124,215,182,1) 70%, rgba(231,137,153,1) 100%);
+            // }
+            }
 
-.ui.primary.button, .ui.primary.buttons .button {
-    background-color: #2185d0;
-    color: #fff;
-    text-shadow: none;
-    background-image: none;
-    margin: 15px 27%;
-}
+        .ui.modal>:last-child {
+            border-bottom-left-radius: .28571429rem;
+            border-bottom-right-radius: .28571429rem;
+            margin: 10px 27%;
+        }
+
+        .ui.primary.button, .ui.primary.buttons .button {
+            background-color: #2185d0;
+            color: #fff;
+            text-shadow: none;
+            background-image: none;
+            margin: 15px 27%;
+        }
