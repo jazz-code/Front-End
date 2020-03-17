@@ -1,16 +1,54 @@
 body {
     max-height: 20vh;
 }
-
 .ui.card {
-    margin: 0 auto;
+  margin: 0 auto;
+}
+.ui.card .content {
+  margin: -9% 1%;
+  /* display: contents; */
+  padding: 118px 2px 2px 2px;
+}
+.ui.card .content {
+  /* margin: 77%; */
+}
+.ui.card>.content, .ui.cards>.card>.content {
+  text-align: center;
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid rgba(34,36,38,.1);
+  background: 0 0;
+  margin: 0;
+  padding: 1em 1em;
+  box-shadow: none;
+  font-size: 1em;
+  border-radius: 0;
+  background-color: white;
+}
+
+.ui.card>:last-child, .ui.cards>.card>:last-child {
+  border-radius: 0 0 .28571429rem .28571429rem!important;
+}
+
+.content {
+  position: inherit;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 160px;
+  /* overflow: hidden; */
+  font-family: 'Lato', sans-serif;
+  font-size: 35px;
+  line-height: 40px;
+  color: #111516;
 }
 
 
 
 .ui.card>.image:not(.ui)>img, .ui.cards>.card>.image:not(.ui)>img {
     border: none;
-    height: 370px;
+    height: 400px;
+    padding-bottom: 70px;
 }
 
 .ui.card>.image>img, .ui.cards>.card>.image>img {
@@ -31,7 +69,7 @@ h4 {
 //Buttons and Icons
 
 .ui.buttons  {
-    margin: 3px 16%;
+    margin: 9% 5%;
     .or {
         // padding: 20%;
         &:hover {

@@ -102,8 +102,6 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
         <Card.Content>
           <Card.Header>{randomCeleb ? randomCeleb.name : null}</Card.Header>
           <Card.Description>{randomCeleb ? <p>Born in {DOB()}</p> : null}</Card.Description>
-        </Card.Content>
-        <Card.Content>
           <Button.Group>
             <Button
               size="large"
@@ -141,6 +139,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
               <i className="thumbs up icon"></i>Alive
             </Button>
           </Button.Group>
+        
         </Card.Content>
       </Card>
     </Animated>
