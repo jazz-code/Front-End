@@ -1,21 +1,43 @@
 @import "utils/variables";
 
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 160px;
-  overflow:hidden;
+#important-content {
+   /* position: inherit; */
+   top: 1%;
+   left: 1%;
+   transform: translate(-2%, -2%);
+   height: 160px;
+   /* overflow: hidden; */
+   font-family: 'Lato', sans-serif;
+   font-size: 35px;
+   line-height: 40px;
+   color: #111516;
+   width: 46%;
+   margin: 0px auto;
+   margin-top: 2em;
+   @media (max-width: $phone)  {
+    width: 90%;
+    margin-top: 1em;
+    height: 160px;
+  }
   
-  font-family: 'Lato', sans-serif;
-  font-size: 35px;
-  line-height: 40px;
-  color: #111516;
+}
+.content {
+    /* position: inherit; */
+    top: 1%;
+    left: 1%;
+    transform: translate(-2%, -2%);
+    height: 160px;
+    /* overflow: hidden; */
+    font-family: 'Lato', sans-serif;
+    font-size: 35px;
+    line-height: 40px;
+    color: #111516;
+    width: 62%;
+    margin: 0px auto;
   @media (max-width: $phone)  {
-    top: 25%;
-    left: 25%;
-    transform: translate(-25%, -25%);
+    // top: 25%;
+    // left: 25%;
+    // transform: translate(-25%, -25%);
     height: 160px;
 }
   
@@ -23,12 +45,13 @@
     font-weight: 600;
     overflow: hidden;
     height: 40px;
-    padding: 0px 49px;
+    width: 90%;
+    // padding: 0px 49px;
     @media (max-width: $phone)  {
       font-weight: 600;
       overflow: hidden;
       height: 40px;
-      padding: 0px 50px;
+      padding: 0px 31px;
     }
 
     &:before {
@@ -38,8 +61,8 @@
     @media (max-width: $phone)  {
     font-size: 24px;
     line-height: 30px;
-    padding-left: 80px;
-    margin: 1px 33px;
+    // padding-left: 80px;
+    margin: 1px auto;
   }
 
     &:after {
@@ -75,7 +98,8 @@
       padding-right: 114px;
     }
     @media (max-width: $phone) {
-      padding-right: 60px
+      padding-right: 60px;
+      width: 100%;
   } 
     
 
@@ -182,22 +206,27 @@
       align-content: center;
       flex-flow: column wrap;
       justify-content: center;
-      height: 70vh;
+      /* height: 70vh; */
       width: 100vw;
-      position: absolute;
-      top: auto;
-      bottom: auto;
-      left: auto;
-      // background: rgba(174, 208, 214, 0.562);
+      // position: absolute;
+      // top: auto;
+      // bottom: auto;
+      // left: auto;
+      // padding: 33px 41px 5px 207px;
+      // margin: 12px 48px;
 
     .welcome-text {
-        text-align: center;
-        margin-top: 10%;
-        // background-color: $pink;
+      // text-align: center;
+      // margin-top: 10%;
+      // padding: 1px 2px;
+      // position: absolute;
+      // top: 25%;
+      // left: 25%;
+      // transform: translate(-25%, -25%);
     }
     #welcome-button {
       font-size: 2rem;
-      margin: 5% auto;
+      // margin: 5% auto;
       width: auto;
       background-color: red;
       background: rgba(174, 208, 214, 0.562);
@@ -237,4 +266,8 @@
         animation: colorchange 7s linear infinite;
       }
     
+}
+
+.description-container {
+  // margin: 27% auto;
 }
