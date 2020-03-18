@@ -11,6 +11,9 @@ import axios from 'axios'
 import UserDataContext from "../contexts/UserDataContext";
 import TimerContext from  "../contexts/TimerContext"
 
+const Timer = ({count}) => {
+  console.log("count:" , count)
+  const [timeLeft, setTimeLeft] = useState(1500);
 
 const Timer = ({count, currentScore, history}) => {
   // console.log("count:" , count)
