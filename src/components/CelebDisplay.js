@@ -19,34 +19,30 @@ import "../styling/components/celebdisplay.scss";
 import { Animated } from "react-animated-css";
 import { Card, Icon, Image, Button } from "semantic-ui-react";
 
-const CelebDisplay = ({ props, celebs, history}) => {
+const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) => {
   const { userData, setUserData } = useContext(UserDataContext)
-  // const { timeLeft, setTimeLeft } = useContext(TimerContext)
-  const [timeLeft, setTimeLeft] = useState(5)
   const [score, setScore] = useState(0)
   
-  // console.log("TimeLeft: ", {timeLeft})
   // const {score, setScore} = useContext(ScoreProvider)
-  
-  // console.log('Timer: ', secondsPassed)
 
-  const [currentScore, setCurrentScore] = useState(0);
+  // const [currentScore, setCurrentScore] = useState(0);
   const [icon, setIcon] = useState({ icon: true });
   const [count, setCount] = useState(0);
 
 
-  const scorePut = () => {
-    axiosWithAuth()
-      .put(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`, {
-        'points': combined,
-      })
-      .then(res => console.log("RES", res))
-      .catch(err => err.response);
-  }
-  console.log("userData", userData);
+  // const scorePut = () => {
+  //   axiosWithAuth()
+  //     .put(`https://bw-celeb-dead-app.herokuapp.com/users/${userData.id}`, {
+  //       'points': combined,
+  //     })
+  //     .then(res => console.log("RES", res))
+  //     .catch(err => err.response);
+  // }
+  // console.log("userData", userData);
 
-  let userScore = userData.score;
-  let combined = userScore + currentScore;
+  // let userScore = userData.points;
+  // // if (!userScore) {}
+  // let combined = userScore + currentScore;
   // console.log("combined", combined);
 
   //if 10 button clicks --> axios.put
@@ -69,11 +65,6 @@ const CelebDisplay = ({ props, celebs, history}) => {
     setIcon({ icon: true });
   }
 
-  
-  // if (count === 5 || currentScore === 5 || currentScore === -5) {
-  //   scorePut();
-  //   history.push('/modal')
-  // }
   const randomCeleb = celebs[Math.floor(Math.random() * celebs.length)]
   // if (randomCeleb) console.log(randomCeleb);
   const isDead = randomCeleb ? randomCeleb.isDead : null;
@@ -88,7 +79,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
     }
   };
 
-  console.log("GREEN****", isDead)
+  // console.log("GREEN****", isDead)
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -100,7 +91,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
       </div>
       <Card>
 
-        <Timer count={count}/>
+        <Timer count={count} currentScore={currentScore} history={history}/>
         {userData.message}
         <Image
           className="card-image"
@@ -110,12 +101,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
         />
         <Card.Content>
           <Card.Header>{randomCeleb ? randomCeleb.name : null}</Card.Header>
-
-          <Card.Description>
-            {randomCeleb ? <p>Born in {DOB()}</p> : null}
-          </Card.Description>
-        </Card.Content>
-        <Card.Content>
+          <Card.Description>{randomCeleb ? <p>Born in {DOB()}</p> : null}</Card.Description>
           <Button.Group>
             <Button
               size="large"
@@ -123,7 +109,6 @@ const CelebDisplay = ({ props, celebs, history}) => {
               id="btn"
               onClick={() => {
                 if (isDead) {
-                  console.log("GREEN****", isDead)
                   history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
@@ -142,7 +127,6 @@ const CelebDisplay = ({ props, celebs, history}) => {
               id="btn"
               onClick={() => {
                 if (!isDead) {
-                  console.log("PINK****", isDead)
                   history.push("/game");
                   setCurrentScore(currentScore + 1);
                   setCount(count + 1);
@@ -155,6 +139,7 @@ const CelebDisplay = ({ props, celebs, history}) => {
               <i className="thumbs up icon"></i>Alive
             </Button>
           </Button.Group>
+        
         </Card.Content>
       </Card>
     </Animated>
