@@ -2,7 +2,7 @@ body {
     max-height: 20vh;
 }
 #card-id {
-  height: 20%;
+  height: 84vh;
 }
 .ui.card {
   margin: 0 auto;
@@ -23,16 +23,23 @@ body {
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
   transition: box-shadow .1s ease,transform .1s ease;
 }
+
 .ui.card .content {
   margin: -9% 1%;
   /* display: contents; */
   padding: 118px 2px 2px 2px;
+  font-size: 17px!important;
+  font-family: 'Lato', sans-serif!important;
+  height: 100%;
 }
 .ui.card .content {
-  /* margin: 77%; */
+  margin-left: 150px;
 }
+
 .ui.card>.content, .ui.cards>.card>.content {
   text-align: center;
+  position: sticky;
+  margin-left: 138px;
   flex-grow: 1;
   border: none;
   border-top: 1px solid rgba(34,36,38,.1);
@@ -97,6 +104,10 @@ h4 {
   display: flex;
   justify-content: center;
   padding-top: 48%;
+  @media (max-width: 700px)  { 
+    margin: 5px auto;
+    margin-bottom: 152px;
+  }
   .ui.buttons  {
       margin: 9% 5%;
       .or {
@@ -122,7 +133,7 @@ h4 {
       &:hover {
         color: #c00;
         // .Pulse(500ms);
-      }             
+      }
     }
 
  //Score
@@ -145,3 +156,6 @@ h4 {
       }
   }
 
+  .ui.card > :last-child, .ui.cards > .card > :last-child {
+    margin-left: 150px;
+  }
