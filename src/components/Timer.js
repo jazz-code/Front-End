@@ -8,7 +8,7 @@ import "../styling/components/timer.scss";
 
 const Timer = ({count}) => {
   console.log("count:" , count)
-  const [timeLeft, setTimeLeft] = useState(9999);
+  const [timeLeft, setTimeLeft] = useState(15);
 
   useEffect(() => {
     // exit early when we reach 0

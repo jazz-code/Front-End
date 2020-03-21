@@ -55,16 +55,34 @@
             background-color: #b40571e7;
         }
         @media (max-width: 945px) {
-            margin: 40% 12%;
+            margin: 36% 12%;
             height: 17%;
             padding: 2%;
             width: 25%;
 
         }
-        @media (max-width: 650px) {
-            margin: 43% 12%;
+        @media (max-width: 780px) {
+            margin: 38% 9%;
             height: 17%;
             padding: 2%;
-            width: 25%;
+            width: 32%;
+        }
+        @media (max-width: 698px) {
+            margin: 42% 9%;
+            height: 17%;
+            padding: 2%;
+            width: 32%;
+        }
+        @media (max-width: 650px) {
+            margin: 51% 9%;
+            height: 17%;
+            padding: 2%;
+            width: 32%;
+        }
+        @media (max-width: 516px) {
+            margin: 55% 9%;
+            height: 17%;
+            padding: 2%;
+            width: 32%;
         }
     }
