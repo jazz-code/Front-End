@@ -1,19 +1,45 @@
 body {
     max-height: 20vh;
 }
+#card-id {
+  height: 84vh;
+}
 .ui.card {
   margin: 0 auto;
+  // height: 20% !important;
 }
+.ui.card, .ui.cards>.card {
+  max-width: 100%;
+  height: 3%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  min-height: 0;
+  background: navajowhite;
+  padding: 0;
+  border: none;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  transition: box-shadow .1s ease,transform .1s ease;
+}
+
 .ui.card .content {
   margin: -9% 1%;
   /* display: contents; */
   padding: 118px 2px 2px 2px;
+  font-size: 17px!important;
+  font-family: 'Lato', sans-serif!important;
+  height: 100%;
 }
 .ui.card .content {
-  /* margin: 77%; */
+  margin-left: 150px;
 }
+
 .ui.card>.content, .ui.cards>.card>.content {
   text-align: center;
+  position: sticky;
+  margin-left: 138px;
   flex-grow: 1;
   border: none;
   border-top: 1px solid rgba(34,36,38,.1);
@@ -22,12 +48,18 @@ body {
   padding: 1em 1em;
   box-shadow: none;
   font-size: 1em;
-  border-radius: 0;
-  background-color: white;
+  border-radius: 25px;
+  background-color: rgb(252, 221, 175);
 }
 
 .ui.card>:last-child, .ui.cards>.card>:last-child {
-  border-radius: 0 0 .28571429rem .28571429rem!important;
+  // border-radius: 0 0 .28571429rem .28571429rem;
+  border-radius: 25px !important;
+  border: 2px solid rgb(235, 191, 126);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  padding: 20px;
 }
 
 .content {
@@ -67,17 +99,26 @@ h4 {
 }
 
 //Buttons and Icons
-
-.ui.buttons  {
-    margin: 9% 5%;
-    .or {
-        // padding: 20%;
-        &:hover {
-            // pink #e03997
-            color: rgb(255, 255, 255);
-        }
-    }
-}
+#btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 48%;
+  @media (max-width: 700px)  { 
+    margin: 5px auto;
+    margin-bottom: 152px;
+  }
+  .ui.buttons  {
+      margin: 9% 5%;
+      .or {
+          // padding: 20%;
+          &:hover {
+              // pink #e03997
+              color: rgb(255, 255, 255);
+          }
+      }
+    } 
+  }
 
 .icon {
       font-size: 2.5rem;    
@@ -92,7 +133,7 @@ h4 {
       &:hover {
         color: #c00;
         // .Pulse(500ms);
-      }             
+      }
     }
 
  //Score
@@ -115,3 +156,6 @@ h4 {
       }
   }
 
+  .ui.card > :last-child, .ui.cards > .card > :last-child {
+    margin-left: 150px;
+  }
