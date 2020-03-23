@@ -47,12 +47,14 @@ const UnRegisteredPlayerModal = props => {
           <h3>Create an account so your amazing score persists!</h3>
         </Modal.Description>
       </Modal.Content>
+      <div id="modal-btn-group">
       <Button primary icon onClick={() => props.history.push('/signup')}>
-        Create an Account <br/><Icon name="left chevron" />
+        Create an Account! <br/><Icon name="left chevron" />
       </Button>
       <Button primary icon onClick={reset}>
-        Play again! <br/><Icon name="right chevron" />
+        Play another game! <br/><Icon name="right chevron" />
       </Button>
+      </div>
     </Modal>
   );
 }
