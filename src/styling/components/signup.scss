@@ -4,8 +4,8 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-top: 10%;
-    .signup-card {
+    // margin-top: 10%;
+    #signup-card {
         display: flex;
         justify-content: center;
         padding: 5%;
@@ -13,7 +13,12 @@
         padding-bottom: 5%;
         width: 40%;
         @media (max-width: $phone) {
-            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 5%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            width: 40%;
         }
         .signup-form {
             display: flex;
