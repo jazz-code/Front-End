@@ -4,11 +4,16 @@ body {
 #card-id {
   height: 84vh;
   background-color: rgba(85, 255, 51, 0.158);
-  @media (max-width: 700px)  { 
-    height: 66vh;
+  @media (max-width: 768px)  { 
+    height: 58vh;
+    margin: 5% auto;
   }
   @media (max-width: 700px) {
     height: 61vh;
+  }
+  @media (max-width: 450px) {
+    margin: 5px auto;
+    height: 60vh;
   }
 }
 .ui.card {
@@ -92,6 +97,10 @@ body {
     border: none;
     height: 400px;
     padding-bottom: 70px;
+    @media (max-width: 450px) {
+      height: 350px;
+      // margin: -81px;
+    }
 }
 
 .ui.card>.image>img, .ui.cards>.card>.image>img {
@@ -158,9 +167,9 @@ h4 {
     width: 100%;
     // height: 50px;
     background-color: #ddd;
-    // @media (max-width: 375px)  { 
-    //   height: 27px;
-    // }
+    @media (max-width: 450px) {
+      // display: none;
+    }
     .score {
         text-align: right;
         padding-top: 10px;
@@ -171,17 +180,28 @@ h4 {
       .percent {
         // width: 5%; 
         background-color: #4CAF50;
+        @media (max-width: 450px) {
+          // height: 50px;
+        }
       }
   }
 
   .ui.card > :last-child, .ui.cards > .card > :last-child {
     margin-left: 150px;
+    @media (max-width: 768px) {
+      height: 123px;
+      margin: -45px;
+    }
     @media (max-width: 700px)  { 
       height: 123px;
       margin: -50px;
     }
     @media (max-width: 450px) {
       height: 123px;
-      margin: -81px;
+      margin: -84px;
+    }
+    @media (max-width: 375px) {
+      height: 123px;
+      margin: -45px;
     }
   }
