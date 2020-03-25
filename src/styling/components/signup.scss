@@ -4,14 +4,20 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    // margin-top: 10%;
+    margin-top: 10%;
     #signup-card {
+        // display: flex;
+        // justify-content: center;
+        // padding: 5%;
+        // padding-top: 5%;
+        // padding-bottom: 5%;
+        // width: 40%;
         display: flex;
         justify-content: center;
         padding: 5%;
         padding-top: 5%;
         padding-bottom: 5%;
-        width: 40%;
+        width: 50%;
         @media (max-width: $phone) {
             display: flex;
             justify-content: center;
@@ -20,20 +26,29 @@
             padding-bottom: 5%;
             width: 40%;
         }
-        .signup-form {
+        #signup-form {
             display: flex;
             justify-content: center;
-            flex-flow: column wrap;
+            flex-direction: column;
+            // flex-flow: column wrap;
+            @media (max-width: $phone) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* flex-flow: column wrap; */
+                flex-direction: column;
+                margin: 11% auto;
+            }
             .signup-title {
                 color: #2CBF89;
             }
             .signup-label {
                 margin-top: 5%;
             }
-            .signup-button {
+            #signup-button {
                 @media (max-width: $phone) {
-                    padding: 10%;
                     font-size: 200%;
+                    padding: 12px 63px 36px 62px;
                 }
             }
         };
