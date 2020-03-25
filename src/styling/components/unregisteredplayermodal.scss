@@ -1,31 +1,191 @@
-
-        #modal-btn {
+// @import "/src/styling/utils/variables.scss"
+    #modal-btn {
+        height: 16%;
+        width: 42%;
+        /* margin: 0 auto; */
+        position: absolute;
+        top: 35%;
+        left: 33%;
+        font-size: 2rem;
+        //   background-color: red;
+        //   background: rgba(174, 208, 214, 0.562);
+        //   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(124,215,182,1) 70%, rgba(231,137,153,1) 100%);
+        // &:hover {
+        //     background: rgb(2,0,36);
+        //     background: linear-gradient(284deg, rgba(2,0,36,1) 0%, rgba(124,215,182,1) 70%, rgba(231,137,153,1) 100%);
+        // }
+        @media (max-width: 450px)  {
             height: 16%;
-            width: 42%;
+            width: 50%;
             /* margin: 0 auto; */
             position: absolute;
-            top: 35%;
-            left: 33%;
+            top: 50%;
+            left: 25%;
             font-size: 2rem;
-            //   background-color: red;
-            //   background: rgba(174, 208, 214, 0.562);
-            //   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(124,215,182,1) 70%, rgba(231,137,153,1) 100%);
-            // &:hover {
-            //     background: rgb(2,0,36);
-            //     background: linear-gradient(284deg, rgba(2,0,36,1) 0%, rgba(124,215,182,1) 70%, rgba(231,137,153,1) 100%);
-            // }
+        }
+    }
+
+
+    .ui.active.modal {
+        border-bottom-left-radius: .28571429rem;
+        border-bottom-right-radius: .28571429rem;
+        margin: 10px 27%;
+        height: 50vh;
+        @media (max-width: 450px)  {
+            margin-top: 150px;
+        }
+            .header {
+                text-align: center;
+                @media (max-width: 450px)  {
+                    // margin: -30px 0;
+                    margin: 0 auto;
+                    display: inherit;
+                }
+            }
+            .content {
+                height: auto;
+                text-align: center;
+                display: block;
+                width: 100%;
+                font-size: 1em;
+                line-height: 1.4;
+                padding: 1.5rem;
+                background: #fff;
+                @media (max-width: 450px)  {
+                    height: 66%;
+                    width: 100%;
+                    margin: 0 auto;
+                }
+                @media (max-width: 375px) {
+                    height: 78%;
+                    width: 100%;
+                    margin: 0 auto;
+                    display: table;
+                }
+                .image+.description{
+                    padding-left: 0;
+                }
             }
 
-        .ui.modal>:last-child {
-            border-bottom-left-radius: .28571429rem;
-            border-bottom-right-radius: .28571429rem;
-            margin: 10px 27%;
+    }
+    #modal-btn-group {
+        position: inherit;
+        top: 0%;
+        /* bottom: 3%; */
+        left: 0%;
+        /* margin: 10% auto; */
+        /* height: 17%; */
+        /* padding: 20px 20px 20px 20px; */
+        width: 105%;
+        /* display: contents;*/
+         @media (max-width: 945px) {
+            top: 4%;
+            width: 110%;
         }
-
+        @media (max-width: 850px) {
+            // top: 4%;
+            top: 24%;
+            left: -7%;
+            width: 120%;
+        }
+        @media (max-width: 752px) {
+            top: 3%;
+            left: -13%;
+            width: 127%;
+        }
+        @media (max-width: 702px) {
+            top: 5%;
+            left: -13%;
+            width: 127%;
+        }
+        @media (max-width: 650px) {
+            top: 3%;
+            left: -23%;
+            width: 146%;
+        }
+        @media (max-width: 600px) {
+            top: 6%;
+            left: -23%;
+            width: 146%;
+        }
+        @media (max-width: 550px) {
+            top: 15%;
+            left: -23%;
+            width: 146%;
+        }
+        @media (max-width: 530px) {
+            top: -38%;
+            left: -23%;
+            width: 146%;
+        }
+        @media (max-width: 500px) {
+            top: -35%;
+            left: -23%;
+            width: 146%;
+        }
+        @media (max-width: 475px) {
+            top: 62%;
+            left: -12%;
+            width: 127%;
+        }
+        @media (max-width: 375px) {
+            top: 65%;
+        }
         .ui.primary.button, .ui.primary.buttons .button {
-            background-color: #2185d0;
+            background-color: #ff009d;
             color: #fff;
             text-shadow: none;
             background-image: none;
-            margin: 15px 27%;
+            margin-top: 10%;
+            margin: 31% 17%;
+            padding: 12px;
+            width: 16%;
+            height: 14%;
+
+            &:hover {
+                background-color: #b40571e7;
+            }
+            // @media (max-width: 945px) {
+            //     margin: 36% 12%;
+            //     height: 17%;
+            //     padding: 2%;
+            //     width: 25%;
+            // }
+            // @media (max-width: 780px) {
+            //     margin: 38% 9%;
+            //     height: 17%;
+            //     padding: 2%;
+            //     width: 32%;
+            // }
+            // @media (max-width: 698px) {
+            //     margin: 42% 9%;
+            //     height: 17%;
+            //     padding: 2%;
+            //     width: 32%;
+            // }
+            // @media (max-width: 650px) {
+            //     margin: 51% 9%;
+            //     height: 17%;
+            //     padding: 2%;
+            //     width: 32%;
+            // }
+            // @media (max-width: 516px) {
+            //     margin: 55% 9%;
+            //     height: 17%;
+            //     padding: 2%;
+            //     width: 32%;
+            // }
+            // @media (max-width: 450px) {
+            //     margin: 73% 7%;
+            //     height: 17%;
+            //     padding: 2%;
+            //     width: 35%;
+            // }
+            // @media (max-width: 375px) {
+            //     margin: 89% 6%;
+            //     height: 17%;
+            //     padding: 2%;
+            //     width: 38%;        
+            // }
         }
+}

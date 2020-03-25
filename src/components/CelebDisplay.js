@@ -89,7 +89,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
       <div className="score-container">
         <div className="score percent">Current Score: {currentScore}</div>
       </div>
-      <Card>
+      <Card id="card-id">
 
         <Timer count={count} currentScore={currentScore} history={history}/>
         {userData.message}
@@ -102,9 +102,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
         <Card.Content>
           <Card.Header>{randomCeleb ? randomCeleb.name : null}</Card.Header>
           <Card.Description>{randomCeleb ? <p>Born in {DOB()}</p> : null}</Card.Description>
-        </Card.Content>
-        <Card.Content>
-          <Button.Group>
+          <Button.Group id="btn-group">
             <Button
               size="large"
               color="green"
@@ -141,6 +139,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
               <i className="thumbs up icon"></i>Alive
             </Button>
           </Button.Group>
+        
         </Card.Content>
       </Card>
     </Animated>

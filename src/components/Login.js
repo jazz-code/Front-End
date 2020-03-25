@@ -43,8 +43,8 @@ const Login = props => {
 
   return (
     <div className="login-container">
-      <Card className="login-card">
-        <form className="login-form" onSubmit={submitForm}>
+      <Card id="login-card">
+        <form id="login-form" onSubmit={submitForm}>
           <h1>Login:</h1>
           <label htmlFor="name" className="login-label" />
           <input
@@ -63,7 +63,7 @@ const Login = props => {
             onChange={changeHandler}
           />
           <br></br>
-          <Button type="submit" inverted color="blue" className="login-button">
+          <Button type="submit" inverted color="blue" id="login-button">
             Submit
           </Button>
         </form>

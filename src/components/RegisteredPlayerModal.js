@@ -42,6 +42,7 @@ const RegisteredPlayerModal = props => {
         {/* <Button onClick={history.push("/game")}>Play again</Button>
       <Button onClick={history.push('/login')}>Login</Button> */}
       </Modal.Content>
+      {/* <div className="modal-btn-group"> */}
       <Button primary icon onClick={() => props.history.push('/game')}>
         Play again! <Icon name="right chevron" />
       </Button>

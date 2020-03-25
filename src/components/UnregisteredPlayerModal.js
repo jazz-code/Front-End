@@ -38,21 +38,23 @@ const UnRegisteredPlayerModal = props => {
               <span><h3>Better Luck Next Time!</h3></span> :
               <h3>You REALLY Seem to Know A LOT About Dead Celebrities...</h3> }
             </h3>
-          <h5>
+          <h4>
             That was a lot of fun right? Want to let everyone know if they are
             ever trapped in a room with a serial killer and the only way to make
-            it out alive is to correctly guess whether or not 5 random
-            celebrities are DEAD or ALIVE, you're their 'goto'? Create an
-            account so your amazing score persists!
-          </h5>
+            it out alive is to correctly guess whether or not random
+            celebrities are DEAD or ALIVE-- you're their goto?
+          </h4>
+          <h3>Create an account so your amazing score persists!</h3>
         </Modal.Description>
       </Modal.Content>
+      <div id="modal-btn-group">
       <Button primary icon onClick={() => props.history.push('/signup')}>
-        Create an Account <Icon name="right chevron" />
+        Create an Account! <br/><Icon name="left chevron" />
       </Button>
       <Button primary icon onClick={reset}>
-        Play again! <Icon name="right chevron" />
+        Play another game! <br/><Icon name="right chevron" />
       </Button>
+      </div>
     </Modal>
   );
 }
