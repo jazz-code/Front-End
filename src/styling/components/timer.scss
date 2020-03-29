@@ -1,11 +1,16 @@
 // @import "utils/variables";
 
 .timer-container { 
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin-bottom: 10px;
+  margin-left: 51px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: auto;
+  max-height: 62%;
+  max-width: 64%;
     // background: #EEE;
   
   

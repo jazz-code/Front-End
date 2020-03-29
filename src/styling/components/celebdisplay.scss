@@ -2,7 +2,8 @@ body {
     max-height: 20vh;
 }
 #card-id {
-  height: 84vh;
+  margin: 20px auto;
+  height: 75vh;
   background-color: rgba(85, 255, 51, 0.158);
   @media (max-width: 768px)  { 
     height: 58vh;
@@ -13,7 +14,19 @@ body {
   }
   @media (max-width: 450px) {
     margin: 5px auto;
-    height: 60vh;
+    height: 53vh;
+  }
+  @media (max-width: 414px) {
+    margin: 5px auto;
+    height: 59vh;
+  }
+  @media (max-width: 375px) {
+    margin: 5px auto;
+    height: 55vh;
+  }
+  @media (max-width: 320px) {
+    margin: 5px auto;
+    height: 79vh;
   }
 }
 .ui.card {
@@ -99,6 +112,10 @@ body {
     padding-bottom: 70px;
     @media (max-width: 450px) {
       height: 350px;
+      // margin: -81px;
+    }
+    @media (max-width: 375px) {
+      height: 270px;
       // margin: -81px;
     }
 }
@@ -188,20 +205,25 @@ h4 {
 
   .ui.card > :last-child, .ui.cards > .card > :last-child {
     margin-left: 150px;
+    height: 123px;
+    margin: -45px;
     @media (max-width: 768px) {
       height: 123px;
-      margin: -45px;
+      /* margin: -5px; */
+      /* margin-left: -23px; */
+      padding: 30px 4px 4px 19px;
+      margin: -12px -28px 1px 2px;
     }
     @media (max-width: 700px)  { 
       height: 123px;
       margin: -50px;
     }
     @media (max-width: 450px) {
-      height: 123px;
-      margin: -84px;
+      height: 116px;
+      margin: -30px;
     }
     @media (max-width: 375px) {
       height: 123px;
-      margin: -45px;
+      margin: -23px;
     }
   }
