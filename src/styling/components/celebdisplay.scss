@@ -3,31 +3,31 @@ body {
 }
 #card-id {
   margin: 20px auto;
-  height: 75vh;
-  background-color: rgba(85, 255, 51, 0.158);
+  height: 100%;
+  // background-color: rgba(85, 255, 51, 0.158);
   @media (max-width: 768px)  { 
-    height: 58vh;
+    height: 84vh;
     margin: 5% auto;
   }
   @media (max-width: 700px) {
-    height: 61vh;
+    height: 100%;
   }
-  @media (max-width: 450px) {
-    margin: 5px auto;
-    height: 53vh;
-  }
-  @media (max-width: 414px) {
-    margin: 5px auto;
-    height: 59vh;
-  }
-  @media (max-width: 375px) {
-    margin: 5px auto;
-    height: 55vh;
-  }
-  @media (max-width: 320px) {
-    margin: 5px auto;
-    height: 79vh;
-  }
+  // @media (max-width: 450px) {
+  //   margin: 5px auto;
+  //   height: 53vh;
+  // }
+  // @media (max-width: 414px) {
+  //   margin: 5px auto;
+  //   height: 59vh;
+  // }
+  // @media (max-width: 375px) {
+  //   margin: 5px auto;
+  //   height: 55vh;
+  // }
+  // @media (max-width: 320px) {
+  //   margin: 5px auto;
+  //   height: 79vh;
+  // }
 }
 .ui.card {
   margin: 0 auto;
@@ -41,7 +41,7 @@ body {
   flex-direction: column;
   width: 290px;
   min-height: 0;
-  background-color: rgba(85, 255, 51, 0.158);
+  // background-color: rgba(85, 255, 51, 0.158);
   padding: 0;
   border: none;
   border-radius: .28571429rem;
@@ -67,7 +67,7 @@ body {
   margin-left: 138px;
   flex-grow: 1;
   border: none;
-  border-top: 1px solid rgba(34,36,38,.1);
+  // border-top: 1px solid rgba(34,36,38,.1);
   background: 0 0;
   margin: 0;
   padding: 1em 1em;
@@ -119,7 +119,13 @@ body {
       // margin: -81px;
     }
 }
-
+.ui.card>.image, .ui.cards>.card>.image {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  padding: 0;
+  /* background: rgba(0,0,0,.05); */
+}
 .ui.card>.image>img, .ui.cards>.card>.image>img {
 
     // position: absolute;  
@@ -135,6 +141,12 @@ h4 {
     text-align: right;
 }
 
+.ui.card>.content>.header:not(.ui), .ui.cards>.card>.content>.header:not(.ui) {
+  font-weight: 700;
+  font-size: .999999em;
+  margin-top: -.21425em;
+  line-height: 1.28571429em;
+}
 //Buttons and Icons
 #btn-group {
   width: 100%;
@@ -206,17 +218,19 @@ h4 {
   .ui.card > :last-child, .ui.cards > .card > :last-child {
     margin-left: 150px;
     height: 123px;
-    margin: -45px;
+    // margin: -108px;
+    margin: -34px;
     @media (max-width: 768px) {
       height: 123px;
       /* margin: -5px; */
       /* margin-left: -23px; */
       padding: 30px 4px 4px 19px;
       margin: -12px -28px 1px 2px;
+      margin: -108px;
     }
     @media (max-width: 700px)  { 
       height: 123px;
-      margin: -50px;
+      margin: -98px;
     }
     @media (max-width: 450px) {
       height: 116px;
