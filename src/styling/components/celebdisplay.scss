@@ -169,12 +169,12 @@ h4 {
   }
   #btn-left {
     background-color: $purple;
-    border: 2px solid $blue;
+    // border: 2px solid black;
     border-radius: 9px;
   }
   #btn-right {
     background-color: $blue;
-    border: 2px solid $purple;
+    // border: 2px solid black;
     border-radius: 9px;
   }
   .ui.buttons  {
@@ -224,8 +224,7 @@ h4 {
 
       .percent {
         // width: 5%; 
-        // background-color: $blue;
-        background: linear-gradient(90deg, rgba(79,205,255,0.7483368347338936) 31%, rgba(104,17,130,0.8015581232492998) 74%);
+        background-color: $blue;
         @media (max-width: 450px) {
           // height: 50px;
         }
@@ -238,6 +237,7 @@ h4 {
     // margin: -108px;
     margin: -34px;
     // background-color: #4fcdff7e;
+    border: 2px solid black;
     background: rgb(79,205,255);
     background: radial-gradient(circle, rgba(79,205,255,1) 31%, rgba(104, 17, 130, 0.616) 96%);
     @media (max-width: 768px) {
@@ -246,8 +246,7 @@ h4 {
       /* margin-left: -23px; */
       padding: 30px 4px 4px 19px;
       margin: -12px -28px 1px 2px;
-      margin: 14.5em auto;
-      position: absolute;
+      margin: -108px;
     }
     @media (max-width: 700px)  { 
       height: 123px;
@@ -255,12 +254,10 @@ h4 {
     }
     @media (max-width: 450px) {
       height: 116px;
-      margin: 0px;
-      position: relative;
+      margin: -30px;
     }
     @media (max-width: 375px) {
       height: 123px;
-      margin: 0;
-      position: relative;
+      margin: -23px;
     }
   }
