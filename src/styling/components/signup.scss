@@ -6,20 +6,6 @@
     align-content: center;
     margin: 9em;
     #signup-card {
-        // display: flex;
-        // justify-content: center;
-        // padding: 5%;
-        // padding-top: 5%;
-        // padding-bottom: 5%;
-        // width: 40%;
-        // display: flex;
-        // justify-content: center;
-        // padding: 5%;
-        // padding-top: 5%;
-        // padding-bottom: 5%;
-        // width: 50%;
-        // height: auto;
-        // margin: 10px auto;
         @media (max-width: $phone) {
             display: flex;
             justify-content: center;
@@ -74,6 +60,9 @@
                 flex-direction: column;
                 margin: 11% auto;
             }
+            @media (max-width: 425px) {
+                margin: -3em -10em;
+            }
             .signup-title {
                 color: #2CBF89;
             }
@@ -96,6 +85,13 @@
                     font-size: 200%;
                     padding: 12px 63px 36px 62px;
                     margin-bottom: .999em;
+                }
+                @media (max-width: 425px) {
+                    font-size: 200%;
+                    width: 63%;
+                    margin-bottom: .999em;
+                    padding: 15px 15px 15px 15px;
+
                 }
             }
         };

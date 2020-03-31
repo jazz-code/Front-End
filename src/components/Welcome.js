@@ -2,6 +2,8 @@ import React from 'react';
 import { Animated } from 'react-animated-css';
 import { Container, Divider, Button } from 'semantic-ui-react'
 
+// import { Animated } from "react-animated-css";
+
 const Welcome = props => {
   // console.log(props)
   return (
@@ -11,6 +13,11 @@ const Welcome = props => {
     <Container textAlign='right'>Right Aligned</Container> */}
     <Container textAlign='center'>
     {/* <div className="welcome-container"> */}
+    <Animated
+      animationIn="bounceInLeft"
+      animationOut="fadeOut"
+      isVisible={true}
+    >
       <Container textAlign='center'>
       <div id='important-content' className="content">
         <div className="content__container">
@@ -26,13 +33,13 @@ const Welcome = props => {
         </div>
       </div>
       </Container>
+      </Animated>
       {/* </div> */}
       <Container className='description-container'>
       <Divider />
-      <h2>Test your celebrity knowledge</h2>
+      <h2>Want to test your celebrity knowledge?</h2>
       <h3>The objective is simple.</h3>
-      <h3>You will be shown names and pictures of celebrities.</h3> 
-      <h3>Your job is to guess whether they are alive or not! </h3>
+      <h3>You will be shown names and pictures of celebrities. Your goal is to guess whether they are alive or not! </h3>
        <Button
          id="welcome-btn"
          className="welcome-button"

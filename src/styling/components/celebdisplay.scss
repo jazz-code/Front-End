@@ -224,7 +224,8 @@ h4 {
 
       .percent {
         // width: 5%; 
-        background-color: $blue;
+        // background-color: $blue;
+        background: radial-gradient(circle, rgba(79,205,255,1) 31%, rgba(104, 17, 130, 0.616) 96%);
         @media (max-width: 450px) {
           // height: 50px;
         }
