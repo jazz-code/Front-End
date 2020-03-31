@@ -27,7 +27,17 @@
             justify-content: center;
             flex-direction: column;
             // flex-flow: column wrap;
+            height: auto;
+            margin: 10px auto;
             @media (max-width: $phone) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* flex-flow: column wrap; */
+                flex-direction: column;
+                margin: 11% auto;
+            }
+            @media (max-width: 500px) {
                 display: flex;
                 align-items: center;
                 justify-content: center;

@@ -18,20 +18,40 @@
         padding-top: 5%;
         padding-bottom: 5%;
         width: 50%;
+        height: auto;
+        margin: 10px auto;
         @media (max-width: $phone) {
             display: flex;
             justify-content: center;
             padding: 5%;
             padding-top: 5%;
             padding-bottom: 5%;
-            width: 40%;
+            width: auto;
+        }
+        @media (max-width: 500px) {
+            display: flex;
+            justify-content: center;
+            padding: 5%;
+            padding-top: 5%;
+            padding-bottom: 5%;
+            // width: auto;
         }
         #signup-form {
             display: flex;
             justify-content: center;
             flex-direction: column;
             // flex-flow: column wrap;
+            height: auto;
+            margin: 10px auto;
             @media (max-width: $phone) {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* flex-flow: column wrap; */
+                flex-direction: column;
+                margin: 11% auto;
+            }
+            @media (max-width: 500px) {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -49,6 +69,11 @@
                 @media (max-width: $phone) {
                     font-size: 200%;
                     padding: 12px 63px 36px 62px;
+                }
+                @media (max-width: 500px) {
+                    font-size: 200%;
+                    padding: 12px 63px 36px 62px;
+                    margin-bottom: .999em;
                 }
             }
         };
