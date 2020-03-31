@@ -4,6 +4,8 @@ import { Card, Button } from 'semantic-ui-react'
 import axios from 'axios'
 import UserDataContext from '../contexts/UserDataContext'
 
+import { Animated } from "react-animated-css";
+
 const Login = props => {
   const { userData, setUserData } = useContext(UserDataContext)
 
@@ -42,6 +44,11 @@ const Login = props => {
   console.log('userData: ', userData)
 
   return (
+    <Animated
+    animationIn="bounceInLeft"
+    animationOut="fadeOut"
+    isVisible={true}
+  >
     <div className="login-container">
       <Card id="login-card">
         <form id="login-form" onSubmit={submitForm}>
@@ -69,6 +76,7 @@ const Login = props => {
         </form>
       </Card>
     </div>
+    </Animated>
   )
 }
 

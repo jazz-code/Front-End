@@ -24,7 +24,7 @@ const UnRegisteredPlayerModal = props => {
     <Modal className="modal-container"
       trigger={
         <Button id="modal-btn" className="unregistered-player-modal-btn">
-          See How You Did
+          Click here to see your score!
         </Button>
       }
       centered={false}

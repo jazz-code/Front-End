@@ -7,6 +7,8 @@
         top: 35%;
         left: 33%;
         font-size: 2rem;
+        background: linear-gradient(90deg, rgba(79,205,255,0.7483368347338936) 31%, rgba(104,17,130,0.8015581232492998) 74%);
+        color: whitesmoke;
         //   background-color: red;
         //   background: rgba(174, 208, 214, 0.562);
         //   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(124,215,182,1) 70%, rgba(231,137,153,1) 100%);
@@ -137,26 +139,23 @@
             text-shadow: none;
             background-image: none;
             margin-top: 10%;
-            margin: 31% 17%;
-            padding: 12px;
+            margin: 23em 11em;
+            padding: 19px;
             width: 16%;
             height: 14%;
-
+            position: relative;
             &:hover {
                 background-color: #b40571e7;
             }
-            // @media (max-width: 945px) {
-            //     margin: 36% 12%;
-            //     height: 17%;
-            //     padding: 2%;
-            //     width: 25%;
-            // }
-            // @media (max-width: 780px) {
-            //     margin: 38% 9%;
-            //     height: 17%;
-            //     padding: 2%;
-            //     width: 32%;
-            // }
+            @media (max-width: 1024px) {
+                margin: 24em 7em;
+                height: 17%;
+                padding: 2%;
+                width: 25%;
+            }
+            @media (max-width: 780px) {
+                margin: 18em 7em;
+            }
             // @media (max-width: 698px) {
             //     margin: 42% 9%;
             //     height: 17%;
@@ -175,17 +174,11 @@
             //     padding: 2%;
             //     width: 32%;
             // }
-            // @media (max-width: 450px) {
-            //     margin: 73% 7%;
-            //     height: 17%;
-            //     padding: 2%;
-            //     width: 35%;
-            // }
-            // @media (max-width: 375px) {
-            //     margin: 89% 6%;
-            //     height: 17%;
-            //     padding: 2%;
-            //     width: 38%;        
-            // }
+            @media (max-width: 450px) {
+                margin: 7em 4.5em;
+            }
+            @media (max-width: 375px) {
+                margin: 6em 4em;
+            }
         }
 }

@@ -4,22 +4,8 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    margin-top: 10%;
+    margin: 9em;
     #signup-card {
-        // display: flex;
-        // justify-content: center;
-        // padding: 5%;
-        // padding-top: 5%;
-        // padding-bottom: 5%;
-        // width: 40%;
-        display: flex;
-        justify-content: center;
-        padding: 5%;
-        padding-top: 5%;
-        padding-bottom: 5%;
-        width: 50%;
-        height: auto;
-        margin: 10px auto;
         @media (max-width: $phone) {
             display: flex;
             justify-content: center;
@@ -40,9 +26,24 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
-            // flex-flow: column wrap;
             height: auto;
-            margin: 10px auto;
+            /* margin: 10px auto; */
+            /* background-color: black; */
+            color: white;
+            padding-top: 17%;
+            position: relative;
+            /* margin: 20em auto; */
+            /* width: 23em; */
+            margin-top: auto;
+            input {
+                background-color: white;
+                padding: 1px;
+                margin: 0 auto;
+                width: 86%;
+                &:hover {
+                    background-color: rgba(228, 227, 227, 0.808);
+                }
+            }
             @media (max-width: $phone) {
                 display: flex;
                 align-items: center;
@@ -59,6 +60,9 @@
                 flex-direction: column;
                 margin: 11% auto;
             }
+            @media (max-width: 425px) {
+                margin: -3em -10em;
+            }
             .signup-title {
                 color: #2CBF89;
             }
@@ -66,6 +70,13 @@
                 margin-top: 5%;
             }
             #signup-button {
+                background-color: whitesmoke;
+                padding: 15px 34px 15px 34px;
+                width: 43%;
+                margin: 0 auto;
+                &:hover {
+                    background-color: rgba(209, 209, 209, 0.664);
+                }
                 @media (max-width: $phone) {
                     font-size: 200%;
                     padding: 12px 63px 36px 62px;
@@ -74,6 +85,13 @@
                     font-size: 200%;
                     padding: 12px 63px 36px 62px;
                     margin-bottom: .999em;
+                }
+                @media (max-width: 425px) {
+                    font-size: 200%;
+                    width: 63%;
+                    margin-bottom: .999em;
+                    padding: 15px 15px 15px 15px;
+
                 }
             }
         };

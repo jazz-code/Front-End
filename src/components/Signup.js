@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Card, Button } from "semantic-ui-react";
 import axios from "axios";
 
+import { Animated } from "react-animated-css";
+
 export default function Signup(props) {
   const [user, setUser] = useState({
     name: "",
@@ -31,6 +33,11 @@ export default function Signup(props) {
   };
 
   return (
+    <Animated
+    animationIn="bounceInLeft"
+    animationOut="fadeOut"
+    isVisible={true}
+  >
     <div className="signup-container">
       <Card id="signup-card">
         <form onSubmit={handleSubmit} id="signup-form">
@@ -68,5 +75,6 @@ export default function Signup(props) {
         </form>
       </Card>
     </div>
+    </Animated>
   );
 }
