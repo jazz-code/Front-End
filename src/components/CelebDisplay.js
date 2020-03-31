@@ -95,7 +95,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
         {userData.message}
         <Image
           className="card-image"
-          src={randomCeleb ? randomCeleb.celebImage : null}
+          src={randomCeleb ? randomCeleb.celebImage : <h1>Loading Celebs...</h1>}
           wrapped
           ui={false}
         />
@@ -106,7 +106,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
             <Button
               size="large"
               color="green"
-              id="btn"
+              id="btn-left"
               onClick={() => {
                 if (isDead) {
                   history.push("/game");
@@ -124,7 +124,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
             <Button
               size="large"
               color="pink"
-              id="btn"
+              id="btn-right"
               onClick={() => {
                 if (!isDead) {
                   history.push("/game");
