@@ -80,6 +80,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
   };
 
   // console.log("GREEN****", isDead)
+  if (randomCeleb) { 
   return (
     <Animated
       animationIn="bounceInLeft"
@@ -143,6 +144,12 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
       </Card>
     </Animated>
   );
+}
+else {
+  return (
+    <h2>One moment, we're loading the Celebs...</h2>
+  )
+}
 }
 
 export default CelebDisplay
