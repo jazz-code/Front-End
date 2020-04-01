@@ -269,6 +269,11 @@
     
 }
 
-.description-container {
-  // margin: 27% auto;
+#description-container {
+  width: 45%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  @media (max-width: 450px) {
+    width: 80%
+  }
 }
