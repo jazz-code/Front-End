@@ -25,7 +25,7 @@
             position: absolute;
             top: 50%;
             left: 25%;
-            font-size: 1.9em;
+            font-size: 1.3em;
         }
         @media (max-width: 350px)  {
             font-size: 1.5em;
@@ -66,7 +66,7 @@
                 @media (max-width: 375px) {
                     height: 78%;
                     width: 100%;
-                    margin: 0 auto;
+                    margin: 12em auto;
                     display: table;
                 }
                 .image+.description{
@@ -130,13 +130,17 @@
             left: -23%;
             width: 146%;
         }
-        @media (max-width: 475px) {
-            top: 62%;
-            left: -12%;
+        @media (max-width: 450px) {
+            top: 80%;
+            left: -10%;
             width: 127%;
+            min-width: 119%;
         }
         @media (max-width: 375px) {
-            top: 65%;
+            top: 0;
+            left: 0;
+            margin: -6em 4em;
+            min-width: 119%;
         }
         .ui.primary.button, .ui.primary.buttons .button {
             background-color: #ff009d;
@@ -180,18 +184,20 @@
             //     width: 32%;
             // }
             @media (max-width: 450px) {
-                margin: 7em 4.5em;
+                margin: 6em 4em;
                 // font-size: 1.9em;
             }
             @media (max-width: 375px) {
                 margin: 6em 4em;
+                // padding-right: 5px;
+                // margin-right: 5px;
             }
         }
     }
     // Modal button fix
     @media (max-width: 375px) {
     #modal-btn-group .ui.primary.button, #modal-btn-group .ui.primary.buttons .button {
-    margin: 6.5em 3.3em;
+    margin: 12em auto;
     width: 26%;
         }
     }
