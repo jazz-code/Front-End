@@ -35,11 +35,18 @@ const Welcome = props => {
       </Container>
       </Animated>
       {/* </div> */}
-      <Container className='description-container'>
+      <Container>
       <Divider />
+      <Animated
+      animationIn="bounceInRight"
+      animationOut="fadeOut"
+      isVisible={true}
+    >
+      <div id="description-container">
       <h2>Want to test your celebrity knowledge?</h2>
       <h3>The objective is simple.</h3>
       <h3>You will be shown names and pictures of celebrities. Your goal is to guess whether they are alive or not! </h3>
+      </div>
        <Button
          id="welcome-btn"
          className="welcome-button"
@@ -47,6 +54,7 @@ const Welcome = props => {
        >
          Play Now
        </Button>
+       </Animated>
        </Container>
     </Container>
   </div>
