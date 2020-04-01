@@ -4,6 +4,18 @@ body {
     max-height: 20vh;
     background: rgba(116, 143, 233, 0.151);
 }
+// Loading till database wakes up
+.loading {
+  margin: auto;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(79, 205, 255, 0.445) 31%, rgba(104, 17, 130, 0.466) 74%);
+  font-family: 'Lato', sans-serif!important;
+  color: whitesmoke;
+  @media (max-width: 400px) {
+    font-size: 1.4em;
+    
+  }
+}
 #card-id {
   margin: 20px auto;
   height: 100%;

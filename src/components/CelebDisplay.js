@@ -147,9 +147,15 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
 }
 else {
   return (
-    <h2>One moment, we're loading the Celebs...</h2>
-  )
-}
+      <Animated
+      // animationIn="bounceInRight"
+      animationOut="fadeOut"
+      isVisible={true}
+    >
+    <h2 className="loading">Loading the Celebs... One moment!</h2>
+    </Animated>
+    )
+  }
 }
 
 export default CelebDisplay
