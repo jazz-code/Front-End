@@ -147,7 +147,7 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
 }
 else {
   return (
-    <h2>One moment, we're loading the Celebs...</h2>
+    <h2 className="loading">One moment, we're loading the Celebs...</h2>
   )
 }
 }
