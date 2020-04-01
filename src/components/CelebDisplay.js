@@ -87,19 +87,18 @@ const CelebDisplay = ({ props, celebs, history, currentScore, setCurrentScore}) 
       isVisible={true}
     >
       <div className="score-container">
-        <div className="score percent">Current Score: {currentScore}</div>
+        <div className="score percent">Score: {currentScore}</div>
       </div>
+      <p className="welcome-msg">{userData.message}</p>
       <Card id="card-id">
-
         <Timer count={count} currentScore={currentScore} history={history}/>
-        {userData.message}
         <Image
           className="card-image"
-          src={randomCeleb ? randomCeleb.celebImage : <h1>Loading Celebs...</h1>}
+          src={randomCeleb ? randomCeleb.celebImage : <h2>Loading Celebs...</h2>}
           wrapped
           ui={false}
         />
-        <Card.Content>
+        <Card.Content id="content-id">
           <Card.Header>{randomCeleb ? randomCeleb.name : null}</Card.Header>
           <Card.Description>{randomCeleb ? <p>Born in {DOB()}</p> : null}</Card.Description>
           <Button.Group id="btn-group">

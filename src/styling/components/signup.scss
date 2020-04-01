@@ -6,6 +6,12 @@
     align-content: center;
     margin: 9em;
     #signup-card {
+        h1 {
+            text-align: center;
+            @media (max-width: $phone) {
+                padding-top: 20px;
+            }
+        }
         @media (max-width: $phone) {
             display: flex;
             justify-content: center;

@@ -54,6 +54,12 @@ body {
   transition: box-shadow .1s ease,transform .1s ease;
 }
 
+.welcome-msg {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 17px!important;
+  font-family: 'Lato', sans-serif!important;
+}
 .ui.card .content {
   margin: -9% 1%;
   /* display: contents; */
@@ -220,6 +226,8 @@ h4 {
         padding-top: 10px;
         padding-bottom: 10px;
         color: white;
+        font-size: 17px!important;
+        font-family: 'Lato', sans-serif!important;
       }
 
       .percent {
@@ -231,7 +239,14 @@ h4 {
         }
       }
   }
-
+  #content-id {
+    margin-top: 10px;
+    // padding-bottom: 10px;
+    background: rgba(255, 255, 255, 0.233);
+    @media (max-width: 768px) {
+      margin: 0px -31px 28px 33px;
+    }
+  }
   .ui.card > :last-child, .ui.cards > .card > :last-child {
     margin-left: 150px;
     height: 123px;
