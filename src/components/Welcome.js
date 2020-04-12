@@ -25,10 +25,10 @@ const Welcome = props => {
             Celebrity
           </p>   
           <ul className="content__container__list">
-            <li className="content__container__list__item">Dead !</li>
-            <li className="content__container__list__item">or !</li>
-            <li className="content__container__list__item">Alive !</li>
-            <li className="content__container__list__item">or !</li>
+            <li className="content__container__list__item">Dead!</li>
+            <li className="content__container__list__item">or..?</li>
+            <li className="content__container__list__item">Alive!</li>
+            <li className="content__container__list__item">or?</li>
           </ul>
         </div>
       </div>

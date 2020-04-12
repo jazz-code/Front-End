@@ -36,11 +36,11 @@
     .ui.active.modal {
         border-bottom-left-radius: .28571429rem;
         border-bottom-right-radius: .28571429rem;
-        margin: 10px 27%;
+        // margin: 10px 27%;
         height: 50vh;
-        @media (max-width: 450px)  {
-            margin-top: 150px;
-        }
+        // @media (max-width: 450px)  {
+        //     margin-top: 150px;
+        // }
             .header {
                 text-align: center;
                 @media (max-width: 450px)  {
@@ -76,7 +76,7 @@
 
     }
     #modal-btn-group {
-        position: inherit;
+        // position: inherit;
         top: 0%;
         /* bottom: 3%; */
         left: 0%;
@@ -85,119 +85,64 @@
         /* padding: 20px 20px 20px 20px; */
         width: 105%;
         /* display: contents;*/
-         @media (max-width: 945px) {
-            top: 4%;
-            width: 110%;
-        }
-        @media (max-width: 850px) {
-            // top: 4%;
-            top: 24%;
-            left: -7%;
-            width: 120%;
-        }
-        @media (max-width: 752px) {
-            top: 3%;
-            left: -13%;
-            width: 127%;
-        }
-        @media (max-width: 702px) {
-            top: 5%;
-            left: -13%;
-            width: 127%;
-        }
-        @media (max-width: 650px) {
-            top: 3%;
-            left: -23%;
-            width: 146%;
-        }
-        @media (max-width: 600px) {
-            top: 6%;
-            left: -23%;
-            width: 146%;
-        }
-        @media (max-width: 550px) {
-            top: 15%;
-            left: -23%;
-            width: 146%;
-        }
-        @media (max-width: 530px) {
-            top: -38%;
-            left: -23%;
-            width: 146%;
-        }
-        @media (max-width: 500px) {
-            top: -35%;
-            left: -23%;
-            width: 146%;
-        }
-        @media (max-width: 450px) {
-            top: 80%;
-            left: -10%;
-            width: 127%;
-            min-width: 119%;
-        }
-        @media (max-width: 375px) {
-            top: 0;
-            left: 0;
-            margin: -6em 4em;
-            min-width: 119%;
-        }
         .ui.primary.button, .ui.primary.buttons .button {
             background-color: #ff009d;
             color: #fff;
             text-shadow: none;
             background-image: none;
-            margin-top: 10%;
-            margin: 23em 11em;
-            padding: 19px;
-            width: 16%;
+            padding: 16px 16px 16px 16px;
+            width: 10em;
             height: 14%;
             position: relative;
             &:hover {
                 background-color: #b40571e7;
             }
-            @media (max-width: 1024px) {
-                margin: 24em 7em;
-                height: 17%;
-                padding: 2%;
-                width: 25%;
-            }
-            @media (max-width: 780px) {
-                margin: 18em 7em;
-            }
-            // @media (max-width: 698px) {
-            //     margin: 42% 9%;
-            //     height: 17%;
-            //     padding: 2%;
-            //     width: 32%;
-            // }
-            // @media (max-width: 650px) {
-            //     margin: 51% 9%;
-            //     height: 17%;
-            //     padding: 2%;
-            //     width: 32%;
-            // }
-            // @media (max-width: 516px) {
-            //     margin: 55% 9%;
-            //     height: 17%;
-            //     padding: 2%;
-            //     width: 32%;
-            // }
-            @media (max-width: 450px) {
-                margin: 6em 4em;
-                // font-size: 1.9em;
-            }
-            @media (max-width: 375px) {
-                margin: 6em 4em;
-                // padding-right: 5px;
-                // margin-right: 5px;
-            }
+    //         @media (min-width: 1024px) {
+    //             position: relative;
+    //             // margin: 0 auto;
+    //         }
+    //         @media (max-width: 1024px) {
+    //             margin: 24em 7em;
+    //             height: 17%;
+    //             padding: 2%;
+    //             width: 25%;
+    //         }
+    //         @media (max-width: 780px) {
+    //             margin: 18em 7em;
+    //         }
+    //         @media (max-width: 698px) {
+    //             margin: 42% 9%;
+    //             height: 17%;
+    //             padding: 2%;
+    //             width: 32%;
+    //         }
+    //         @media (max-width: 650px) {
+    //             margin: 51% 9%;
+    //             height: 17%;
+    //             padding: 2%;
+    //             width: 32%;
+    //         }
+    //         @media (max-width: 516px) {
+    //             margin: 55% 9%;
+    //             height: 17%;
+    //             padding: 2%;
+    //             width: 32%;
+    //         }
+    //         @media (max-width: 450px) {
+    //             margin: 6em 4em;
+    //             // font-size: 1.9em;
+    //         }
+    //         @media (max-width: 375px) {
+    //             margin: 6em 4em;
+    //             // padding-right: 5px;
+    //             // margin-right: 5px;
+    //         }
         }
-    }
-    // Modal button fix
-    @media (max-width: 375px) {
-    #modal-btn-group .ui.primary.button, #modal-btn-group .ui.primary.buttons .button {
-    margin: 12em auto;
-    width: 26%;
-        }
+    // }
+    // // Modal button fix
+    // @media (max-width: 375px) {
+    // #modal-btn-group .ui.primary.button, #modal-btn-group .ui.primary.buttons .button {
+    // margin: 12em auto;
+    // width: 26%;
+    //     }
     }

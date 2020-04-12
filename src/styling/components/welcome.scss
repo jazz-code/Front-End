@@ -121,7 +121,8 @@
       animation-iteration-count: infinite;
 
       &__item {
-        line-height:40px;
+        // changed from 40px to 1.56em
+        line-height: 1.56em;
         margin:0;
       }
     }
