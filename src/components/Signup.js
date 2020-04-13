@@ -38,6 +38,15 @@ export default function Signup(props) {
     animationOut="fadeOut"
     isVisible={true}
   >
+  <Animated
+    animationIn="bounceInRight"
+    animationOut="fadeOut"
+    isVisible={true}
+  >
+    <div className="score-container">
+        <div className="score percent"></div>
+    </div>
+  </Animated>
     <div className="signup-container">
       <Card id="signup-card">
         <form onSubmit={handleSubmit} id="signup-form">

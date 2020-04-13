@@ -8,6 +8,15 @@ const Welcome = props => {
   // console.log(props)
   return (
   <div>
+  <Animated
+    animationIn="fadeIn"
+    animationOut="fadeOut"
+    isVisible={true}
+  >
+    <div className="score-container">
+        <div className="score percent"></div>
+    </div>
+  </Animated>
     {/* <Container textAlign='left'>Left Aligned</Container>
     <Container textAlign='center'>Center Aligned</Container>
     <Container textAlign='right'>Right Aligned</Container> */}

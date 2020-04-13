@@ -49,6 +49,15 @@ const Login = props => {
     animationOut="fadeOut"
     isVisible={true}
   >
+  <Animated
+    animationIn="bounceInRight"
+    animationOut="fadeOut"
+    isVisible={true}
+  >
+    <div className="score-container">
+        <div className="score percent"></div>
+    </div>
+  </Animated>
     <div className="login-container">
       <Card id="login-card">
         <form id="login-form" onSubmit={submitForm}>
